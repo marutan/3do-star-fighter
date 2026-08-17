@@ -5,6 +5,8 @@
 
 #include "subschunkcommon.h"
 
+#define CHAR4LITERAL(a,b,c,d)   ((unsigned long) (a<<24)|(b<<16)|(c<<8)|d)
+
 typedef struct SubsQueue {
   SubscriberMsgPtr      head;                   /* head of message queue */
   SubscriberMsgPtr      tail;                   /* tail of message queue */

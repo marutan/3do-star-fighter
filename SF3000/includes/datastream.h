@@ -103,6 +103,20 @@ typedef struct SubscriberMsg
 } SubscriberMsg, *SubscriberMsgPtr;
 
 
+/* bits in status of 'channel' message above */
+
+#define CHAN_ENABLED (1<<0)     /* R/W: '1 if channel enabled (allows data to flow) */
+#define CHAN_ACTIVE  (1<<1)     /* R/O: '1 if channel data currently flowing */
+#define CHAN_EOF     (1<<2)     /* R/O: '1 if channel finished */
+#define CHAN_ABORTED (1<<3)     /* R/O: '1 if channel aborted (error) */
+#define CHAN_SYSBITS (0x0000FFFE) /* Mask of reserved bits, rest subscriber defined */
+/* NOTE: least significant bit is R/W !!! */
+
+/* bits in options of start and stop messages above */
+
+#define SOPT_NOFLUSH (0)        /* for readability */
+#define SOPT_FLUSH   (1<<0)     /* '1 if flush on start or stop request */
+
 
 /*******************************************************************************************
  *              Data Acquisition Interface (DSH to application)
@@ -285,5 +299,17 @@ typedef struct DSStreamCB
   DSSubscriber subscriber[DS_MAX_SUBSCRIBERS];
 
 } DSStreamCB, *DSStreamCBPtr;
+
+int32 InitDataStreaming(long maxNumberOfStreams);
+int32 CloseDataStreaming(void);
+
+
+int32 NewDataStream(DSStreamCBPtr *pCtx,
+                    void*          bufferListPtr,
+                    long           bufferSize,
+                    long           deltaPriority,
+                    long           numSubsMsgs);
+int32 DisposeDataStream(Item          msgItem,
+                        DSStreamCBPtr streamCBPtr);
 
 #endif /* __3do_datastream_h__ */

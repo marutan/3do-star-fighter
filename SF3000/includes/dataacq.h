@@ -1,6 +1,7 @@
 #ifndef __3do_dataacq_h__
 #define __3do_dataacq_h__
 
+#include "blockfile.h"
 #include "datastream.h"
 #include "itempool.h"
 
@@ -52,5 +53,11 @@ typedef struct AcqContext
 #endif
 
 } AcqContext, *AcqContextPtr;
+
+int32 InitDataAcq(int32 dataAcqCount);
+int32 CloseDataAcq(void);
+
+int32 NewDataAcq(AcqContextPtr *pCtx, char* fileName, long deltaPriority);
+void  DisposeDataAcq(AcqContextPtr ctx);
 
 #endif /* __3do_dataacq_h__ */

@@ -5,6 +5,7 @@
 #include "subscriberutils.h"
 #include "sachannel.h"
 #include "satemplates.h"
+#include "sacontrolmsgs.h"
 
 typedef struct SAudioContext {
   Item           creatorTask;   /* who to signal when we're done initializing */
@@ -24,5 +25,11 @@ typedef struct SAudioContext {
   SAudioChannel  channel[SA_SUBS_MAX_CHANNELS]; /* an array of channels */
 } SAudioContext, *SAudioContextPtr;
 
+long InitSAudioSubscriber(void);
+long CloseSAudioSubscriber(void);
+
+
+long NewSAudioSubscriber(SAudioContextPtr *pCtx, DSStreamCBPtr streamCBPtr, long deltaPriority);
+long DisposeSAudioSubscriber(SAudioContextPtr ctx);
 
 #endif /* __3do_saudiosubscriber_h__ */

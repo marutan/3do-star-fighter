@@ -3,6 +3,13 @@
 
 #include "subschunkcommon.h"
 
+/**********************/
+/* Internal constants */
+/**********************/
+
+#define DS_STREAM_VERSION 2     /* Stream header version number */
+
+
 /********************************************************/
 /* Each subscriber entry in the header consists of a    */
 /* data type for the subscriber and a delta priority at */
@@ -32,7 +39,7 @@ typedef struct DSHeaderChunk
   long dataAcqDeltaPri;         /* delta priority for data acquisition thread */
   long numSubsMsgs;             /* number of subscriber messages to allocate */
 
-  long audioClockChan;          /* logical channel number of audio clock channe>
+  long audioClockChan;          /* logical channel number of audio clock channel */
   long enableAudioChan;         /* mask of audio channels to enable */
 
   long preloadInstList[DS_HDR_MAX_PRELOADINST];

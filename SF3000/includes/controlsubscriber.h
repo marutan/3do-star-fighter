@@ -41,5 +41,11 @@ typedef struct CtrlContext
 } CtrlContext, *CtrlContextPtr;
 
 
+int32 InitCtrlSubscriber(void);
+int32 CloseCtrlSubscriber(void);
+
+int32 NewCtrlSubscriber(CtrlContextPtr *pCtx, DSStreamCBPtr     streamCBPtr, int32 priority);
+int32 DisposeCtrlSubscriber(CtrlContextPtr ctx);
+
 #endif /* __3do_controlsubscriber_h__ */
 

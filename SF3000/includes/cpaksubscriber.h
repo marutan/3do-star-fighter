@@ -1,8 +1,19 @@
 #ifndef __3do_cpacksubscriber_h__
 #define __3do_cpacksubscriber_h__
 
+#include "graphics.h"
+#include "subscriberutils.h"
 #include "subscriberconstants.h"
 #include "codec.h"
+#include "datastreamlib.h"
+
+#define FILM_CHUNK_TYPE CHAR4LITERAL('F','I','L','M') /* chunk data type for this subscriber */
+
+/* FHDR_CHUNK_TYPE, FRME_CHUNK_TYPE, CPAK_MAX_SUBSCRIPTIONS,
+ * CPAK_MAX_CHANNELS, CPAK_MAX_CHUNKS, BYTES_PER_PIXEL,
+ * SCANLINES_PER_ROW and NO_FRAME_ITEM are shared with ezqsubscriber.h
+ * and are defined in subscriberconstants.h. */
+
 
 typedef struct ImageDesc
 {
@@ -98,5 +109,19 @@ typedef struct CPakRec
   int32                lastCurTime;     /* Remember the previous Stream clock time to check for loop */
 } CPakRec, *CPakRecPtr;
 
+int32 InitCPakSubscriber(void);
+int32 CloseCPakSubscriber(void);
+
+int32 NewCPakSubscriber(CPakContextPtr *pCtx, int32 numChannels, int32 priority);
+int32 DisposeCPakSubscriber(CPakContextPtr ctx);
+
+int32 InitCPakCel(DSStreamCBPtr   streamCBPtr,
+                  CPakContextPtr  ctx,
+                  CPakRecPtr     *pCPRecPtr,
+                  int32           channel,
+                  boolean         flushOnSync);
+void  DrawCPakToBuffer(CPakContextPtr ctx, CPakRecPtr cpRecPtr, Bitmap *bitmap);
+void  FlushCPakChannel(CPakContextPtr ctx, CPakRecPtr cpRecPtr, int32 channel);
+int32 SendFreeCPakSignal(CPakContextPtr ctx);
 
 #endif /* __3do_cpacksubscriber_h__ */

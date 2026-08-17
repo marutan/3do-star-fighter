@@ -44,7 +44,7 @@ typedef struct Bitmap
 } Bitmap;
 
 
-
+Err DisplayScreen(Item screenItem0, Item screenItem1);
 Err EnableHAVG(Item screenItem);
 Err EnableVAVG(Item screenItem);
 Err SetCEControl(Item bitmapItem, int32 controlWord, int32 controlMask);
