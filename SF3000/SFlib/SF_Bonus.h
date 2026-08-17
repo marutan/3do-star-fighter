@@ -6,7 +6,7 @@
 // Includes
 
 #include "SF_Mission.h"
-#include "ship_struct.h"
+#include "Ship_Struct.h"
 
 // Crystal Definitions
 

@@ -1,12 +1,12 @@
 #include "Bit_Control.h"
 #include "Collision.h"
-#include "SF_Armburn.h"
+#include "SF_ARMBurn.h"
 #include "Explosion.h"
 #include "Smoke_Control.h"
-#include "Stdio.h"
-#include "SF_ArmLink.h"
+#include "stdio.h"
+#include "SF_ARMLink.h"
 #include "Sound_Control.h"
-#include "SF_ArmUtils.h"
+#include "SF_ARMUtils.h"
 #include "Graphics_Set.h"
 
 void bit_update(void)

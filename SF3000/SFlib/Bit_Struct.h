@@ -1,7 +1,7 @@
 #ifndef __BIT_SET_H
 #define __BIT_SET_H
 
-#include "SF_ArmLink.h"
+#include "SF_ARMLink.h"
 
 #define MAX_BITS 64
 

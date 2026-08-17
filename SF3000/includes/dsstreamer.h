@@ -1,0 +1,34 @@
+#ifdef __3do_dsstreamer_h__
+#define __3do_dsstreamer_h__
+
+#include "types.h"
+
+/************************************/
+/* Format of a stream header chunk      */
+/************************************/
+#define DS_HDR_MAX_PRELOADINST  16
+#define DS_HDR_MAX_SUBSCRIBER   16
+
+typedef struct DSHeaderChunk
+{
+  SUBS_CHUNK_COMMON;            /* from SubscriberUtils.h */
+
+  long headerVersion;           /* version of header data */
+
+  long streamBlockSize;         /* size of stream buffers in this stream */
+  long streamBuffers;           /* suggested number of stream buffers to use */
+  long streamerDeltaPri;        /* delta priority for streamer thread */
+  long dataAcqDeltaPri;         /* delta priority for data acquisition thread */
+  long numSubsMsgs;             /* number of subscriber messages to allocate */
+
+  long audioClockChan;          /* logical channel number of audio clock channel */
+  long enableAudioChan;         /* mask of audio channels to enable */
+
+  long preloadInstList[DS_HDR_MAX_PRELOADINST];
+  /* NULL terminated preloaded instrument list */
+
+  DSHeaderSubs subscriberList[DS_HDR_MAX_SUBSCRIBER];
+  /* NULL terminated list of subscriber tags */
+} DSHeaderChunk, *DSHeaderChunkPtr;
+
+#endif /* __3do_dsstreamer_h__ */

@@ -1,4 +1,4 @@
-#include "ship_struct.h"
+#include "Ship_Struct.h"
 
 #define C_LEFT		1
 #define C_RIGHT		2

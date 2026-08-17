@@ -7,7 +7,7 @@
 /* Includes */
 
 #include "graphics.h"
-#include "TextLib.h"
+#include "textlib.h"
 
 #include "SF_CelUtils.h"
 #include "SF_Allocation.h"

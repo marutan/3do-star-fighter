@@ -10,9 +10,9 @@
 #include "SF_CelUtils.h"
 #include "SF_Parameters.h"
 
-#include "Stdio.h"
-#include "BlockFile.h"
-#include "UMemory.h"
+#include "stdio.h"
+#include "blockfile.h"
+#include "umemory.h"
 #include "operror.h"
 
 // Definitions

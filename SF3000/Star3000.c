@@ -23,9 +23,9 @@
 #include "SFlib/SF_Menu.h"
 #include "SFlib/SF_Screenutils.h"
 #include "SFlib/SF_Font.h"
-#include "SFlib/SF_io.h"
+#include "SFlib/SF_Io.h"
 #include "SFlib/SF_Access.h"
-#include "SFLib/SF_NVRam.h"
+#include "SFlib/SF_NVRam.h"
 #include "SFlib/SF_Parameters.h"
 #include "SFlib/SF_Status.h"
 #include "SFlib/SF_Control.h"
@@ -436,7 +436,7 @@ char		hiscore_string [4] = 	{
 				{
 				hs_ypos = 64 + (32*entry);
 				cel_addalphastring (configuration.high_scores [parameters.display_hiscoretable] [entry].name, 35, hs_ypos, 1024);
-				sprintf (hs_score, "%d", configuration.high_scores [parameters.display_hiscoretable] [entry].score);
+				sprintf (hs_score, "%ld", configuration.high_scores [parameters.display_hiscoretable] [entry].score);
 				cel_addalphastring (hs_score, 235, hs_ypos, 1024);
 				}
 			
@@ -577,7 +577,7 @@ char	intro_clip [16];
 	
 	if (configuration.video_on == 1)
 		{
-		sprintf (intro_clip, "Into%d", 1+(return_mission (&pyramids [parameters.level])) % 3);
+		sprintf (intro_clip, "Into%ld", 1+(return_mission (&pyramids [parameters.level])) % 3);
 		video_play (intro_clip);
 		}
 	
@@ -1131,13 +1131,13 @@ void game_initialise (void)
 			
 // INITIALISE SCREEN
 
-	screen->sc_nScreens = 2;									// Get 2 screenbanks
+	screen->sc_NumScreens = 2;									// Get 2 screenbanks
 	if (!OpenGraphics(screen,2))	game_end();					// If failed, quit game
-	screen->sc_curScreen=0 ;									// Set current screen to 0
-	EnableVAVG( screen->sc_Screens[0] );						// Enable sub-pixel averaging	
-	EnableVAVG( screen->sc_Screens[1] );
-	EnableHAVG( screen->sc_Screens[0] );			
-	EnableHAVG( screen->sc_Screens[1] );
+	screen->sc_CurrentScreen=0 ;									// Set current screen to 0
+	EnableVAVG( screen->sc_ScreenItems[0] );						// Enable sub-pixel averaging	
+	EnableVAVG( screen->sc_ScreenItems[1] );
+	EnableHAVG( screen->sc_ScreenItems[0] );			
+	EnableHAVG( screen->sc_ScreenItems[1] );
 	SetCEControl (screen->sc_BitmapItems [0], 1<<26, 1<<26);	// Enable cel clipping for screen 0
 	SetCEControl (screen->sc_BitmapItems [1], 1<<26, 1<<26);	// Enable cel clipping for screen 1
 	

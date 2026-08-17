@@ -7,8 +7,8 @@
 // Includes
 
 #include "graphics.h"
-#include "Utils3DO.h"
-#include "SF_Celutils.h"
+#include "utils3do.h"
+#include "SF_CelUtils.h"
 #include "SF_Menu.h"
 #include "SF_Message.h"
 

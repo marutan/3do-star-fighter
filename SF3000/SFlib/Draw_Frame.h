@@ -1,9 +1,9 @@
 #include "SF_Mission.h"
 #include "Ship_Struct.h"
-#include "ship_control.h"
+#include "Ship_Control.h"
 #include "SF_CelUtils.h"
 #include "graphics.h"
-#include "camera_struct.h"
+#include "Camera_Struct.h"
 #include "SF_Status.h"
 
 #include "Misc_Struct.h"

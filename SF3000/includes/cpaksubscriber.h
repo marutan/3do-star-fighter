@@ -1,0 +1,102 @@
+#ifndef __3do_cpacksubscriber_h__
+#define __3do_cpacksubscriber_h__
+
+#include "subscriberconstants.h"
+#include "codec.h"
+
+typedef struct ImageDesc
+{
+  int32 baseAddr;
+  int32 rowBytes;
+  int32 baseAddrFrame;
+  int32 width;
+  int32 height;
+  int32 xPos;
+  int32 yPos;
+} ImageDesc;
+
+typedef ImageDesc *ImageDescPtr;
+
+typedef struct CPakChannel CPakChannel;
+typedef CPakChannel* CPakChannelPtr;
+struct CPakChannel
+{
+  unsigned long status;         /* state bits (see below) */
+  SubsQueue     dataQueue;      /* queue of waiting data chunks */
+  Item          dataQueueSem;   /* semaphore to manage access to data list */
+  boolean       fFlushOnSync;   /* flag: if true, flush all chunks from channel on sync */
+  ImageDesc     imageData;      /* this structure contains the LR form buffer and
+                                   dimension fields for the unpacked Cinepak data */
+};
+
+typedef struct CPakContext CPakContext;
+typedef CPakContext* CPakContextPtr;
+struct CPakContext
+{
+  Item   creatorTask;           /* who to signal when we're done initializing */
+  uint32 creatorSignal;         /* signal to send for synchronous completion */
+  int32  creatorStatus;         /* result code for creator */
+
+  Item  threadItem;             /* subscriber thread item */
+  void* threadStackBlock;       /* pointer to thread's stack memory block */
+
+  Item   requestPort;           /* message port item for subscriber requests */
+  uint32 requestPortSignal;     /* signal to detect request port messages */
+
+  Item   replyPort;             /* message port item for subscriber requests */
+  uint32 replyPortSignal;       /* signal to detect request port messages */
+
+  Item    cueItem;              /* audio cue item for scheduling output */
+  uint32  cueSignal;            /* signal associated with cueItem */
+  int32   localTimeOrigin;      /* local version of the time */
+  boolean fTimerRunning;        /* flag: timer currently running */
+
+  codecHandler codecHndlr;      /* Should be an item - I don't really know what this is */
+  codec        filmCodec;       /* a reference to the Cinepak decompressor code */
+
+  boolean   freeListNotEmpty;   /* true if any entries in the freeList */
+  SubsQueue freeList;           /* queue of freed data chunks */
+  Item      freeQueueSem;       /* signal to send to have subscriber free chunks */
+  Item      freeQueueSignal;    /* signal to send to have subscriber free chunks */
+  Item      cpakTask;           /* who to signal when we want to free chunks */
+
+  boolean fTimeChanged;         /* flag: subscriber got sync msg */
+
+  int32       numChannels;
+  CPakChannel channel[CPAK_MAX_CHANNELS]; /* an array of channels */
+};
+
+typedef struct CinePakHeader
+{
+  SUBS_CHUNK_COMMON;
+  int32 version;                /*      0 for this version                      */
+  int32 cType;                  /*      video compression type          */
+  int32 height;                 /*      Height of each frame            */
+  int32 width;                  /*      Width of each frame                     */
+  int32 scale;                  /*      Timescale of Film                       */
+  int32 count;                  /*      Number of frames                        */
+} CinePakHeader, *CinePakHeaderPtr;
+
+
+typedef struct  CinePakFrame
+{
+  SUBS_CHUNK_COMMON;
+  int32 duration;               /*      Duration of this sample         */
+  int32 frameSize;              /*      Number of bytes in frame        */
+  char  frameData[4];           /*      compressed frame data...        */
+} CinePakFrame, *CinePakFramePtr;
+
+
+typedef struct CPakRec
+{
+  DSStreamCBPtr        streamCBPtr;
+  struct CinePakHeader cpHeader; /* Copy of the Header chunk for this cinepak film */
+  CCB                  cpCCB;   /* The LRForm CCB chunk for this streamed anim */
+  CinePakFramePtr      curFramePtr; /* the frame currently being displayed */
+  int32                channel; /* The streamed anim channel to use with this record */
+  SubscriberMsgPtr     curSubMsg; /* The msg containing the currently displayed frame */
+  int32                lastCurTime;     /* Remember the previous Stream clock time to check for loop */
+} CPakRec, *CPakRecPtr;
+
+
+#endif /* __3do_cpacksubscriber_h__ */

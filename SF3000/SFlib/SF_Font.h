@@ -8,12 +8,12 @@
 #include "SF_Message.h"
 
 #include "graphics.h"
-#include "Textlib.h"	
-#include "Fontlib.h"
-#include "Stdio.h"
-#include "Utils3DO.h"
-#include "String.h"
-#include "UMemory.h"
+#include "textlib.h"
+#include "fontlib.h"
+#include "stdio.h"
+#include "utils3do.h"
+#include "string.h"
+#include "umemory.h"
 
 // Definitions
 

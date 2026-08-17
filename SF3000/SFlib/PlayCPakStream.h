@@ -17,25 +17,25 @@
 #define	_PLAYSTREAM_H_
 
 #ifndef __GRAPHICS_H
-#include "Graphics.h"
+#include "graphics.h"
 #endif
 
 #ifndef _TYPES_H
-#include "Types.h"
+#include "types.h"
 #endif
 
 #ifndef	_PREPARESTREAM_H_
 #include "PrepareStream.h"
 #endif
 
-#include "DataAcq.h"
-#include "SAudioSubscriber.h"
-#include "CPakSubscriber.h"
-#include "ControlSubscriber.h"
-#include "DataStreamDebug.h"
+#include "dataacq.h"
+#include "saudiosubscriber.h"
+#include "cpaksubscriber.h"
+#include "controlsubscriber.h"
+#include "datastreamdebug.h"
 
 #include "graphics.h"
-#include "Utils3DO.h"
+#include "utils3do.h"
 
 typedef long (*PlayCPakUserFn)( void *ctx, void *userContext );
 

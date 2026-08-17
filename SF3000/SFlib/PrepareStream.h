@@ -19,13 +19,13 @@
 #define	_PREPARESTREAM_H_
 
 #ifndef _TYPES_H
-#include "Types.h"
+#include "types.h"
 #endif
 
-#include "DataStreamLib.h"
+#include "datastreamlib.h"
 
 #ifndef _DSSTREAMHEADER_H_
-#include "DSStreamHeader.h"
+#include "dsstreamheader.h"
 #endif
 
 /* Size of the buffer we use to read the start of the stream file.

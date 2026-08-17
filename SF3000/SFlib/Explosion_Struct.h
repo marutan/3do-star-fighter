@@ -1,7 +1,7 @@
 #ifndef __EXPLOSION_SET_H
 #define __EXPLOSION_SET_H
 
-#include "SF_ArmLink.h"
+#include "SF_ARMLink.h"
 
 #define MAX_EXPLOSIONS 32
 

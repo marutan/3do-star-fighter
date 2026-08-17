@@ -7,7 +7,8 @@
 // Includes
 
 #include "graphics.h"
-#include "Utils3DO.h"
+#include "displayutils.h"
+#include "utils3do.h"
 
 // External Variables
 

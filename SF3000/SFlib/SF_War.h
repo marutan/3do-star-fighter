@@ -11,7 +11,7 @@
 #include "Ship_Control.h"
 #include "Misc_Struct.h"
 
-#include "Stdio.h"
+#include "stdio.h"
 
 /**************************************/
 

@@ -1,7 +1,7 @@
 #ifndef __LASER_SET_H
 #define __LASER_SET_H
 
-#include "SF_ArmLink.h"
+#include "SF_ARMLink.h"
 
 #define MAX_LASERS 256
 

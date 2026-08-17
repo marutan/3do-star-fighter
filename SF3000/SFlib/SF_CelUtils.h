@@ -5,10 +5,10 @@
 
 //	includes
 
-#include "UMemory.h"	
-#include "Stdio.h"
+#include "umemory.h"
+#include "stdio.h"
 #include "graphics.h"
-#include "Utils3DO.h"
+#include "utils3do.h"
 #include "SF_Allocation.h"
 
 //	Definitions for text adder

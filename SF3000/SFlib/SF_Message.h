@@ -7,7 +7,7 @@
 
 #include "SF_Status.h"
 #include "SF_Allocation.h"
-#include "Textlib.h"
+#include "textlib.h"
 #include "Camera_Struct.h"
 
 /***************************************************************************************************/

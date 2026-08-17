@@ -1,0 +1,49 @@
+#ifndef __3do_io_h__
+#define __3do_io_h__
+
+#include "types.h"
+#include "nodes.h"
+
+typedef struct IOBuf
+{
+  void  *iob_Buffer;            /* ptr to users buffer */
+  int32  iob_Len;               /* len of this buffer, or transfer size */
+} IOBuf;
+
+/* User portion of IOReq data structure supplied by user*/
+typedef struct IOInfo
+{
+  uint8  ioi_Command;           /* Command to be executed */
+  uint8  ioi_Flags;             /* misc flags */
+  uint8  ioi_Unit;              /* unit of this device */
+  uint8  ioi_Flags2;            /* more flags, should be set to zero */
+  uint32 ioi_CmdOptions;        /* device dependent options */
+  uint32 ioi_User;              /* back ptr for user use */
+  int32  ioi_Offset;            /* offset into device for transfer to begin */
+  IOBuf  ioi_Send;              /* copy out information */
+  IOBuf  ioi_Recv;              /* copy in info, (address validated) */
+} IOInfo;
+
+/* System Portion of IoReq */
+#ifndef IOReq_typedef
+#define IOReq_typedef
+typedef struct IOReq IOReq;
+#endif
+
+struct IOReq {
+  ItemNode       io;
+  MinNode        io_Link;
+  struct Device *io_Dev;
+  struct IOReq  *(*io_CallBack)(struct IOReq *iorP); /* call, donot ReplyMsg */
+  IOInfo         io_Info;
+  int32          io_Actual;     /* actual size of request completed */
+  uint32         io_Flags;      /* internal to device driver */
+  int32          io_Error;      /* any errors from request? */
+  int32          io_Extension[2]; /* extra space if needed */
+  Item           io_MsgItem;
+  uint32         io_Private0;
+};
+
+#define DeleteIOReq(x)  DeleteItem(x)
+
+#endif /* __3do_io_h__ */

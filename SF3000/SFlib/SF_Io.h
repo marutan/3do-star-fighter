@@ -8,7 +8,7 @@
 #include "SF_Io.h"
 #include "SF_Joystick.h"
 #include "SF_Parameters.h"
-#include "Utils3DO.h"
+#include "utils3do.h"
 #include "event.h"		
 
 // Definitions

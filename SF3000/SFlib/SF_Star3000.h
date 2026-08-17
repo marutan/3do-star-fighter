@@ -7,7 +7,7 @@
 
 #include "SF_Menu.h"
 #include "SF_Pyramid.h"
-#include "SF_Celutils.h"
+#include "SF_CelUtils.h"
 #include "SF_Font.h"
 
 // DEFINITIONS
