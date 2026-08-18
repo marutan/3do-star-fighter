@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "item.h"
+#include "list.h"
 #include <sys/time.h>
 
 typedef struct Task
@@ -29,6 +30,19 @@ typedef struct Task
   uint32          t_Flags;      /* more task specific flags */
   MinNode         t_TasksLinkNode; /* Link to the list of all tasks */
 } Task, *TaskP;
+
+
+
+extern Item CreateThread(const char *name, uint8 pri, void (*code)(),int32 stacksize);
+
+//extern int32 __swi(KERNELSWI+1)  WaitSignal(uint32 sigMask);
+extern int32 WaitSignal(uint32 sigMask);
+//extern Err   __swi(KERNELSWI+2)  SendSignal(Item task,uint32 sigMask);
+extern Err   SendSignal(Item task,uint32 sigMask);
+//extern int32 __swi(KERNELSWI+21) AllocSignal(uint32 sigMask);
+extern int32 AllocSignal(uint32 sigMask);
+//extern Err   __swi(KERNELSWI+22) FreeSignal(uint32 sigMask);
+extern Err   FreeSignal(uint32 sigMask);
 
 
 #endif /* __3do_task_h__ */

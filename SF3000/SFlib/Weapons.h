@@ -1,4 +1,4 @@
-#include "ship_struct.h"
+#include "Ship_Struct.h"
 
 // Weapon types
 #define AIR_TO_GROUND	((6<<4)+0)

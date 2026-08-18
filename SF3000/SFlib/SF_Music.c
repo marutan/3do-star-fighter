@@ -21,8 +21,10 @@
 #include "string.h"
 #include "SF_Allocation.h"
 #include "SF_Music.h"
-#include "varargs.h"
+#include "stdarg.h"
 #include "types.h"
+#include "stdio.h"
+#include "task.h"
 
 /***************************************************************************************************/
 
@@ -372,7 +374,7 @@ void music_playvoice (char *fmt,...)
 va_list		variable_args;
 
 	va_start(variable_args, fmt);
-	vsprintf(MUSIC_VOICEOVERTOPLAY, fmt, variable_args)
+	vsprintf(MUSIC_VOICEOVERTOPLAY, fmt, variable_args);
 	va_end(variable_args);
 	MUSIC_TRACKSLEFT = 0;
 	SendSignal(music_taskref, MUSIC_PLAYVOICE);

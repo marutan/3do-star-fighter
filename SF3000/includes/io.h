@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "nodes.h"
+#include "msgport.h"
 
 typedef struct IOBuf
 {
@@ -24,6 +25,12 @@ typedef struct IOInfo
   IOBuf  ioi_Recv;              /* copy in info, (address validated) */
 } IOInfo;
 
+/* common commands */
+#define CMD_WRITE       0
+#define CMD_READ        1
+#define CMD_STATUS      2
+
+
 /* System Portion of IoReq */
 #ifndef IOReq_typedef
 #define IOReq_typedef
@@ -43,6 +50,17 @@ struct IOReq {
   Item           io_MsgItem;
   uint32         io_Private0;
 };
+
+
+//Err __swi(KERNELSWI+37) DoIO(Item ior, const IOInfo *ioiP); /* sync   */
+Err DoIO(Item ior, const IOInfo *ioiP); /* sync   */
+//Err __swi(KERNELSWI+41) WaitIO(Item ior); /* wait for io completion */
+Err WaitIO(Item ior); /* wait for io completion */
+
+
+
+Item  CreateIOReq(const char *name, uint8 pri, Item dev, Item mp); /* mp can be 0 */
+
 
 #define DeleteIOReq(x)  DeleteItem(x)
 

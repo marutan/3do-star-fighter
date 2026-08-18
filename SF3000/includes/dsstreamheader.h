@@ -7,6 +7,8 @@
 /* Internal constants */
 /**********************/
 
+#define HEADER_CHUNK_TYPE (0x53484452) /* 'SHDR' */
+
 #define DS_STREAM_VERSION 2     /* Stream header version number */
 
 

@@ -8,7 +8,7 @@
 #include "SF_ARMCell.h"
 #include "SF_ARMAnim.h"
 #include "SF_ARMUtils.h"
-#include "varargs.h"
+#include "stdarg.h"
 #include "types.h"
 #include "blockfile.h"
 
@@ -216,7 +216,7 @@ void load_backdrop (char* backdrop_name, long load_over)
 char	backdrop_file [48];
 
 	if (backdrop_name == NULL)
-		sprintf (backdrop_file, "%s%sMenu%d", RESOURCES_ROOT, IMG_ROOT, arm_random() & 7);	// Get random menu file ?
+		sprintf (backdrop_file, "%s%sMenu%ld", RESOURCES_ROOT, IMG_ROOT, arm_random() & 7);	// Get random menu file ?
 	else
 		sprintf (backdrop_file, "%s%s%s", RESOURCES_ROOT, IMG_ROOT, backdrop_name);			// Or get passed image file ?
 	
@@ -265,7 +265,7 @@ ioreqItem 		= 0;
 	// CONSTRUCT FULL FILENAME
 	
 	va_start(variable_args,fmt);
-	vsprintf(full_filename,fmt,variable_args)
+	vsprintf(full_filename,fmt,variable_args);
 	va_end(variable_args);
 
 	sprintf (directory_filename, "%s%s", RESOURCES_ROOT, full_filename);

@@ -121,7 +121,7 @@ OBJECTS	=	Star3000.o \
 		SFlib/SF_ARMSky.o \
 		SFlib/SF_ARMUtils.o \
 		SFlib/SF_Bonus.o \
-		SFlib/SF_Celutils.o \
+		SFlib/SF_CelUtils.o \
 		SFlib/SF_Control.o \
 		SFlib/SF_Font.o \
 		SFlib/SF_Io.o \
@@ -180,7 +180,7 @@ All: $(App)
 #.s.o:	Ä	.s
 #	{ASM} -i "{3DOIncludes}" -i "{StreamDir}" -i "{SubscriberDir}Includes:" {SOptions} -o {TargDir}{Default}.s.o {DepDir}{Default}.s
 .s.o:
-	echo "No asm yet"
+	@echo "$@ No asm yet"
 
 
 #####################################

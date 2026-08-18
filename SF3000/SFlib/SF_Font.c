@@ -3,6 +3,7 @@
 
 // Includes
 
+#include "displayutils.h"
 #include "SF_Font.h"
 #include "SF_Allocation.h"
 #include "SF_Screenutils.h"
@@ -122,7 +123,7 @@ GrafCon	gcon;
 	gcon.gc_PenY=font_yp;
 
 	if (screen_type == SCR_UPDATE)	
-		DrawTextString(*(font_list + font_num), &gcon, screen->sc_BitmapItems[screen->sc_curScreen],font_str);
+		DrawTextString(*(font_list + font_num), &gcon, screen->sc_BitmapItems[screen->sc_CurrentScreen],font_str);
 	else
-		DrawTextString(*(font_list + font_num), &gcon, screen->sc_BitmapItems[1-screen->sc_curScreen],font_str);
+		DrawTextString(*(font_list + font_num), &gcon, screen->sc_BitmapItems[1-screen->sc_CurrentScreen],font_str);
 }

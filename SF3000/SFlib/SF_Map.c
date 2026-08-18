@@ -2,14 +2,14 @@
 // Map display routines
 
 #include "SF_Map.h"
-#include "SF_io.h"
+#include "SF_Io.h"
 #include "SF_Palette.h"
 #include "SF_ARMCell.h"
 #include "SF_Access.h"
 #include "SF_War.h"
 #include "SF_Control.h"
-#include "SF_ArmUtils.h"
-#include "SF_ArmAnim.h"
+#include "SF_ARMUtils.h"
+#include "SF_ARMAnim.h"
 #include "SF_Sound.h"
 #include "Sound_Control.h"
 #include "Weapons.h"
@@ -1066,28 +1066,28 @@ map_performance	other_items [7] =
 
 	if (ship == players_ship)
 		{
-		sprintf(text_string, "%d", ship->performance->weapons [WEAPON_ATG]);
+		sprintf(text_string, "%ld", ship->performance->weapons [WEAPON_ATG]);
 		map_statustext (&player_items [4], text_string, GREY_15);
 		
-		sprintf(text_string, "%d", ship->performance->weapons [WEAPON_ATA]);
+		sprintf(text_string, "%ld", ship->performance->weapons [WEAPON_ATA]);
 		map_statustext (&player_items [5], text_string, GREY_15);
 		
-		sprintf(text_string, "%d", ship->performance->weapons [WEAPON_MEGA_BOMB]);
+		sprintf(text_string, "%ld", ship->performance->weapons [WEAPON_MEGA_BOMB]);
 		map_statustext (&player_items [6], text_string, GREY_15);
 		
-		sprintf(text_string, "%d", ship->performance->weapons [WEAPON_BEAM_LASER]);
+		sprintf(text_string, "%ld", ship->performance->weapons [WEAPON_BEAM_LASER]);
 		map_statustext (&player_items [7], text_string, GREY_15);
 		
-		sprintf(text_string, "%d", ship->performance->weapons [WEAPON_MULTI_MISSILE]);
+		sprintf(text_string, "%ld", ship->performance->weapons [WEAPON_MULTI_MISSILE]);
 		map_statustext (&player_items [8], text_string, GREY_15);
 		
-		sprintf(text_string, "%d", ship->performance->weapons [WEAPON_MINE]);
+		sprintf(text_string, "%ld", ship->performance->weapons [WEAPON_MINE]);
 		map_statustext (&player_items [9], text_string, GREY_15);
 		
-		sprintf(text_string, "%d", ship->performance->weapons [WEAPON_ECM]);
+		sprintf(text_string, "%ld", ship->performance->weapons [WEAPON_ECM]);
 		map_statustext (&player_items [10], text_string, GREY_15);
 		
-		sprintf(text_string, "%d", status.lives);
+		sprintf(text_string, "%ld", status.lives);
 		map_statustext (&player_items [11], text_string, YELLOW_15);
 		}
 	
@@ -1096,7 +1096,7 @@ map_performance	other_items [7] =
 		{
 		map_statustext (&other_items [4], map_return_ship_mode (ship), GREY_15);
 		
-		sprintf(text_string, "%d Metres", ((ship->z_pos - players_ship->z_pos)>>17) / 25);
+		sprintf(text_string, "%ld Metres", ((ship->z_pos - players_ship->z_pos)>>17) / 25);
 		map_statustext (&other_items [5], text_string, GREY_15);
 		
 		map_statustext (&other_items [6], map_return_ship_killstatus (ship), GREY_15);
@@ -1208,7 +1208,7 @@ static	char	ship_endstring [48];
 			if (ship->special_data->target_type == SDB_TARGETTYPE_MULTIPLE)
 				sprintf (ship_endstring, "%s %s", message_decode (MTXT__ATTACKING, 0), message_decode (MTXT__MULTIPLE_TARGETS, 0));
 			else
-				sprintf (ship_endstring, "%s %s", message_decode (MTXT__ATTACKING, 0), map_return_ship_title ((ship_stack*) ship->special_data->command_address, 0), 0);
+				sprintf (ship_endstring, "%s %s", message_decode (MTXT__ATTACKING, 0), map_return_ship_title ((ship_stack*) ship->special_data->command_address, 0));
 			break;
 			
 		case SDB_MODE_FLIGHTPATH :
@@ -1216,7 +1216,7 @@ static	char	ship_endstring [48];
 			break;
 			
 		case SDB_MODE_FORMATION :
-			sprintf (ship_endstring, "%s %s", message_decode (MTXT__FORMATION_WITH, 0), map_return_ship_title ((ship_stack*) ship->special_data->command_address, 0), 0);
+			sprintf (ship_endstring, "%s %s", message_decode (MTXT__FORMATION_WITH, 0), map_return_ship_title ((ship_stack*) ship->special_data->command_address, 0));
 			break;
 		}
 	

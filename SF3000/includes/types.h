@@ -73,6 +73,8 @@ typedef boolean bool;
 #endif
 #endif
 
+#include "types_tag.h"
+
 typedef int32 Item;
 typedef int32 Err;
 

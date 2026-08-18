@@ -8,9 +8,9 @@
 #include "SF_Palette.h"
 #include "SF_Utility.h"
 #include "SF_Access.h"
-#include "SF_IO.h"
+#include "SF_Io.h"
 #include "SF_Menu.h"
-#include "SF_ScreenUtils.h"
+#include "SF_Screenutils.h"
 #include "SF_ARMCell.h"
 
 /**************************************/

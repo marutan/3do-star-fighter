@@ -4,6 +4,8 @@
 
 // Includes
 
+#include "io.h"
+
 #include "SF_Screenutils.h"
 #include "SF_ARMSky.h"
 #include "SF_ARMCell.h"
@@ -37,12 +39,12 @@ void screen_base (long updateflags)
 // DRAW BACKDROP IMAGE ?
 
 	if (updateflags & S_IMAGE) 
-		CopyVRAMPages(	VRAMIOReq, (screen->sc_Bitmaps [screen->sc_curScreen])->bm_Buffer,
-						backdrop, screen->sc_nFrameBufferPages, -1 );
+		CopyVRAMPages(	VRAMIOReq, (screen->sc_Bitmaps [screen->sc_CurrentScreen])->bm_Buffer,
+						backdrop, screen->sc_NumBitmapPages, -1 );
 	
 	if (updateflags & S_FLASH)
-		SetVRAMPages(	VRAMIOReq, (screen->sc_Bitmaps [screen->sc_curScreen])->bm_Buffer,
-						0, screen->sc_nFrameBufferPages, -1);
+		SetVRAMPages(	VRAMIOReq, (screen->sc_Bitmaps [screen->sc_CurrentScreen])->bm_Buffer,
+						0, screen->sc_NumBitmapPages, -1);
 }
 
 /**************************************/
@@ -68,23 +70,23 @@ long			temp_cels;
 		temp_cels=cel_quad.temp_cels-1;
 		
 		(*(cel_plotlist + temp_cels))->ccb_Flags |= CCB_LAST;
-		DrawCels(screen->sc_BitmapItems[screen->sc_curScreen], *cel_plotlist);
+		DrawCels(screen->sc_BitmapItems[screen->sc_CurrentScreen], *cel_plotlist);
 		(*(cel_plotlist + temp_cels))->ccb_Flags &= ~CCB_LAST;
 		}
 
 // DRAW MENU ?
 
 	if ((updateflags & S_MENU) && menu_status.hidden == 0)
-		DrawCels(screen->sc_BitmapItems[screen->sc_curScreen], menu_status.cel_textccb);
+		DrawCels(screen->sc_BitmapItems[screen->sc_CurrentScreen], menu_status.cel_textccb);
 
 // DRAW GAME INFO TEXT ? (If Also drawing menu, skip first 3 (Score, Weapon Count & Mission Timer)
 
 	if (updateflags & S_INFO)
 		{
 		if (updateflags & S_MENU || updateflags & S_DEMO)
-			DrawCels(screen->sc_BitmapItems[screen->sc_curScreen], messages[(updateflags & S_MENU) ? 3 : 7].textcel->tc_CCB);
+			DrawCels(screen->sc_BitmapItems[screen->sc_CurrentScreen], messages[(updateflags & S_MENU) ? 3 : 7].textcel->tc_CCB);
 		else
-			DrawCels(screen->sc_BitmapItems[screen->sc_curScreen], messages[0].textcel->tc_CCB);
+			DrawCels(screen->sc_BitmapItems[screen->sc_CurrentScreen], messages[0].textcel->tc_CCB);
 		}
 
 // FLIP SCREEN BANKS ?
@@ -94,8 +96,8 @@ long			temp_cels;
 		if (screen_swaptype != 0)
 			screen_swap (screen_swaptype);								// Do pre-flip screenswap ?
 				
-		DisplayScreen(screen->sc_Screens[screen->sc_curScreen],0);		// Swap screen
-		screen->sc_curScreen=1-screen->sc_curScreen;					// Swap screen
+		DisplayScreen(screen->sc_ScreenItems[screen->sc_CurrentScreen],0);		// Swap screen
+		screen->sc_CurrentScreen = 1-screen->sc_CurrentScreen;					// Swap screen
 		
 		if (screen_swaptype != 0)
 			screen_postswap (screen_swaptype);							// Do post-flip screenswap ?
@@ -137,7 +139,7 @@ long	temp_cels;
 		temp_cels=cel_quad.temp_cels-1;
 		
 		(*(cel_plotlist + temp_cels))->ccb_Flags |= CCB_LAST;
-		DrawCels(screen->sc_BitmapItems[screen->sc_curScreen], *cel_plotlist);
+		DrawCels(screen->sc_BitmapItems[screen->sc_CurrentScreen], *cel_plotlist);
 		(*(cel_plotlist + temp_cels))->ccb_Flags &= ~CCB_LAST;
 		
 		cel_quad.temp_cels =0;
@@ -165,9 +167,9 @@ GrafCon GCon;
 	rectangle.rect_YBottom = DISPLAY_HEIGHT;
 	
 	if (screen_type == SCR_UPDATE)	
-		FillRect(screen->sc_BitmapItems[screen->sc_curScreen ], &GCon, &rectangle );
+		FillRect(screen->sc_BitmapItems[screen->sc_CurrentScreen ], &GCon, &rectangle );
 	else
-		FillRect(screen->sc_BitmapItems[1-screen->sc_curScreen], &GCon, &rectangle );
+		FillRect(screen->sc_BitmapItems[1-screen->sc_CurrentScreen], &GCon, &rectangle );
 }
 
 /**************************************/
@@ -267,7 +269,7 @@ long	fade_loop,
 							319;				// 320 Pixel per row
 	
 
-	screen_fade.ccb_SourcePtr = (CelData*) ((screen->sc_Bitmaps [screen->sc_curScreen]) -> bm_Buffer);
+	screen_fade.ccb_SourcePtr = (CelData*) ((screen->sc_Bitmaps [screen->sc_CurrentScreen]) -> bm_Buffer);
 	for (fade_loop=0; fade_loop < 170; fade_loop+=8)
 		{
 		
@@ -287,7 +289,7 @@ long	fade_loop,
 		screen_fade.ccb_YPos=(120-fade_yloop)<<16;
 		screen_fade.ccb_HDX=(fade_xloop<<20)/160;
 		screen_fade.ccb_VDY=(fade_yloop<<16)/120;
-		DrawCels(screen->sc_BitmapItems[1-(screen->sc_curScreen)], &screen_fade);
+		DrawCels(screen->sc_BitmapItems[1-(screen->sc_CurrentScreen)], &screen_fade);
 		}
 }
 
@@ -318,7 +320,7 @@ CCB		screen_fade;
 							CCB_USEAV |			// Use AV control bits
 							CCB_BGND;			// pass 000rgb as colour - no transp
 	
-	screen_fade.ccb_SourcePtr = (CelData*) ((screen->sc_Bitmaps [1-screen->sc_curScreen]) -> bm_Buffer);
+	screen_fade.ccb_SourcePtr = (CelData*) ((screen->sc_Bitmaps [1-screen->sc_CurrentScreen]) -> bm_Buffer);
 	screen_fade.ccb_HDY=0;
 	screen_fade.ccb_VDX=0;
 	screen_fade.ccb_HDDX=0;
@@ -340,7 +342,7 @@ CCB		screen_fade;
 							(1<<7) |			// 2nd source is frame buffer
 							0;					// 2DV is 2
 							
-	DrawCels(screen->sc_BitmapItems[screen->sc_curScreen], &screen_fade);
+	DrawCels(screen->sc_BitmapItems[screen->sc_CurrentScreen], &screen_fade);
 }
 
 

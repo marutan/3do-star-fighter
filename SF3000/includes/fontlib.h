@@ -1,6 +1,17 @@
 #ifndef __3do_fontlib_h__
 #define __3do_fontlib_h__
 
+#include "types.h"
+
+/*----------------------------------------------------------------------------
+ * Font internal datatypes
+ *      Client code should not count on these things remaining as they are now.
+ *--------------------------------------------------------------------------*/
+
+#ifndef CHAR4LITERAL
+#define CHAR4LITERAL(a,b,c,d)   ((unsigned long) (a<<24)|(b<<16)|(c<<8)|d)
+#endif
+
 typedef struct FontDescriptor
 {
   uint32  fd_fontFlags;         /* Flags describing the font */
@@ -19,5 +30,12 @@ typedef struct FontDescriptor
   void   *fd_charInfo;          /* Per-character data table */
   void   *fd_charData;          /* The character data */
 } FontDescriptor;
+
+/*----------------------------------------------------------------------------
+ * Font file API
+ *--------------------------------------------------------------------------*/
+
+FontDescriptor *LoadFont(const char *fontFileName, uint32 memTypeBits);
+void            UnloadFont(FontDescriptor *fDesc);
 
 #endif /* __3do_fontlib_h__ */

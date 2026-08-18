@@ -24,21 +24,23 @@
  *
  *******************************************************************************************/
 
-#include "Portfolio.h"
-#include "Init3DO.h"
-#include "Utils3DO.h"
-#include "UMemory.h"
+#include <stdio.h>
 
-#include "DataStreamDebug.h"
-#include "DataStreamLib.h"
-#include "DataAcq.h"
-#include "SAudioSubscriber.h"
-#include "ControlSubscriber.h"
+#include "portfolio.h"
+#include "init3do.h"
+#include "utils3do.h"
+#include "umemory.h"
 
-#include "PlayCPakStream.h"
-#include "DSStreamHeader.h"
+#include "datastreamdebug.h"
+#include "datastreamlib.h"
+#include "dataacq.h"
+#include "saudiosubscriber.h"
+#include "controlsubscriber.h"
 
-#include "Debug3DO.h"
+#include "playcpakstream.h"
+#include "dsstreamheader.h"
+
+#include "debug3do.h"
 
 
 /************************************/
@@ -108,10 +110,10 @@ int32	PlayCPakStream( ScreenContext *screenContextPtr, char* streamFileName,
 	 * Do this only once to keep the overhead (and aditional implicit
 	 * graphics folio WaitVBL() from happening).
 	 */
-	DisplayScreen( ctx->screenContextPtr->sc_Screens[ctx->screenContextPtr->sc_curScreen], 0 );
+	DisplayScreen( ctx->screenContextPtr->sc_ScreenItems[ctx->screenContextPtr->sc_CurrentScreen], 0 );
 
 	/* Get a pointer to the bitmap we will draw into */
-	bitmap = ctx->screenContextPtr->sc_Bitmaps[ ctx->screenContextPtr->sc_curScreen ];
+	bitmap = ctx->screenContextPtr->sc_Bitmaps[ ctx->screenContextPtr->sc_CurrentScreen ];
 
 	playerResult = 0;
 
@@ -180,7 +182,7 @@ static int32	InitCPakPlayerFromStreamHeader( PlayerPtr ctx, char* streamFileName
 	long			channelNum;
 	SAudioCtlBlock	ctlBlock;
 	DSHeaderSubsPtr	subsPtr;
-	Boolean			fStreamHasAudio;
+	boolean			fStreamHasAudio;
 
 	/* Assume no audio */
 	fStreamHasAudio = false;

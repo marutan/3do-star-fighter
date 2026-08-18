@@ -120,6 +120,7 @@ int32 InitCPakCel(DSStreamCBPtr   streamCBPtr,
                   CPakRecPtr     *pCPRecPtr,
                   int32           channel,
                   boolean         flushOnSync);
+int32 DestroyCPakCel(CPakContextPtr ctx, CPakRecPtr cpRecPtr, int32 channel);
 void  DrawCPakToBuffer(CPakContextPtr ctx, CPakRecPtr cpRecPtr, Bitmap *bitmap);
 void  FlushCPakChannel(CPakContextPtr ctx, CPakRecPtr cpRecPtr, int32 channel);
 int32 SendFreeCPakSignal(CPakContextPtr ctx);

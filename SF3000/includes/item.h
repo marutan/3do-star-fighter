@@ -10,10 +10,11 @@
 *
 */
 
+//Err   __swi(KERNELSWI+3)  DeleteItem(Item i);
+Err   DeleteItem(Item i);
 
-/* PJH is an 'item' just a heap allocated block, so SWI = free() ? */
-/*Err   __swi(KERNELSWI+3)  DeleteItem(Item i); */
-#define DeleteItem(i)
+/* learn more about an item */
+void *LookupItem(Item i);
 
 typedef struct ItemEntry ItemEntry;
 struct ItemEntry

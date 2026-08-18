@@ -3,7 +3,7 @@
 
 // Includes
 
-#include "Stdio.h"
+#include "stdio.h"
 #include "SF_Message.h"
 #include "SF_Palette.h"
 #include "SF_CelUtils.h"
@@ -37,7 +37,7 @@ char	**message_pointerlist [4] =	{	game_message_pointers,			// List of pointer a
 										mission_message_pointers,
 										mission_title_pointers};
 										
-char	languages [3] [] = {		"English",							// Names of languages supported
+char	languages [3] [8] = {		"English",							// Names of languages supported
 									"French",
 									"German"	};
 		
@@ -302,7 +302,7 @@ char	score [16];
 long	current_score = status.score;
 
 	status.score += score_adder;
-	sprintf(score, "%d", status.score);
+	sprintf(score, "%ld", status.score);
 	UpdateTextInCel(messages [MESSAGE_SCORE].textcel, TRUE, score);
 
 	// Should we add extra life ? EVERY 250,000 POINTS
@@ -333,7 +333,7 @@ char 	weapon_string [8];															// Destination string
 		{
 
 		(messages [MESSAGE_WEAPON].textcel->tc_CCB) ->ccb_Flags &= (~CCB_SKIP);							// Make Active
-		sprintf(weapon_string, "%d", weapon_num);														// Render # to string
+		sprintf(weapon_string, "%ld", weapon_num);														// Render # to string
 		SetTextCelColor(messages [MESSAGE_WEAPON].textcel, 0, weapon_num < 10 ? ORANGE_15 : WHITE_15);	// Set colour
 		UpdateTextInCel(messages [MESSAGE_WEAPON].textcel, TRUE, weapon_string);						// Render text
 		
@@ -355,7 +355,7 @@ void	message_addtimer (void)
 char	timer_string [8];
 
 	messages [MESSAGE_TIMER].textcel->tc_CCB->ccb_Flags &= (~CCB_SKIP);											// Make Active
-	sprintf (timer_string, "%d", mission.mission_timer);
+	sprintf (timer_string, "%ld", mission.mission_timer);
 	SetTextCelColor(messages [MESSAGE_TIMER].textcel, 0, mission.mission_timer < 30 ? ORANGE_15 : WHITE_15);	// Set colour
 	UpdateTextInCel(messages [MESSAGE_TIMER].textcel, TRUE, timer_string);										// Render text
 }
@@ -397,16 +397,16 @@ char	cam_message [32];
 		switch (camera [current_camera].type)
 			{
 			case CAMERA_NORMAL :
-				sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__VIEW, 0));
+				snprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__VIEW, 0));
 				break;
 			case CAMERA_TRACKING :
-				sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__TRACKING, 0));
+				snprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__TRACKING, 0));
 				break;
 			case CAMERA_FLYBY :
-				sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__FLYBY, 0));
+				snprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__FLYBY, 0));
 				break;
 			case CAMERA_INTERNAL :
-				sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__VIEW_FROM, 0));
+				snprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__VIEW_FROM, 0));
 				break;
 			}
 		}
@@ -439,7 +439,7 @@ char	cam_message [32];
 	else
 		{
 		if (camera [current_camera].view != 0)
-			sprintf(cam_message,"%s %d", cam_message, camera [current_camera].instance+1);
+			sprintf(cam_message,"%s %ld", cam_message, camera [current_camera].instance+1);
 		}
 			
 	// ADD MESSAGE

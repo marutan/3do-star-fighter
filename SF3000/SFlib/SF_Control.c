@@ -7,7 +7,7 @@
 #include "SF_ARMUtils.h"
 #include "SF_Sound.h"
 #include "SF_Music.h"
-#include "SF_ScreenUtils.h"
+#include "SF_Screenutils.h"
 #include "SF_Io.h"
 #include "SF_Utility.h"
 #include "SF_Access.h"
@@ -16,8 +16,8 @@
 #include "Setup_Tables.h"
 #include "Weapons.h"
 #include "Camera_Struct.h"
-#include <String.h>
-#include <Event.h>
+#include <string.h>
+#include <event.h>
 
 /**************************************/
 
@@ -885,7 +885,7 @@ long	textcel,
 			switch (textcel_case)
 				{
 				case -1 :
-					sprintf (mission_line, "");
+					sprintf (mission_line, "%s", "");
 					mission_linecolour = WHITE_15;
 					break;	
 				case 0 :

@@ -1,12 +1,12 @@
 #include "Bonus_Control.h"
 #include "Ship_Control.h"
-#include "Stdio.h"
+#include "stdio.h"
 #include "Collision_Update.h"
 #include "Collision.h"
 #include "Graphics_Set.h"
 #include "Graphic_Struct.h"
-#include "SF_ArmUtils.h"
-#include "String.h"
+#include "SF_ARMUtils.h"
+#include "string.h"
 #include "Graphics_Set.h"
 
 //################################################

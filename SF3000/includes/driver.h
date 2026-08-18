@@ -2,6 +2,8 @@
 #define __3do_driver_h__
 
 #include "types.h"
+#include "nodes.h"
+#include "msgport.h"
 
 typedef struct DeviceStatus
 {

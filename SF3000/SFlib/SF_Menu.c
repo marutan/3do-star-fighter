@@ -4,12 +4,12 @@
 #include "SF_Menu.h"
 #include "SF_War.h"
 #include "SF_CelUtils.h"
-#include "SF_ScreenUtils.h"
+#include "SF_Screenutils.h"
 #include "SF_Palette.h"
 #include "SF_Io.h"
 #include "SF_Access.h"
-#include "SF_ArmCell.h"
-#include "SF_ArmAnim.h"
+#include "SF_ARMCell.h"
+#include "SF_ARMAnim.h"
 #include "SF_Control.h"
 #include "SF_Message.h"
 #include "SF_Music.h"
@@ -903,7 +903,7 @@ menu_item	*item_draw;
 			cel_base++;
 			
 			SetTextCelColor(cel_text [cel_base], 0, (option_draw < 2) ? YELLOW_15 : RED_15);
-			sprintf (item_variabletext, "%d", item_variable);
+			sprintf (item_variabletext, "%ld", item_variable);
 			UpdateTextInCel(cel_text [cel_base], TRUE, item_variabletext);
 			GetTextCelSize (cel_text [cel_base], &width, &height);
 			SetTextCelCoords(cel_text [cel_base], 270-width, MENU_YOFFS + (MENU_YSIZE*item_ypos)+menus [current_menu].ypos);
@@ -1545,7 +1545,7 @@ ship_sdb	*ship_sdb_ptr;
 				if (ship_sdb_ptr->sdb_type != SDB_TYPE_PLAYER)				// Yes, is it not player ?
 					if (ship_sdb_ptr->side == SDB_SIDE_FRIEND)				// Yes, Is it a friend ?
 						if (ship_sdb_ptr->control_mode == SDB_MODE_ATTACK)	// Yes, Not currently in formation ?
-							printf("Recalling ship ->%d\n",war_addshiptoformation (ship, 0));						// Yes, Add it to the formation
+							printf("Recalling ship ->%ld\n",war_addshiptoformation (ship, 0));						// Yes, Add it to the formation
 					
 		ship = (ship_stack*) (ship->header).next_address;					// Get next ship in linked list
 		}
@@ -1892,7 +1892,7 @@ long	load_success = 0;
 				}
 			else
 				{
-				printf ("GAMEFILE VERSION IS DIFFERENT - SETTING FLAG TO DELETE. FILE [%d], CGFV [%d]\n", save_gamefile.savefile_version, GAMEFILE_VERSION);
+				printf ("GAMEFILE VERSION IS DIFFERENT - SETTING FLAG TO DELETE. FILE [%ld], CGFV [%d]\n", save_gamefile.savefile_version, GAMEFILE_VERSION);
 				delete_loadfile = 1;
 				}
 			}
@@ -1952,10 +1952,10 @@ long	loop;
 	
 	// DELETE FILE THAT ALREADY OCCUPIES SLOT (IF >=0)
 	if (slot_tosave >=0)
-		printf ("RESULT OF NVRAM DELETE IS %d\n", nvram_delete (message_decode (menus [SAVE_MENU].items [slot_tosave].string [0], 1), GAMEFILE_PREFIX));
+		printf ("RESULT OF NVRAM DELETE IS %ld\n", nvram_delete (message_decode (menus [SAVE_MENU].items [slot_tosave].string [0], 1), GAMEFILE_PREFIX));
 		
 	// SAVE FILE TO NVRAM
-	printf ("RESULT OF NVRAM SAVE IS %d\n", nvram_save (user_savefilename, GAMEFILE_PREFIX, (char*) &save_gamefile, sizeof (gamefile)));
+	printf ("RESULT OF NVRAM SAVE IS %ld\n", nvram_save (user_savefilename, GAMEFILE_PREFIX, (char*) &save_gamefile, sizeof (gamefile)));
 	menu_enter (MAIN_MENU, 1);
 }
 

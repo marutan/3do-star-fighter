@@ -3,7 +3,12 @@
 
 #include "types.h"
 #include "io.h"
+#include "discdata.h"
 #include "driver.h"
+
+#define FILECMD_ALLOCBLOCKS  6
+#define FILECMD_SETEOF       7
+
 
 typedef struct FileStatus {
   DeviceStatus fs;

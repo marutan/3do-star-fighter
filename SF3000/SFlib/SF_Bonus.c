@@ -10,8 +10,8 @@
 #include "Ship_Struct.h"
 #include "Weapons.h"
 
-#include <String.h>
-#include <Stdio.h>
+#include <string.h>
+#include <stdio.h>
 
 // External definitions
 
@@ -222,7 +222,7 @@ long	bonus_weapon (long type, long mttx_weapontextnumber, long value)
 	if (type == WEAPON_LASER && player_performance.weapons [type] >=7)
 		return (0);
 		
-	sprintf (crystal_string, "%s %s : %d", message_decode(mttx_weapontextnumber, 0), message_decode (MTXT__UPGRADE, 0), value);
+	sprintf (crystal_string, "%s %s : %ld", message_decode(mttx_weapontextnumber, 0), message_decode (MTXT__UPGRADE, 0), value);
 	message_text (MESSAGE_BIG, crystal_string, YELLOW_15, MESSAGE_SCROLL, 64, MESSAGE_CURSOR2);
 	player_performance.weapons [type]+=value;
 

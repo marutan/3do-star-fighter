@@ -5,13 +5,13 @@
 
 #include "SF_NVRam.h"
 #include "SF_Message.h"
-#include "String.h"
+#include "string.h"
 #include "directory.h"
 #include "directoryfunctions.h"
 #include "filestream.h"
 #include "filestreamfunctions.h"
 #include "filefunctions.h"
-#include "BlockFile.h"
+#include "blockfile.h"
 
 /**************************************/
 					

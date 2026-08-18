@@ -2,8 +2,8 @@
 #include "Collision.h"
 #include "Explosion.h"
 #include "Smoke_Control.h"
-#include "Stdio.h"
-#include "SF_ArmLink.h"
+#include "stdio.h"
+#include "SF_ARMLink.h"
 #include "Sound_Control.h"
 #include "Maths_Stuff.h"
 #include "Misc_Struct.h"
@@ -11,8 +11,9 @@
 #include "Graphic_Struct.h"
 #include "Plot_Graphic.h"
 #include "Sound_Control.h"
-#include "SF_ArmUtils.h"
+#include "SF_ARMUtils.h"
 #include "SF_Sound.h"
+#include "Bonus_Control.h"
 
 void laser_update(void)
 

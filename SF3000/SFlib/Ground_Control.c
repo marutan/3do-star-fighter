@@ -4,12 +4,12 @@
 #include "Maths_Stuff.h"
 #include "Graphic_Struct.h"
 #include "Weapons.h"
-#include "Stdio.h"
+#include "stdio.h"
 #include "Ground_Control.h"
 #include "SF_Message.h"
 #include "SF_Palette.h"
 #include "Sound_Control.h"
-#include "SF_ArmUtils.h"
+#include "SF_ARMUtils.h"
 
 #define FIND_OBJECT_POSITION \
 x_pos = (unsigned) x_grid<<25 ;\

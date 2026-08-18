@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "graphics.h"
+#include "form3do.h"
 
 #define MAXSCREENS 6
 
@@ -30,6 +31,7 @@ Item    sc_BitmapItems[MAXSCREENS]; /* bitmap item for the screen */
 
 Item     CreateBasicDisplay(ScreenContext *sc, uint32 displayType, uint32 numScreens);
 Err      DeleteBasicDisplay(ScreenContext *sc);
+void    *LoadImage( char *filename, ubyte* dest, VdlChunk **rawVDLPtr, ScreenContext *sc );
 void     FadeToBlack(ScreenContext *sc, int32 nFrames);
 void     FadeFromBlack(ScreenContext *sc, int32 frameCount);
 

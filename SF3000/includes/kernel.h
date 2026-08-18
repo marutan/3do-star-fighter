@@ -69,4 +69,6 @@ struct KernelBase
 
 extern struct KernelBase *KernelBase;
 
+#define CURRENTTASK            (KernelBase->kb_CurrentTask)
+
 #endif /* __3do_kernel_h__ */

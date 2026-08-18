@@ -14,4 +14,15 @@ typedef struct BlockFile {
 } BlockFile, *BlockFilePtr;
 
 
+/*----------------------------------------------------------------------------
+ * low-level block IO routines
+ *--------------------------------------------------------------------------*/
+
+Item    CreateBlockFileIOReq(Item deviceItem, Item iodoneReplyPort);
+Err     OpenBlockFile(char *name, BlockFilePtr bf);
+void    CloseBlockFile(BlockFilePtr bf);
+Err     AsynchReadBlockFile(BlockFilePtr bf, Item ioreqItem, void* buffer, int32 count, int32 offset);
+Err     WaitReadDoneBlockFile(Item ioreqItem);
+
+
 #endif /* __3do_blockfile_h__ */

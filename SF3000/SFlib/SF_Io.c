@@ -1,7 +1,7 @@
 //	File : SF_io
 //	General utilities to read control pad etc.
 
-#include "SF_io.h"
+#include "SF_Io.h"
 #include "SF_Utility.h"
 #include "SF_Video.h"
 #include "SF_Joystick.h"

@@ -14,11 +14,11 @@
  *
  *******************************************************************************************/
 
-#include "Types.h"
-#include "UMemory.h"
-#include "BlockFile.h"
-#include "PrepareStream.h"
-#include "SATemplates.h"
+#include "types.h"
+#include "umemory.h"
+#include "blockfile.h"
+#include "preparestream.h"
+#include "satemplates.h"
 
 #include <stdio.h>
 

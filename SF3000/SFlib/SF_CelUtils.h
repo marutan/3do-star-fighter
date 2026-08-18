@@ -5,6 +5,7 @@
 
 //	includes
 
+#include "displayutils.h"
 #include "umemory.h"
 #include "stdio.h"
 #include "graphics.h"

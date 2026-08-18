@@ -3,6 +3,8 @@
 
 #include "types.h"
 #include "nodes.h"
+#include "item.h"
+#include "task.h"
 
 typedef struct Folio Folio;
 struct Folio
