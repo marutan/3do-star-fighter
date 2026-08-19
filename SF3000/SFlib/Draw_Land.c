@@ -14,6 +14,8 @@
 #include "SF_War.h"
 #include "Graphics_Set.h"
 #include "Weapons.h"
+#include "Plot_Land.h"
+#include "SF_ARMCell.h"
 
 // Test stuff
 //#include "OperaMath.h"

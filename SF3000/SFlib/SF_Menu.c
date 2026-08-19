@@ -2017,15 +2017,15 @@ static	long	stick_icon [6] [3] = 	{
 			case 2 :
 			case 3 :
 			
-				sprintf (message_decode (menus [CALIBRATE_JOYSTICK_MENU].title, 1), message_decode (MMNU20_MODE+0, 1));
+				sprintf (message_decode (menus [CALIBRATE_JOYSTICK_MENU].title, 1), "%s", message_decode (MMNU20_MODE+0, 1));
 				break;
 			
 			case 4 :
-				sprintf (message_decode (menus [CALIBRATE_JOYSTICK_MENU].title, 1), message_decode (MMNU20_MODE+1, 1));
+				sprintf (message_decode (menus [CALIBRATE_JOYSTICK_MENU].title, 1), "%s", message_decode (MMNU20_MODE+1, 1));
 				break;
 				
 			case 5 :
-				sprintf (message_decode (menus [CALIBRATE_JOYSTICK_MENU].title, 1), message_decode (MMNU20_MODE+2, 1));
+				sprintf (message_decode (menus [CALIBRATE_JOYSTICK_MENU].title, 1), "%s", message_decode (MMNU20_MODE+2, 1));
 				break;
 			}
 		

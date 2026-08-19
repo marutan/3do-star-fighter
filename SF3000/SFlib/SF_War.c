@@ -202,7 +202,7 @@ unsigned	long	ship_type,				// Type of ship
 				
 				default :
 					performance = NULL;										// Default is NULL
-					printf("Adding ship in war.c with no performance block - type is %d\n", ship_type);
+					printf("Adding ship in war.c with no performance block - type is %ld\n", ship_type);
 					break;
 				}
 	
@@ -439,7 +439,7 @@ performance_data	*performance;			// Pointer to a ship's performance datablock
 	// HAS THE SHIP WE ARE ATTACKING DIED ?
 	
 	if ((((ship_stack*) (ship_sdb_ptr->command_address)) -> shields <=0 ) ||	// Shields <= 0 OR
-	   (((ship_stack*) (ship_sdb_ptr->alive)) == SDB_SHIP_DEAD))				// SDB_Alive set to dead
+	   (((ship_sdb_ptr->alive)) == SDB_SHIP_DEAD))				// SDB_Alive set to dead
 			
 			{
 			//printf ("SHIP WE ARE ATTACKING HAS DIED\n");

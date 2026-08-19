@@ -256,7 +256,7 @@ char		*temp_buffer,
 			*destination;
 
 char		full_filename [128];
-char		directory_filename [128];
+char		directory_filename [256];
 
 va_list		variable_args;
 thefile.fDevice = 0;
@@ -268,7 +268,7 @@ ioreqItem 		= 0;
 	vsprintf(full_filename,fmt,variable_args);
 	va_end(variable_args);
 
-	sprintf (directory_filename, "%s%s", RESOURCES_ROOT, full_filename);
+	snprintf(directory_filename, sizeof(directory_filename), "%s%s", RESOURCES_ROOT, full_filename);
 	
 	// OPEN THE FILE TO LOAD								
 	

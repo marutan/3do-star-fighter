@@ -370,7 +370,7 @@ void	message_addcamera (long	current_camera)
 
 {
 
-char	cam_message [32];
+char	cam_message [32] = "";
 	
 	// DISPLAY CAMERA
 	
@@ -388,7 +388,11 @@ char	cam_message [32];
 		}
 
 	if (camera [current_camera].instance <0)
-		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__NO, 0));
+		{
+		strcat(cam_message, " ");
+		strcat(cam_message, message_decode (MTXT__NO, 0));
+//		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__NO, 0));
+		}
 	else
 		{
 		
@@ -397,16 +401,24 @@ char	cam_message [32];
 		switch (camera [current_camera].type)
 			{
 			case CAMERA_NORMAL :
-				snprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__VIEW, 0));
+				strcat(cam_message, " ");
+				strcat(cam_message, message_decode (MTXT__VIEW, 0));
+//				sprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__VIEW, 0));
 				break;
 			case CAMERA_TRACKING :
-				snprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__TRACKING, 0));
+				strcat(cam_message, " ");
+				strcat(cam_message, message_decode (MTXT__TRACKING, 0));
+//				sprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__TRACKING, 0));
 				break;
 			case CAMERA_FLYBY :
-				snprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__FLYBY, 0));
+				strcat(cam_message, " ");
+				strcat(cam_message, message_decode (MTXT__FLYBY, 0));
+//				sprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__FLYBY, 0));
 				break;
 			case CAMERA_INTERNAL :
-				snprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__VIEW_FROM, 0));
+				strcat(cam_message, " ");
+				strcat(cam_message, message_decode (MTXT__VIEW_FROM, 0));
+//				sprintf(cam_message, "%s %s", cam_message, message_decode (MTXT__VIEW_FROM, 0));
 				break;
 			}
 		}
@@ -416,30 +428,50 @@ char	cam_message [32];
 	switch (camera [current_camera].view)
 	{
 	case 0 :
-		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__PLAYER, 0));
+		strcat(cam_message, " ");
+		strcat(cam_message, message_decode (MTXT__PLAYER, 0));
+//		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__PLAYER, 0));
 		break;
 	case 1 :
-		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__TEAM, 0));
+		strcat(cam_message, " ");
+		strcat(cam_message, message_decode (MTXT__TEAM, 0));
+//		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__TEAM, 0));
 		break;
 	case 2 :
-		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__ENEMY, 0));
+		strcat(cam_message, " ");
+		strcat(cam_message, message_decode (MTXT__ENEMY, 0));
+//		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__ENEMY, 0));
 		break;
 	case 3 :
-		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__WEAPON, 0));
+		strcat(cam_message, " ");
+		strcat(cam_message, message_decode (MTXT__WEAPON, 0));
+//		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__WEAPON, 0));
 		break;
 	case 4 : 
-		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__VEHICLE, 0));
+		strcat(cam_message, " ");
+		strcat(cam_message, message_decode (MTXT__VEHICLE, 0));
+//		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__VEHICLE, 0));
 		break;
 	}
 	
 	// DISPLAY INSTANCE
 	
 	if (camera [current_camera].instance <0)
-		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__AVAILABLE, 0));
+		{
+		strcat(cam_message, " ");
+		strcat(cam_message, message_decode (MTXT__AVAILABLE, 0));
+//		sprintf(cam_message,"%s %s", cam_message, message_decode (MTXT__AVAILABLE, 0));
+		}
 	else
 		{
 		if (camera [current_camera].view != 0)
-			sprintf(cam_message,"%s %ld", cam_message, camera [current_camera].instance+1);
+			{
+			char temp[32];
+			strcat(cam_message, " ");
+			sprintf(temp, "%ld", camera [current_camera].instance+1);
+			strcat(cam_message, temp);
+//			sprintf(cam_message,"%s %ld", cam_message, camera [current_camera].instance+1);
+			}
 		}
 			
 	// ADD MESSAGE

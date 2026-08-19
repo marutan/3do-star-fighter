@@ -10,6 +10,7 @@
 #include "SF_ARMUtils.h"
 #include "Graphics_Set.h"
 #include "Sound_Control.h"
+#include <stdint.h>
 
 void setup_tables( void )
 
@@ -412,7 +413,7 @@ memptr [ 5 ] = &poly_map ;
 memptr [ 6 ] = &sprite_map ;
 memptr [ 7 ] = &cel_quad ;
 memptr [ 8 ] = &cosine_table ;
-memptr [ 9 ] = (void*) planet_info.space_mission ;
+memptr [ 9 ] = (void*)(intptr_t) planet_info.space_mission ;
 
 plot_land_constants (&memptr) ;
 
