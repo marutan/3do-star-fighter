@@ -1,6 +1,7 @@
 #ifndef __3do_debug3do_h__
 #define __3do_debug3do_h__
 
+#include "operror.h"
 #include "io.h"
 
 /*----------------------------------------------------------------------------

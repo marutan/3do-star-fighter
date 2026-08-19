@@ -1,11 +1,11 @@
 #include "Smoke_Control.h"
 #include "Collision.h"
 #include "Laser_Control.h"
-#include "SF_Armlink.h"
+#include "SF_ARMLink.h"
 #include "Ship_Struct.h"
 #include "Weapons.h"
 #include "Explosion.h"
-#include "Stdio.h"
+#include "stdio.h"
 #include "Ship_Control.h"
 #include "Maths_Stuff.h"
 #include "Misc_Struct.h"
@@ -13,8 +13,9 @@
 #include "Plot_Graphic.h"
 #include "SF_Control.h"
 #include "Collision_Update.h"
-#include "String.h"
+#include "string.h"
 #include "Graphics_Set.h"
+#include "SF_ARMUtils.h"
 
 void weapon_control( ship_stack * weapon )
 {

@@ -1,4 +1,4 @@
-#include "ship_struct.h"
+#include "Ship_Struct.h"
 
 #include "Misc_Struct.h"
 extern docking_struct docked ;

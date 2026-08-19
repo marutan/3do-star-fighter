@@ -4,6 +4,7 @@
 #include "types.h"
 #include "folio.h"
 #include "list.h"
+#include "operror.h"
 #include "hardware.h"
 
 #include "graphics_ccb.h"

@@ -5,8 +5,8 @@
 #include "Collision.h"
 #include "Laser_Control.h"
 #include "Explosion.h"
-#include "SF_ArmLink.h"
-#include "Stdio.h"
+#include "SF_ARMLink.h"
+#include "stdio.h"
 #include "Weapons.h"
 #include "Sound_Control.h"
 #include "Maths_Stuff.h"
@@ -15,6 +15,7 @@
 #include "Ship_Control.h"
 #include "Ship_Command.h"
 #include "Plot_Graphic.h"
+#include "SF_ARMUtils.h"
 
 #include "test_prog.h"
 

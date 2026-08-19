@@ -1,4 +1,4 @@
-#include "ship_struct.h"
+#include "Ship_Struct.h"
 
 void fast_fighter_control( ship_stack * );
 

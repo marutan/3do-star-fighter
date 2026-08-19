@@ -1,6 +1,178 @@
 #ifndef __3do_event_h__
 #define __3do_event_h__
 
+#include "graphics.h"
+
+#define EventPortName "eventbroker"
+
+enum EventBrokerFlavor
+  {
+   EB_NoOp               = 0,
+   EB_Configure          = 1,
+   EB_ConfigureReply     = 2,
+   EB_EventRecord        = 3,
+   EB_EventReply         = 4,
+   EB_SendEvent          = 5,
+   EB_SendEventReply     = 6,
+   EB_Command            = 7,
+   EB_CommandReply       = 8,
+   EB_RegisterEvent      = 9,
+   EB_RegisterEventReply = 10,
+   EB_GetListeners       = 11,
+   EB_GetListenersReply  = 12,
+   EB_SetFocus           = 13,
+   EB_SetFocusReply      = 14,
+   EB_GetFocus           = 15,
+   EB_GetFocusReply      = 16,
+   EB_ReadPodData        = 17,
+   EB_ReadPodDataReply   = 18,
+   EB_WritePodData       = 19,
+   EB_WritePodDataReply  = 20,
+   EB_LockPod            = 21,
+   EB_LockPodReply       = 22,
+   EB_UnlockPod          = 23,
+   EB_UnlockPodReply     = 24,
+   EB_IssuePodCmd        = 25,
+   EB_IssuePodCmdReply   = 26,
+   EB_DescribePods       = 27,
+   EB_DescribePodsReply  = 28,
+   EB_MakeTable          = 29,
+   EB_MakeTableReply     = 30
+  };
+
+enum ListenerCategory
+  {
+   LC_NoSeeUm         = 0,      /* Ignore all events */
+   LC_FocusListener   = 1,      /* Receive events if I have focus       */
+   LC_Observer        = 2,      /* Receive events regardless of focus   */
+   LC_FocusUI         = 3       /* Receive UI events if I have focus    */
+                                /* and other events regardless of focus */
+  };
+
+/*****
+      The Event Broker includes the following header in every message it
+      sends.  The header, followed by some amount of data (in many cases)
+      can be accessed via the data pointer and size fields in the message
+      header.
+
+      If a listener sends the Event Broker a small (standard size, pass by
+      reference) message, the Event Broker will transmit back a minimal reply...
+      it will simply set the reply value in the message structure to {zero,
+      or an Item number, or an error code} and send the message back with
+      a null data pointer and size.  No header or data will be transmitted.
+
+      If a listener sends the Event Broker a larger (pass by reference) message,
+      the Broker mau send back a block of data in the message which consists
+      of an EventBrokerHeader followed by [optional] information.  This reply
+      data is not always present - the listener should check the data pointer
+      and length to see if it was sent.
+
+      Hence - if you want to send a message to the Event Broker and get back
+      _any_ information other than success/failure/Item-number kinds of stuff,
+      be sure to use CreateSizedItem to create the message, and make the
+      message big enough to hold the amount of data you expect to receive!
+*****/
+
+typedef struct EventBrokerHeader {
+  enum EventBrokerFlavor ebh_Flavor;
+} EventBrokerHeader;
+
+/*****   EB_Configure message
+
+         Data transmitted from listener->Broker to [re]configure an event-listener
+         port.
+
+*****/
+
+typedef struct ConfigurationRequest {
+  EventBrokerHeader     cr_Header; /* { EB_Configure } */
+  enum ListenerCategory cr_Category; /* focus, monitor, or hybrid */
+  uint32                cr_TriggerMask[8]; /* events to trigger on */
+  uint32                cr_CaptureMask[8]; /* events to capture */
+  int32                 cr_QueueMax;  /* max # events in transit */
+  uint32                rfu[8];            /* must be zero for now */
+} ConfigurationRequest;
+
+/*****   EB_EventRecord message
+
+         Data transmitted from Broker->listener to report one or more events.
+         Data consists of an EventBrokerHeader followed by one or more
+         EventFrame structures (with ef_ByteCount > 0), followed by a
+         degenerate EventFrame (ef_ByteCount == 0, remainder of frame not
+         present or accounted for in the message data length).
+
+         The same format is used in an EB_SendEvent message transmitted from
+         a listener to the Event Broker.
+
+*****/
+
+typedef struct EventFrame {
+  uint32         ef_ByteCount;         /* total size of EventFrame */
+  uint32         ef_SystemID;          /* Opera machine ID, or zero=local */
+  uint32         ef_SystemTimeStamp;   /* event-count timestamp */
+  int32          ef_Submitter;         /* Item of event sender, or 0 */
+  uint8          ef_EventNumber;       /* event code, [0,255] */
+  uint8          ef_PodNumber;         /* CP pod number, or zero */
+  uint8          ef_PodPosition;       /* CP position on daisychain, or zero */
+  uint8          ef_GenericPosition;   /* Nth generic device of type, or 0 */
+  uint8          ef_Trigger;           /* 1 for trigger, 0 for capture */
+  uint8          rfu1[3];
+  uint32         rfu2;
+  uint32         ef_EventData[1];      /* first word of event data */
+} EventFrame;
+
+
+/*****   EB_DescribePods message,  EB_DescribePodsReply response
+
+         Messages used to ask the Event Broker to describe the set of pods
+         known to be attached to the Control Port.  The DescribePods message
+         carries no data [but should be sent in a fairly large message, to
+         provide space for the response].  The DescribePodsReply response
+         contains a pod count, and array of pod descriptions.
+
+*****/
+
+typedef struct PodDescription {
+  uint8          pod_Number;
+  uint8          pod_Position;
+  uint8          rfu[2];
+  uint32         pod_Type;
+  uint32         pod_BitsIn;
+  uint32         pod_BitsOut;
+  uint32         pod_Flags;
+  uint8          pod_GenericNumber[16];
+  Item           pod_LockHolder;
+} PodDescription;
+
+typedef struct PodDescriptionList {
+  EventBrokerHeader    pdl_Header;
+  int32                pdl_PodCount;
+  PodDescription       pdl_Pod[1];
+} PodDescriptionList;
+
+/*****
+      Important note - the leftmost 16 bits in the pod flags word are
+      specially reserved - if the Nth-leftmost bit is set, then the
+      device is a generic of type N and the Nth entry in the pod_GenericNumber
+      table gives the device's ordinal position for devices of that
+      generic type.  E.g. if the 0th bit is set, the device is a generic
+      control pad, and pod_GenericNumber[0] contains 1 if it's the first
+      generic control pad, 2 if it's the second, etc.
+
+      Any flag bits not having to do with generic identity should go in the
+      righthand 16 bits.
+*****/
+
+#define POD_IsControlPad        0x80000000
+#define POD_IsMouse             0x40000000
+#define POD_IsGun               0x20000000
+#define POD_IsGlassesCtlr       0x10000000
+#define POD_IsAudioCtlr         0x08000000
+#define POD_IsKeyboard          0x04000000
+#define POD_IsLightGun          0x02000000
+#define POD_IsStick             0x01000000
+#define POD_IsIRController      0x00800000
+
 
 
 /*
@@ -39,15 +211,6 @@ typedef struct StickEventData {
   int32          stk_DepthPosition;
 } StickEventData;
 
-enum ListenerCategory
-  {
-   LC_NoSeeUm         = 0,      /* Ignore all events */
-   LC_FocusListener   = 1,      /* Receive events if I have focus       */
-   LC_Observer        = 2,      /* Receive events regardless of focus   */
-   LC_FocusUI         = 3       /* Receive UI events if I have focus    */
-                                /* and other events regardless of focus */
-  };
-
 #define StickCapability      0x000C0000
 #define Stick4Way            0x00080000
 #define StickTurbulence      0x00040000
@@ -64,6 +227,63 @@ enum ListenerCategory
 #define StickStop            0x00400000
 #define StickLeftShift       0x00200000
 #define StickRightShift      0x00100000
+
+/*
+  Event-number definitions.  Event numbers count from 1 to 256, and must
+  correspond 1:1 with the event bits defined a bit further down.
+*/
+
+#define EVENTNUM_ControlButtonPressed                1
+#define EVENTNUM_ControlButtonReleased               2
+#define EVENTNUM_ControlButtonUpdate                 3
+#define EVENTNUM_ControlButtonArrived                4
+#define EVENTNUM_MouseButtonPressed                  5
+#define EVENTNUM_MouseButtonReleased                 6
+#define EVENTNUM_MouseUpdate                         7
+#define EVENTNUM_MouseMoved                          8
+#define EVENTNUM_MouseDataArrived                    9
+#define EVENTNUM_GunButtonPressed                   10
+#define EVENTNUM_GunButtonReleased                  11
+#define EVENTNUM_GunUpdate                          12
+#define EVENTNUM_GunDataArrived                     13
+#define EVENTNUM_KeyboardKeyPressed                 14
+#define EVENTNUM_KeyboardKeyReleased                15
+#define EVENTNUM_KeyboardUpdate                     16
+#define EVENTNUM_KeyboardDataArrived                17
+#define EVENTNUM_CharacterEntered                   18
+#define EVENTNUM_GivingFocus                        19
+#define EVENTNUM_LosingFocus                        20
+#define EVENTNUM_LightGunButtonPressed              21
+#define EVENTNUM_LightGunButtonReleased             22
+#define EVENTNUM_LightGunUpdate                     23
+#define EVENTNUM_LightGunFireTracking               24
+#define EVENTNUM_LightGunDataArrived                25
+#define EVENTNUM_StickButtonPressed                 26
+#define EVENTNUM_StickButtonReleased                27
+#define EVENTNUM_StickUpdate                        28
+#define EVENTNUM_StickMoved                         29
+#define EVENTNUM_StickDataArrived                   30
+#define EVENTNUM_IRKeyPressed                       31
+#define EVENTNUM_IRKeyReleased                      32
+
+#define EVENTNUM_DeviceOnline                       64
+#define EVENTNUM_DeviceOffline                      65
+#define EVENTNUM_FilesystemMounted                  66
+#define EVENTNUM_FilesystemOffline                  67
+#define EVENTNUM_FilesystemDismounted               68
+#define EVENTNUM_ControlPortChange                  69
+#define EVENTNUM_PleaseSaveAndExit                  70
+#define EVENTNUM_PleaseExitImmediately              71
+#define EVENTNUM_EventQueueOverflow                 72
+
+
+#define EVENTBIT0_StickButtonPressed                 0x00000040
+#define EVENTBIT0_StickButtonReleased                0x00000020
+#define EVENTBIT0_StickUpdate                        0x00000010
+#define EVENTBIT0_StickMoved                         0x00000008
+#define EVENTBIT0_StickDataArrived                   0x00000004
+
+#define EVENTBIT2_ControlPortChange                  0x04000000
 
 /***** Convenience interfaces
 

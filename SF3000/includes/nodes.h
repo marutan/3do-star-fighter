@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#define MKNODEID(a,b)   (int32)( ((a)<<8) | (b))
+
 /* Standard Node structure */
 typedef struct Node
 {

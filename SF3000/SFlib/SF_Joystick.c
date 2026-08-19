@@ -168,6 +168,6 @@ long joystick_count;
 			BS_IgnoreJoyStick();						// Yes - Turn off watching
 		}
 
-	printf ("%d Joysticks connected\n", joystick_count);
+	printf ("%ld Joysticks connected\n", joystick_count);
 	return (joystick_count);
 }

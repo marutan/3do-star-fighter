@@ -278,7 +278,7 @@ BS_NiceWaitEvent(
 			/* message error trap */
 			if (eventItem < 0)
 			{
-				printf("Error 0x%x getting message: ", eventItem);
+				printf("Error 0x%lx getting message: ", eventItem);
 				PrintfSysErr(eventItem);
 				exit(1);
 			}
@@ -373,7 +373,7 @@ BS_ConnectEventBroker(void)
 
 	if(!msgPtr)
 	{
-		printf("BS_ConnectBroker(): bad message item. (%d)\n",msgItem);
+		printf("BS_ConnectBroker(): bad message item. (%ld)\n",msgItem);
 		return 0;
 	}
 
@@ -439,7 +439,7 @@ BS_ConnectEventBroker(void)
 	qMsg=(Message *)LookupItem(queryMsgItem);
 	if(!qMsg)
 	{
-		printf("BS_CountPeripherals(): bad item: %d\n",queryMsgItem);
+		printf("BS_CountPeripherals(): bad item: %ld\n",queryMsgItem);
 		return 0;
 	}
 

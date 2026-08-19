@@ -10,5 +10,6 @@ typedef struct TagArg
   TagData ta_Arg;
 } TagArg, *TagArgP;
 
+#define TAG_END  0
 
 #endif /* __3do_types_tag_h__ */

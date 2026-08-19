@@ -5,8 +5,8 @@
 #include "Collision.h"
 #include "Laser_Control.h"
 #include "Explosion.h"
-#include "SF_ArmLink.h"
-#include "Stdio.h"
+#include "SF_ARMLink.h"
+#include "stdio.h"
 #include "Weapons.h"
 #include "Sound_Control.h"
 #include "Maths_Stuff.h"
@@ -17,6 +17,7 @@
 #include "Plot_Graphic.h"
 #include "Collision.h"
 #include "Graphics_Set.h"
+#include "SF_ARMUtils.h"
 
 #include "SF_Status.h"
 #include "SF_Message.h"

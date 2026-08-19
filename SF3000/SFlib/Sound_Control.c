@@ -1,3 +1,4 @@
+#include "string.h"
 #include "SF_Sound.h"
 #include "Plot_Graphic.h"
 #include "Sound_Control.h"

@@ -6,10 +6,10 @@
 #include "SF_Io.h"
 #include "SF_Music.h"
 #include "SF_Sound.h"
-#include "SF_ScreenUtils.h"
+#include "SF_Screenutils.h"
 
 #include "umemory.h"
-#include "Stdio.h"
+#include "stdio.h"
 
 /**************************************/
 
@@ -45,7 +45,7 @@ char	filename [128];
 	
 	// DISPLAY CORRECT SCREENBANK AGAIN
 
-	DisplayScreen(screen->sc_Screens[1- screen->sc_curScreen],0);
+	DisplayScreen(screen->sc_ScreenItems[1- screen->sc_CurrentScreen],0);
 	
 	// RESET TIMEOUT TO VIDEO & CLEAR NEXT SCREEN
 	io_resetvideocounter (MAX_WAITBEFOREVIDEO);

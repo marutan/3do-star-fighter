@@ -142,13 +142,13 @@ OBJECTS	=	Star3000.o \
 		SFlib/Sound_Control.o \
 		SFlib/Weapons.o \
 		SFlib/Collision_Update.o \
-		SFlib/Laser_plot.o \
-		SFlib/Smoke_plot.o \
+		SFlib/Laser_Plot.o \
+		SFlib/Smoke_Plot.o \
 		SFlib/Ship_Command.o \
 		SFlib/Graphics_Set.o \
 		SFlib/bs_joystick.o \
 		SFlib/broker_shell.o \
-		SFlib/sf_joystick.o \
+		SFlib/SF_Joystick.o \
 		SFlib/test_prog.o \
 		"{3DOLibs}"cstartup.o
 

@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "nodes.h"
+#include "kernelnodes.h"
 #include "list.h"
 #include "folio.h"
 #include "task.h"
@@ -13,6 +14,7 @@
 #include "stdlib.h"
 #include "graphics.h"
 #include "hardware.h"
+#include "operror.h"
 #include "audio.h"
 #include "form3do.h"
 

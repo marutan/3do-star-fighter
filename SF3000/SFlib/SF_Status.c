@@ -9,9 +9,9 @@
 #include "SF_Palette.h"
 #include "SF_Control.h"
 #include "Weapons.h"
-#include "Stdio.h"
-#include "explosion.h"
-#include "bonus_control.h"
+#include "stdio.h"
+#include "Explosion.h"
+#include "Bonus_Control.h"
 
 /**************************************/
 

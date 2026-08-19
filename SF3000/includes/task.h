@@ -2,6 +2,8 @@
 #define __3do_task_h__
 
 #include "types.h"
+#include "nodes.h"
+#include "kernelnodes.h"
 #include "item.h"
 #include "list.h"
 #include <sys/time.h>

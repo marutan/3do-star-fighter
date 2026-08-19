@@ -1,11 +1,11 @@
 #include "Smoke_Control.h"
-#include "SF_ArmLink.h"
-#include "Stdio.h"
+#include "SF_ARMLink.h"
+#include "stdio.h"
 #include "Collision.h"
 #include "Maths_Stuff.h"
 #include "Graphic_Struct.h"
 #include "Plot_Graphic.h"
-#include "SF_ArmUtils.h"
+#include "SF_ARMUtils.h"
 #include "Graphics_Set.h"
 
 void smoke_update(void)

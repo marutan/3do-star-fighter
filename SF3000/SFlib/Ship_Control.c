@@ -5,8 +5,8 @@
 #include "Collision.h"
 #include "Laser_Control.h"
 #include "Explosion.h"
-#include "SF_ArmLink.h"
-#include "Stdio.h"
+#include "SF_ARMLink.h"
+#include "stdio.h"
 #include "Weapons.h"
 #include "Sound_Control.h"
 #include "Maths_Stuff.h"
@@ -15,10 +15,10 @@
 #include "Ship_Control.h"
 #include "Ship_Command.h"
 #include "Collision_Update.h"
-#include "SF_ArmUtils.h"
+#include "SF_ARMUtils.h"
 #include "SF_War.h"
 #include "Graphics_Set.h"
-#include "String.h"
+#include "string.h"
 #include "SF_Bonus.h"
 #include "SF_Sound.h"
 #include "SF_Message.h"
@@ -630,7 +630,7 @@ if ( ship->fire_request != WEAPON_NOTHING && ship->counter == 0 )
 
 	make_sound( ship->x_pos , ship->y_pos , ship->z_pos , SMALL_EXPLOSION_SOUND ) ;
 
-	sprintf (ecm_message, "%s - %d %s", message_decode (MTXT__ECM_FIRED, 0), (ship->performance->weapons[ship->fire_request]), message_decode (MTXT__REMAINING, 0));
+	sprintf (ecm_message, "%s - %ld %s", message_decode (MTXT__ECM_FIRED, 0), (ship->performance->weapons[ship->fire_request]), message_decode (MTXT__REMAINING, 0));
 	message_text(MESSAGE_BOTTOM , ecm_message , RED_15 , MESSAGE_SCROLL , 32 , MESSAGE_CURSOR2 );
 	
 	while ((temp_ship->header).status==1)

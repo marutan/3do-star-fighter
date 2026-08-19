@@ -8,7 +8,7 @@
 #include "Plot_Graphic.h"
 #include "Laser_Control.h"
 #include "Bit_Control.h"
-#include "SF_ArmLink.h"
+#include "SF_ARMLink.h"
 #include "Explosion.h"
 #include "Weapons.h"
 #include "Collision.h"
@@ -17,11 +17,11 @@
 #include "Ground_Control.h"
 #include "Bonus_Control.h"
 #include "SF_Control.h"
-#include "Stdio.h"
+#include "stdio.h"
 #include "SF_War.h"
 #include "SF_Bonus.h"
-#include "SF_ArmUtils.h"
-#include "Sound_control.h"
+#include "SF_ARMUtils.h"
+#include "Sound_Control.h"
 #include "SF_Bonus.h"
 
 #include <debug.h>

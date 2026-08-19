@@ -5,6 +5,7 @@
 #include "io.h"
 #include "mempool.h"
 #include "haltchunk.h"
+#include "operror.h"
 
 
 /* The following constant is the maximum number of subscribers allowed for

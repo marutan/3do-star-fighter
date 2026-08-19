@@ -3,8 +3,8 @@
 
 #include "SF_Sound.h"
 #include "SF_Allocation.h"
-#include "Audio.h"
-#include "Stdio.h"
+#include "audio.h"
+#include "stdio.h"
 
 /**************************************/
 

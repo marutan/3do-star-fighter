@@ -7,7 +7,7 @@
 #include "SF_Palette.h"
 #include "SF_ARMUtils.h"
 #include "Plot_Graphic.h"
-#include "Stdio.h"
+#include "stdio.h"
 
 /**************************************/
 
