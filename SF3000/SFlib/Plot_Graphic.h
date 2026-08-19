@@ -1,3 +1,8 @@
+#ifndef __sflib_plot_graphics_h__
+#define __sflib_plot_graphics_h__
+
+#include <stdint.h>
+
 extern long camera_x_rotation;
 extern long camera_y_rotation;
 extern long camera_z_rotation;
@@ -27,6 +32,8 @@ extern void plot_laser(void *);
 extern void plot_bit(void *);
 extern void rotate_sky_node(void *);
 extern void plot_planets(void);
+extern void clip_3d_line(int32_t *x1, int32_t *y1, int32_t *z1, int32_t *x2,
+                         int32_t *y2, int32_t *z2);
 
 #ifndef __GRAPHIC_STUFF_H
 #define __GRAPHIC_STUFF_H
@@ -41,3 +48,5 @@ typedef struct rotate_node {
 } rotate_node;
 
 #endif
+
+#endif /* __sflib_plot_graphics_h__ */
