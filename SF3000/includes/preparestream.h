@@ -13,7 +13,9 @@
 
 #define CTRL_CHUNK_TYPE CHAR4LITERAL('C','T','R','L') /* chunk type for this subscriber */
 #define SNDS_CHUNK_TYPE CHAR4LITERAL('S','N','D','S') /* chunk type for this subscriber */
+#ifndef FILM_CHUNK_TYPE
 #define FILM_CHUNK_TYPE CHAR4LITERAL('F','I','L','M') /* chunk type for this subscriber */
+#endif
 
 /*********************/
 /* Default constants */

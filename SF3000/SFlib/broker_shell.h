@@ -3,15 +3,17 @@
 
 /******************************************************************************
 **
-**  Copyright (C) 1995, an unpublished work by The 3DO Company. All rights reserved.
-**  This material contains confidential information that is the property of The 3DO Company.
+**  Copyright (C) 1995, an unpublished work by The 3DO Company. All rights
+*reserved.
+**  This material contains confidential information that is the property of The
+*3DO Company.
 **  Any unauthorized duplication, disclosure or use is prohibited.
 **  $Id: broker_shell.h,v 1.2 1994/11/22 00:03:41 vertex Exp $
 **
 ******************************************************************************/
 
-#include "types.h"
 #include "event.h"
+#include "types.h"
 
 /* commenting out */
 /* an include file */
@@ -38,12 +40,12 @@
 #define BS_SCRNYS 480
 
 enum {
-	BS_STICK=0x01,
-	BS_MOUSE=0x02,
-	BS_CPAD=0x04,
-	BS_LGUN=0x08,
-	BS_PORT_CHANGE=0x10,
-	BS_OTHER_SIGNAL=0x20
+  BS_STICK = 0x01,
+  BS_MOUSE = 0x02,
+  BS_CPAD = 0x04,
+  BS_LGUN = 0x08,
+  BS_PORT_CHANGE = 0x10,
+  BS_OTHER_SIGNAL = 0x20
 };
 
 extern int BS_ConnectEventBroker(void);
@@ -87,10 +89,7 @@ extern int BS_DisconnectBroker(void);
 
 extern uint32 BS_GetOtherSignals(void);
 
-extern int32 BS_NiceWaitEvent(
-						BS_StickData **sdp,
-						BS_CPadData **cpdp,
-						BS_MouseData **mdp,
-						BS_LGunData **lgdp);
+extern int32 BS_NiceWaitEvent(BS_StickData **sdp, BS_CPadData **cpdp,
+                              BS_MouseData **mdp, BS_LGunData **lgdp);
 
 #endif /* __BROKER_SHELL_H */

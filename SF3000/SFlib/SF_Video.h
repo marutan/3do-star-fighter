@@ -5,16 +5,17 @@
 
 // Includes
 
-#include "SF_Screenutils.h"
 #include "PlayCPakStream.h"
+#include "SF_Screenutils.h"
 
 // External Variables
 
-extern	ScreenContext *screen;
+extern ScreenContext *screen;
 
 // Function Prototypes
 
-long video_play (char *video_file);					// Play a Cinepak video sequence
-long video_internal_interrupt (PlayerPtr ctx);		// INTERNAL ROUTINE USED BY VIDEO_PLAY TO CHECK KEYPAD
+long video_play(char *video_file); // Play a Cinepak video sequence
+long video_internal_interrupt(
+    PlayerPtr ctx); // INTERNAL ROUTINE USED BY VIDEO_PLAY TO CHECK KEYPAD
 
 #endif

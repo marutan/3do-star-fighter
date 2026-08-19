@@ -7,7 +7,9 @@
 #include "codec.h"
 #include "datastreamlib.h"
 
+#ifndef FILM_CHUNK_TYPE
 #define FILM_CHUNK_TYPE CHAR4LITERAL('F','I','L','M') /* chunk data type for this subscriber */
+#endif
 
 /* FHDR_CHUNK_TYPE, FRME_CHUNK_TYPE, CPAK_MAX_SUBSCRIPTIONS,
  * CPAK_MAX_CHANNELS, CPAK_MAX_CHUNKS, BYTES_PER_PIXEL,

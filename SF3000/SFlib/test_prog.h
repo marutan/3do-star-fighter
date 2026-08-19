@@ -1,9 +1,8 @@
 #include "Ship_Struct.h"
 
 #include "Misc_Struct.h"
-extern docking_struct docked ;
+extern docking_struct docked;
 
-extern long which_graphics_set ;
+extern long which_graphics_set;
 
-void new_fighter_control( ship_stack * );
-
+void new_fighter_control(ship_stack *);
