@@ -6,9 +6,10 @@
 // Joystick commands are :	joystick_initialise ()		// MUST BE
 // CALLED 1st TO INITIALISE READER
 //							joystick_terminate ()
-//// MUST BE CALLED TO TERMINATE READER 							joystick_read ()
-//// reads joystick buttons 							joystick_registerports ()	// returns number of
-//joysticks connected
+//// MUST BE CALLED TO TERMINATE READER
+///joystick_read () / reads joystick buttons
+///joystick_registerports ()	// returns number of
+// joysticks connected
 
 /**************************************/
 

@@ -371,8 +371,8 @@ pyramid_registercompleted(void)
 
 // Purpose : Registers a mission as completed on currently selected pyramid
 // level Accepts : Nothing Returns : (1) if all missions on that sub level are
-// complete, (0) if not, (2) if entire pyramid complete 																			[IN WHICH CASE IT IS
-// CLEARED & DOES ONTO NEXT LEVEL]
+// complete, (0) if not, (2) if entire pyramid complete
+// [IN WHICH CASE IT IS CLEARED & DOES ONTO NEXT LEVEL]
 
 {
 

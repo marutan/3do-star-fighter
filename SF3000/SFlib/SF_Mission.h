@@ -3,6 +3,8 @@
 #ifndef __SF_MISSION
 #define __SF_MISSION
 
+#include "SF_Mission.h"
+
 /* Status structure defines */
 
 #define GROUND_SWEAPONBONUS1                                                   \

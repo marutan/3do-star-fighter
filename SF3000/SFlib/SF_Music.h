@@ -3,6 +3,8 @@
 #ifndef __SF_MUSIC
 #define __SF_MUSIC
 
+#include "types.h"
+
 // Definitions
 
 #define MUSIC_PLAYLISTLENGTH 16 // Max number of tracks that can be programmed

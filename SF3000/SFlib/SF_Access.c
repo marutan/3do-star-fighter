@@ -278,7 +278,8 @@ load_fileat(void *buffer, char *fmt, ...)
 
 // NOTE : 	THIS ROUTINE IS RIPPED FROM 3D0 LIBRARY
 //			ALTERED TO LOAD CORRECT SIZE, REGARDLESS OF MEDIA
-//BLOCKSIZE 			ALWAYS LOADS FROM RESOURCES_ROOT (ie $boot/SF_Resources/)
+// BLOCKSIZE 			ALWAYS LOADS FROM RESOURCES_ROOT (ie
+// $boot/SF_Resources/)
 
 // Purpose : File loader
 // Accepts : Filename, Load address

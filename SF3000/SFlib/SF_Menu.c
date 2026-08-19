@@ -989,8 +989,8 @@ menu menus[MAX_MENUS] =
            WHITE_15,
            {MMNU11_NEW + 1, MMNU11_NEW + 2}},
           //		{-1,	-1,	-1,	ITEM_TN,	2,	ITEM_OK,
-          //0,	menu_movedown,		LANGUAGE_MENU,	0,	0,
-          //YELLOW_15,	{MMNU14 + 3}},
+          // 0,	menu_movedown,		LANGUAGE_MENU,	0,	0,
+          // YELLOW_15,	{MMNU14 + 3}},
           {-1,
            -1,
            -1,
@@ -1648,7 +1648,7 @@ menu_enter(long current_menu, long reset_to_top)
       // NOTE : 	If we are in the setup flight controls menu, put the
       // options to the LEFT
       //			and insert the current flightcontrol for the
-      //option on the RIGHT
+      // option on the RIGHT
 
       UpdateTextInCel(
           cel_text[cel_base], TRUE,

@@ -203,7 +203,7 @@ control_registerdeath(ship_stack *dead_ship)
   //			1. SET IT'S SDB FLAG TO DEAD
   //			2. IF IT WAS IN A FORMATION POSITION, CLEAR IT
   //			3. DO CHECKS TO SEE IF IT WAS ONE WE HAD TO PROTECT, OR
-  //HAD TO DIE, ETC.
+  // HAD TO DIE, ETC.
 
   // ARE WE DOCKED IN THE SHIP THAT HAS JUST BLOWN UP ? IF SO, SET STATUS.DOCKED
   // TO CLEAR
@@ -746,11 +746,13 @@ control_showmission(long show_mode, long show_var)
 // Purpose : Prints up mission brief for current mission or credits file
 // Accepts : Mode Variable : 	0 - Setup for brief
 //								1 - Setup for
-//credits 								2 - Display brief 								3 - Display credits (no user interaction except
-//terminate)
+// credits 								2 -
+// Display brief
+// 3 - Display credits (no user interaction except terminate)
 
 //			 Second var is		Setup 	: Number of mission
-//lines in brief (if setting up) - only set if >=0 								Display : Draw backdrop flag
+// lines in brief (if setting up) - only set if >=0
+// Display : Draw backdrop flag
 
 // Returns : Continue / Quit / Start status
 

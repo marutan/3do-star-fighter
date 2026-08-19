@@ -450,25 +450,25 @@ message_addcamera(long current_camera)
         strcat(cam_message, " ");
         strcat(cam_message, message_decode(MTXT__VIEW, 0));
         //				sprintf(cam_message, "%s %s",
-        //cam_message, message_decode (MTXT__VIEW, 0));
+        // cam_message, message_decode (MTXT__VIEW, 0));
         break;
       case CAMERA_TRACKING:
         strcat(cam_message, " ");
         strcat(cam_message, message_decode(MTXT__TRACKING, 0));
         //				sprintf(cam_message, "%s %s",
-        //cam_message, message_decode (MTXT__TRACKING, 0));
+        // cam_message, message_decode (MTXT__TRACKING, 0));
         break;
       case CAMERA_FLYBY:
         strcat(cam_message, " ");
         strcat(cam_message, message_decode(MTXT__FLYBY, 0));
         //				sprintf(cam_message, "%s %s",
-        //cam_message, message_decode (MTXT__FLYBY, 0));
+        // cam_message, message_decode (MTXT__FLYBY, 0));
         break;
       case CAMERA_INTERNAL:
         strcat(cam_message, " ");
         strcat(cam_message, message_decode(MTXT__VIEW_FROM, 0));
         //				sprintf(cam_message, "%s %s",
-        //cam_message, message_decode (MTXT__VIEW_FROM, 0));
+        // cam_message, message_decode (MTXT__VIEW_FROM, 0));
         break;
     }
   }
@@ -522,7 +522,7 @@ message_addcamera(long current_camera)
       sprintf(temp, "%ld", camera[current_camera].instance + 1);
       strcat(cam_message, temp);
       //			sprintf(cam_message,"%s %ld", cam_message,
-      //camera [current_camera].instance+1);
+      // camera [current_camera].instance+1);
     }
   }
 

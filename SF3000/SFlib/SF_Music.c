@@ -8,24 +8,26 @@
 // BE CALLED 1st TO INITIALISE PLAYER
 
 //						music_play ()
-//// play a track 						music_stop ()					// stop a track
+//// play a track 						music_stop ()
+///// stop a track
 //						music_pause ()
-//// pause track 						music_resume ()					//
-//resume track 						music_terminate ()				// kill task
+//// pause track 						music_resume ()
+/////
+// resume track 						music_terminate
+// ()				// kill task
 
 /**************************************/
 
-#include "stdarg.h"
-#include "stdio.h"
-#include "string.h"
+#include "SF_Music.h"
+#include "SF_Allocation.h"
 #include "audio.h"
 #include "debug3do.h"
 #include "soundplayer.h"
+#include "stdarg.h"
+#include "stdio.h"
+#include "string.h"
 #include "task.h"
 #include "types.h"
-#include "SF_Music.h"
-#include "SF_Allocation.h"
-
 
 /***************************************************************************************************/
 

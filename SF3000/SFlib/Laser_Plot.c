@@ -3,12 +3,12 @@
  */
 #include <stdint.h>
 
-#include "SF_CelUtils.h"
-#include "SF_ARMCell.h"
-#include "Plot_Graphic.h"
-#include "Laser_Struct.h"
 #include "Global_2.h"
+#include "Laser_Struct.h"
 #include "Maths_Stuff.h"
+#include "Plot_Graphic.h"
+#include "SF_ARMCell.h"
+#include "SF_CelUtils.h"
 
 #define LASER_POWER_1 1
 #define LASER_POWER_2 2
@@ -242,7 +242,7 @@ plot_laser(void *laser_link_base)
 
   // Colour / bitmap based on laser type (and #7 mask)
   int32_t type = laser->type & 7;
-//  q->bitmap = 159 - type; // rsb r1,r1,#159
+  //  q->bitmap = 159 - type; // rsb r1,r1,#159
 
   // Plot polygon
   arm_addpolycel32(q, 159 - type);

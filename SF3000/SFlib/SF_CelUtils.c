@@ -132,8 +132,8 @@ cel_rectangle(long xpos, long ypos, long xpos2, long ypos2, long colour,
 // Purpose : Draws a shaded rectangle from a (base) palette colour on the screen
 // using
 //			 (optionally) transparent monochrome cels. Screen
-//co-ordinates are normal, 0-320, 0-240 			 Coordinates are in bot left x,y then top
-//right x,y
+// co-ordinates are normal, 0-320, 0-240 			 Coordinates are
+// in bot left x,y then top right x,y
 // Accepts : x,y pos, x,y width, rectangle, transparency ?
 // Returns : Nothing
 

@@ -4,13 +4,12 @@
 #include "stdio.h"
 #include "umemory.h"
 
-#include "SF_Screenutils.h"
-#include "SF_Video.h"
 #include "SF_Allocation.h"
 #include "SF_Io.h"
 #include "SF_Music.h"
+#include "SF_Screenutils.h"
 #include "SF_Sound.h"
-
+#include "SF_Video.h"
 
 /**************************************/
 
