@@ -3,6 +3,6 @@
 
 #include "types.h"
 
-typedef uint32 CelData[];
+typedef uint32_t CelData[];
 
 #endif /* __3do_graphics_celdata_h__ */

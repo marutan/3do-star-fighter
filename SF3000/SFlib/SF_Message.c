@@ -204,7 +204,7 @@ message_addxy(long type, char *message, long colour, long back_colour,
 
 {
 
-  long width, height;
+  int32_t width, height;
 
   SetTextCelColor(messages[type].textcel, back_colour,
                   colour);                                // Set text colour

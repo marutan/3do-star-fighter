@@ -5,6 +5,8 @@
 
 // Includes
 
+#include <stdint.h>
+
 #include "SF_CelUtils.h"
 #include "SF_Menu.h"
 #include "SF_Message.h"
@@ -33,7 +35,7 @@
 /* External Variables */
 
 extern ScreenContext *screen;
-extern ubyte *backdrop;
+extern uint8_t *backdrop;
 extern Item VBLIOReq;
 extern Item VRAMIOReq;
 extern cel_celdata cel_quad;

@@ -1,6 +1,8 @@
 #ifndef __BS_JOYSTICK_H
 #define __BS_JOYSTICK_H
 
+#include <stdint.h>
+
 /******************************************************************************
 **
 **  Copyright (C) 1995, an unpublished work by The 3DO Company. All rights
@@ -129,7 +131,7 @@ typedef struct {
       BS_SetStickLastButtons(a, BS_GetStickButtons(a))
 
 /* prototype for our filtering/debouncing routine */
-extern int BS_ProcessStickData(BS_StickData *aStk, uint32 deBounceBits,
+extern int BS_ProcessStickData(BS_StickData *aStk, uint32_t deBounceBits,
                                int reCal);
 
 #endif /* __BS_JOYSTICK_H */

@@ -10,6 +10,8 @@
 **
 ******************************************************************************/
 
+#include <stdint.h>
+
 #include "broker_shell.h"
 
 /* don't compile this if */
@@ -103,9 +105,9 @@ stickFilter(BS_StickData *aStk, long recalibrate)
 /* returns 1 if the state of the device has changed since last time */
 /* and 0 if not */
 int
-BS_ProcessStickData(BS_StickData *aStk, uint32 deBounceBits, int reCal)
+BS_ProcessStickData(BS_StickData *aStk, uint32_t deBounceBits, int reCal)
 {
-  register uint32 bBits, buttonBits, lastButtons;
+  register uint32_t bBits, buttonBits, lastButtons;
   int changeF = 0;
 
   /* preserve our history */

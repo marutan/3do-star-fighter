@@ -1,6 +1,8 @@
 #ifndef __3do_kernel_h__
 #define __3do_kernel_h__
 
+#include <stdint.h>
+
 #include "types.h"
 #include "item.h"
 #include "list.h"
@@ -25,46 +27,46 @@ struct KernelBase
   List       *kb_Semaphores;    /* will we be message based? */
   Task       *kb_CurrentTask;   /* Currently executing Task */
   Node      **kb_InterruptHandlers;
-  uint32      kb_TimerBits;     /* allocated timers/ctrs */
-  uint32      kb_ElapsedQuanta; /* timerticks for current task */
-  uint32     *kb_VRAMHack;
+  uint32_t    kb_TimerBits;     /* allocated timers/ctrs */
+  uint32_t    kb_ElapsedQuanta; /* timerticks for current task */
+  uint32_t   *kb_VRAMHack;
   ItemEntry **kb_ItemTable;     /* table of ptrs to ItemEntries */
-  int32       kb_MaxItem;
-  uint32      kb_CPUFlags;      /* various flags for operation */
-  uint8       kb_MaxInterrupts;
-  uint8       kb_Forbid;        /* software lockout for task swapping */
-  uint8       kb_FolioTableSize;
-  uint8       kb_PleaseReschedule;
-  uint32     *kb_MacPkt;
-  uint32      kb_Flags;
-  uint32      kb_Reserved;
-  uint32      kb_numticks;      /* convert secs to ticks numerator */
-  uint32      kb_denomticks;    /* convert secs to ticks denominator */
-  uint32      kb_Obsolete;      /* shadow copy of Madam->Msysbits */
-  uint8       kb_FolioTaskDataCnt; /* lwords */
-  uint8       kb_FolioTaskDataSize; /* lwords */
-  uint8       kb_DRAMSetSize;
-  uint8       kb_VRAMSetSize;
+  int32_t     kb_MaxItem;
+  uint32_t    kb_CPUFlags;      /* various flags for operation */
+  uint8_t     kb_MaxInterrupts;
+  uint8_t     kb_Forbid;        /* software lockout for task swapping */
+  uint8_t     kb_FolioTableSize;
+  uint8_t     kb_PleaseReschedule;
+  uint32_t   *kb_MacPkt;
+  uint32_t    kb_Flags;
+  uint32_t    kb_Reserved;
+  uint32_t    kb_numticks;      /* convert secs to ticks numerator */
+  uint32_t    kb_denomticks;    /* convert secs to ticks denominator */
+  uint32_t    kb_Obsolete;      /* shadow copy of Madam->Msysbits */
+  uint8_t     kb_FolioTaskDataCnt; /* lwords */
+  uint8_t     kb_FolioTaskDataSize; /* lwords */
+  uint8_t     kb_DRAMSetSize;
+  uint8_t     kb_VRAMSetSize;
   Folio     **kb_DataFolios;
   jmp_buf    *kb_CatchDataAborts; /* setjmp buf */
-  uint32      kb_QuietAborts;   /* no messages for these bits */
-  uint32     *kb_RamDiskAddr;   /* kernel needs to help RamDevice */
-  int32       kb_RamDiskSize;
+  uint32_t    kb_QuietAborts;   /* no messages for these bits */
+  uint32_t   *kb_RamDiskAddr;   /* kernel needs to help RamDevice */
+  int32_t     kb_RamDiskSize;
   List       *kb_ExtendedErrors; /* list of extended err tables */
-  uint8       kb_MadamRev;
-  uint8       kb_ClioRev;
-  uint8       kb_Resbyte0;
-  uint8       kb_Resbyte1;
+  uint8_t     kb_MadamRev;
+  uint8_t     kb_ClioRev;
+  uint8_t     kb_Resbyte0;
+  uint8_t     kb_Resbyte1;
   Item        kb_DevSemaphore;  /* Device List Semaphore */
   List       *kb_SystemStackList; /* List of System stacks available */
-  uint32      kb_NumTaskSwitches; /* total # of switch since bootup  */
-  uint32     *kb_VRAM0;         /* memory reserved by kernel */
-  uint32      kb_VRAM0Size;
-  uint32     *kb_VRAM1;
-  uint32      kb_VRAM1Size;
+  uint32_t    kb_NumTaskSwitches; /* total # of switch since bootup  */
+  uint32_t   *kb_VRAM0;         /* memory reserved by kernel */
+  uint32_t    kb_VRAM0Size;
+  uint32_t   *kb_VRAM1;
+  uint32_t    kb_VRAM1Size;
   char       *kb_BootVolumeName;
   List       *kb_Tasks;
-  uint32      kb_MemEnd;        /* Address of end-of-memory */
+  uint32_t    kb_MemEnd;        /* Address of end-of-memory */
 };
 
 extern struct KernelBase *KernelBase;

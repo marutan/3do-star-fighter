@@ -39,7 +39,7 @@ music_playvoice(char *,
 // INTERNAL CONTROL ROUTINES
 
 void music_thread(void);       // Music Playing Task
-void music_command(int32);     // INTERNAL - Execute command
+void music_command(int32_t);   // INTERNAL - Execute command
 void music_trackgetnext(long); // INTERNAL - Play next / previous track
 void music_loadin(long);       // INTERNAL - Load in music
 

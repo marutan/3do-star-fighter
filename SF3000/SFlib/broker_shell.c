@@ -10,6 +10,8 @@
 **
 ******************************************************************************/
 
+#include <stdint.h>
+
 #include "broker_shell.h"
 #include "kernel.h"
 #include "msgport.h"
@@ -22,8 +24,8 @@ static Message *msgPtr = NULL;
 static Item msgPortItem = 0, msgItem = 0, brokerPortItem = 0;
 static int IsConnected = 0;
 static ConfigurationRequest config;
-static int32 gMice, gPads, gSticks, gGuns;
-static uint32 gOtherSignals = 0;
+static int32_t gMice, gPads, gSticks, gGuns;
+static uint32_t gOtherSignals = 0;
 static Item queryMsgItem = -1;
 static Message *qMsg = NULL;
 
@@ -35,10 +37,10 @@ BS_CountPeripherals(void)
   EventBrokerHeader queryHeader;
   PodDescriptionList *podlist;
   PodDescription *Pod;
-  int32 iPad, cPads;
-  int32 lg = 0, cp = 0, js = 0, m = 0;
+  int32_t iPad, cPads;
+  int32_t lg = 0, cp = 0, js = 0, m = 0;
 
-  int32 sent;
+  int32_t sent;
 
   if (!IsConnected) {
     printf("BS_CountPeripherals():  broker not connected.\n");
@@ -104,15 +106,15 @@ BS_CountPeripherals(void)
  * decide what to do with each event frame we recieve
  * transfers the raw data from the event frame to the
  * appropriate device data structure.  returns a bitmask
- * coded uint32 that sez which device types got written to
+ * coded uint32_t that sez which device types got written to
  *
  */
-static uint32
+static uint32_t
 handleEvent(EventBrokerHeader *hdr, BS_StickData **sdp, BS_CPadData **cpdp,
             BS_MouseData **mdp, BS_LGunData **lgdp)
 {
   EventFrame *frame;
-  int32 changedF = 0;
+  int32_t changedF = 0;
   int podI = 0;
 
   switch (hdr->ebh_Flavor) {
@@ -209,19 +211,19 @@ handleEvent(EventBrokerHeader *hdr, BS_StickData **sdp, BS_CPadData **cpdp,
   return changedF;
 }
 
-uint32
+uint32_t
 BS_GetOtherSignals(void)
 {
-  uint32 oS;
+  uint32_t oS;
   oS = gOtherSignals;
   gOtherSignals = 0;
   return oS;
 }
 
-int32
-BS_GetPeripheralCount(uint32 devMask)
+int32_t
+BS_GetPeripheralCount(uint32_t devMask)
 {
-  int32 devs = 0;
+  int32_t devs = 0;
 
   if (devMask & BS_MOUSE) {
     devs += gMice;
@@ -239,16 +241,16 @@ BS_GetPeripheralCount(uint32 devMask)
   return devs;
 }
 
-int32
+int32_t
 BS_NiceWaitEvent(BS_StickData **sdp, BS_CPadData **cpdp, BS_MouseData **mdp,
                  BS_LGunData **lgdp)
 {
   Item eventItem;
   Message *event;
   EventBrokerHeader *msgHeader;
-  uint32 theSignal;
-  int32 eCode = 0;
-  uint32 otherSignals = 0;
+  uint32_t theSignal;
+  int32_t eCode = 0;
+  uint32_t otherSignals = 0;
 
 BS_NICE_WAIT_ENTRANCE:
 
@@ -270,7 +272,7 @@ BS_NICE_WAIT_ENTRANCE:
     while ((eventItem = GetMsg(msgPortItem)) != 0) {
       /* message error trap */
       if (eventItem < 0) {
-        printf("Error 0x%lx getting message: ", eventItem);
+        printf("Error 0x%x getting message: ", eventItem);
         PrintfSysErr(eventItem);
         exit(1);
       }
@@ -284,17 +286,17 @@ BS_NICE_WAIT_ENTRANCE:
       /* was there a communication problem? */
       if (eventItem == msgItem) {
         /* mewl and puke */
-        if ((int32) event->msg_Result < 0) {
+        if ((int32_t) event->msg_Result < 0) {
           printf(
               "BS_NiceWaitEvent: says broker refused configuration request: ");
-          PrintfSysErr((int32) event->msg_Result);
+          PrintfSysErr((int32_t) event->msg_Result);
           exit(1);
         }
       }
       /* no... */
       else {
         /* dispatch the event data to the appropriate structs */
-        eCode |= (int32) handleEvent(msgHeader, sdp, cpdp, mdp, lgdp);
+        eCode |= (int32_t) handleEvent(msgHeader, sdp, cpdp, mdp, lgdp);
 
         /* reply to the event broker that we got the message */
         ReplyMsg(eventItem, 0, NULL, 0);
@@ -313,7 +315,7 @@ BS_NICE_WAIT_ENTRANCE:
 int
 BS_ConnectEventBroker(void)
 {
-  int32 sent;
+  int32_t sent;
   TagArg msgTags[3];
   int iArg = 0;
 
@@ -360,7 +362,7 @@ BS_ConnectEventBroker(void)
   msgPtr = (Message *) LookupItem(msgItem);
 
   if (!msgPtr) {
-    printf("BS_ConnectBroker(): bad message item. (%ld)\n", msgItem);
+    printf("BS_ConnectBroker(): bad message item. (%d)\n", msgItem);
     return 0;
   }
 
@@ -405,7 +407,7 @@ BS_ConnectEventBroker(void)
 
   iArg = 0;
   msgTags[iArg].ta_Tag = CREATEMSG_TAG_REPLYPORT;
-  msgTags[iArg++].ta_Arg = (void *) msgPortItem;
+  msgTags[iArg++].ta_Arg = (void *) (intptr_t) msgPortItem;
 
   msgTags[iArg].ta_Tag = CREATEMSG_TAG_DATA_SIZE;
   msgTags[iArg++].ta_Arg = (void *) MSGSIZE;
@@ -422,7 +424,7 @@ BS_ConnectEventBroker(void)
 
   qMsg = (Message *) LookupItem(queryMsgItem);
   if (!qMsg) {
-    printf("BS_CountPeripherals(): bad item: %ld\n", queryMsgItem);
+    printf("BS_CountPeripherals(): bad item: %d\n", queryMsgItem);
     return 0;
   }
 
@@ -440,7 +442,7 @@ BS_ConnectEventBroker(void)
 
 /* don't have this unless we're doing joystick stuff */
 #ifdef __BS_JOYSTICK_H
-uint32
+uint32_t
 BS_WatchingJoyStick(void)
 {
   if (!IsConnected) {
@@ -456,9 +458,9 @@ BS_WatchingJoyStick(void)
 int
 BS_WatchJoyStick(int debounceAllF)
 {
-  uint32 stickFlags = EVENTBIT0_StickButtonPressed | EVENTBIT0_StickUpdate |
+  uint32_t stickFlags = EVENTBIT0_StickButtonPressed | EVENTBIT0_StickUpdate |
                       EVENTBIT0_StickMoved;
-  int32 sent;
+  int32_t sent;
 
   /* can't ask for joystick events if we're not connected */
   if (!IsConnected) {
@@ -506,7 +508,7 @@ BS_WatchJoyStick(int debounceAllF)
 
 /* don't compile this is we aren't using the mouse */
 #ifdef __BS_MOUSE_H
-uint32
+uint32_t
 BS_WatchingMouse(void)
 {
   if (!IsConnected) {
@@ -522,9 +524,9 @@ BS_WatchingMouse(void)
 int
 BS_WatchMouse(int debounceAllF)
 {
-  uint32 mouseFlags = EVENTBIT0_MouseButtonPressed | EVENTBIT0_MouseUpdate |
+  uint32_t mouseFlags = EVENTBIT0_MouseButtonPressed | EVENTBIT0_MouseUpdate |
                       EVENTBIT0_MouseMoved;
-  int32 sent;
+  int32_t sent;
 
   /* have to be connected to ask for mouse events */
   if (!IsConnected) {
@@ -572,7 +574,7 @@ BS_WatchMouse(int debounceAllF)
 
 /* don't compile if we are not using the control pad */
 #ifdef __BS_CPAD_H
-uint32
+uint32_t
 BS_WatchingCPad(void)
 {
   if (!IsConnected) {
@@ -587,9 +589,9 @@ BS_WatchingCPad(void)
 int
 BS_WatchCPad(int debounceAllF)
 {
-  uint32 padFlags =
+  uint32_t padFlags =
       EVENTBIT0_ControlButtonPressed | EVENTBIT0_ControlButtonUpdate;
-  int32 sent;
+  int32_t sent;
 
   /* have to be connected to the event broker */
   if (!IsConnected) {
@@ -635,7 +637,7 @@ BS_WatchCPad(int debounceAllF)
 
 /* only compile if we are doing lightgun support */
 #ifdef __BS_LGUN_H
-uint32
+uint32_t
 BS_WatchingLightGun(void)
 {
   if (!IsConnected) {
@@ -651,9 +653,9 @@ BS_WatchingLightGun(void)
 int
 BS_WatchLGun(int debounceAllF)
 {
-  uint32 gunFlags = EVENTBIT0_LightGunButtonPressed |
+  uint32_t gunFlags = EVENTBIT0_LightGunButtonPressed |
                     EVENTBIT0_LightGunFireTracking | EVENTBIT0_LightGunUpdate;
-  int32 sent;
+  int32_t sent;
 
   /* have to be connected to broker */
   if (!IsConnected) {

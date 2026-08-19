@@ -1,6 +1,8 @@
 #ifndef __3do_preparestream_h__
 #define __3do_preparestream_h__
 
+#include <stdint.h>
+
 #include "types.h"
 #include "datastreamlib.h"
 #include "dsstreamheader.h"
@@ -49,8 +51,8 @@ enum
 /* Public routine prototypes */
 /*****************************/
 
-int32        FindAndLoadStreamHeader(DSHeaderChunkPtr headerPtr, char *streamFileName);
+int32_t      FindAndLoadStreamHeader(DSHeaderChunkPtr headerPtr, char *streamFileName);
 DSDataBufPtr CreateBufferList(long numBuffers, long bufferSize);
-int32        UseDefaultStreamHeader(DSHeaderChunkPtr headerPtr);
+int32_t      UseDefaultStreamHeader(DSHeaderChunkPtr headerPtr);
 
 #endif /* __3do_preparestream_h__ */

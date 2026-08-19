@@ -19,6 +19,8 @@
 #ifndef _PREPARESTREAM_H_
 #define _PREPARESTREAM_H_
 
+#include <stdint.h>
+
 #ifndef _TYPES_H
 #include "types.h"
 #endif
@@ -74,8 +76,8 @@ enum {
 /* Public routine prototypes */
 /*****************************/
 
-int32 FindAndLoadStreamHeader(DSHeaderChunkPtr headerPtr, char *streamFileName);
+int32_t FindAndLoadStreamHeader(DSHeaderChunkPtr headerPtr, char *streamFileName);
 DSDataBufPtr CreateBufferList(long numBuffers, long bufferSize);
-int32 UseDefaultStreamHeader(DSHeaderChunkPtr headerPtr);
+int32_t UseDefaultStreamHeader(DSHeaderChunkPtr headerPtr);
 
 #endif /* _PREPARESTREAM_H_ */

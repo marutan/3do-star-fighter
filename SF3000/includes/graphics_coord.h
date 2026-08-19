@@ -1,8 +1,8 @@
 #ifndef __3do_graphics_coord_h__
 #define __3do_graphics_coord_h__
 
-#include "types.h"
+#include <stdint.h>
 
-typedef int32 Coord;
+typedef int32_t Coord;
 
 #endif /* __3do_graphics_coord_h__ */

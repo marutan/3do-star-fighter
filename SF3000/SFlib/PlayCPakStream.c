@@ -24,6 +24,7 @@
  *
  *******************************************************************************************/
 
+#include <stdint.h>
 #include <stdio.h>
 
 #include "init3do.h"
@@ -45,7 +46,7 @@
 /************************************/
 /* Local utility routine prototypes */
 /************************************/
-static int32 InitCPakPlayerFromStreamHeader(PlayerPtr ctx,
+static int32_t InitCPakPlayerFromStreamHeader(PlayerPtr ctx,
                                             char *streamFileName);
 void DismantlePlayer(PlayerPtr ctx);
 
@@ -53,12 +54,12 @@ void DismantlePlayer(PlayerPtr ctx);
  * Routine to play a Cinepak stream file. Stream may or may not contain audio
  *data. Audio channel selection is based upon info found in the stream header.
  *******************************************************************************************/
-int32
+int32_t
 PlayCPakStream(ScreenContext *screenContextPtr, char *streamFileName,
                PlayCPakUserFn userFn, void *userContext)
 {
-  int32 status;
-  int32 playerResult;
+  int32_t status;
+  int32_t playerResult;
   PlayerPtr ctx;
   Player playerContext;
   DSRequestMsg EOSMessage;
@@ -180,10 +181,10 @@ PlayCPakStream(ScreenContext *screenContextPtr, char *streamFileName,
  * Routine to get the stream header info, and perform all necessary allocations
  * and initializations necessary for stream playback.
  *******************************************************************************************/
-static int32
+static int32_t
 InitCPakPlayerFromStreamHeader(PlayerPtr ctx, char *streamFileName)
 {
-  int32 status;
+  int32_t status;
   long subscriberIndex;
   long channelNum;
   SAudioCtlBlock ctlBlock;

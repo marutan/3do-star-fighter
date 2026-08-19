@@ -10,8 +10,8 @@
 *
 */
 
-//Item  __swi(KERNELSWI+0)  CreateSizedItem(int32 ctype,TagArg *p,int32 size);
-Item  CreateSizedItem(int32 ctype,TagArg *p,int32 size);
+//Item  __swi(KERNELSWI+0)  CreateSizedItem(int32_t ctype, TagArg *p, int32_t size);
+Item  CreateSizedItem(int32_t ctype, TagArg *p, int32_t size);
 //Err   __swi(KERNELSWI+3)  DeleteItem(Item i);
 Err   DeleteItem(Item i);
 
@@ -19,7 +19,7 @@ Err   DeleteItem(Item i);
 void *LookupItem(Item i);
 
 /* convenience routines */
-Item FindNamedItem(int32 ctype, const char *name);
+Item FindNamedItem(int32_t ctype, const char *name);
 
 #define CreateItem(ct,p) CreateSizedItem((ct),(p),0)
 
@@ -42,8 +42,8 @@ enum item_tags
 typedef struct ItemEntry ItemEntry;
 struct ItemEntry
 {
-  void   *ie_ItemAddr;
-  uint32  ie_ItemInfo;
+  void     *ie_ItemAddr;
+  uint32_t  ie_ItemInfo;
 };
 
 #endif /* __3do_item_h__ */

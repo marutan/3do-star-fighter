@@ -778,7 +778,7 @@ control_showmission(long show_mode, long show_var)
                                            // the screen
 
   char mission_line[40];
-  long textcel, cel_width, cel_height, keypad, keypad_constant, textcel_case,
+  int32_t textcel, cel_width, cel_height, keypad, keypad_constant, textcel_case,
       text_bottomcheck = 240 << 16, textcel_newypos = 0, text_direction,
       textcel_newline, mission_linecolour, textcel_slottouse = 0,
       mission_linetouse = 0, message_xlength;
@@ -994,7 +994,7 @@ control_showmission(long show_mode, long show_var)
       ((cel_text[textcel_slottouse]->tc_CCB)->ccb_Flags) &=
           ~CCB_SKIP; // Make active
       cel_text[textcel_slottouse]->tc_userData =
-          (void *) mission_linecolour; // Remember colour
+          (void *) (intptr_t) mission_linecolour; // Remember colour
     }
 
     // ARE WE MOVING TEXT CELS UP OR DOWN ?

@@ -1,6 +1,8 @@
 #ifndef __3do_dataacq_h__
 #define __3do_dataacq_h__
 
+#include <stdint.h>
+
 #include "blockfile.h"
 #include "datastream.h"
 #include "itempool.h"
@@ -10,21 +12,21 @@
 /********************************************************/
 typedef struct AcqContext
 {
-  Item   creatorTask;           /* who to signal when we're done initializing */
-  uint32 creatorSignal;         /* signal to send for synchronous completion */
-  int32  creatorStatus;         /* result code for creator */
-  char*  fileName;              /* pointer to file name string at init time */
+  Item     creatorTask;           /* who to signal when we're done initializing */
+  uint32_t creatorSignal;         /* signal to send for synchronous completion */
+  int32_t  creatorStatus;         /* result code for creator */
+  char*    fileName;              /* pointer to file name string at init time */
 
   ItemPoolPtr ioReqItemPoolPtr; /* a pool of ioReqItems for the DataBufs to use */
 
   Item  threadItem;             /* The thread Item for the server process */
   void* threadStackBlock;       /* pointer to thread's stack memory block */
 
-  Item   requestPort;           /* message port for data acquisition requests */
-  uint32 requestPortSignal;     /* signal associated with requestPort */
+  Item     requestPort;           /* message port for data acquisition requests */
+  uint32_t requestPortSignal;     /* signal associated with requestPort */
 
-  Item   ioDoneReplyPort;       /* message port for I/O completion messages */
-  uint32 ioDoneReplyPortSignal; /* signal associated with ioDoneReplyPort */
+  Item     ioDoneReplyPort;       /* message port for I/O completion messages */
+  uint32_t ioDoneReplyPortSignal; /* signal associated with ioDoneReplyPort */
 
   DataAcqMsgPtr requestQueue;   /* list of outstanding I/O request messages */
 
@@ -41,11 +43,11 @@ typedef struct AcqContext
   BlockFile blockFile;          /* block file associated with this context */
 
 #if TIME_BASED_BRANCHING
-  Item   dsReqReplyPort;        /* reply port for requests to streamer */
-  uint32 dsReqReplyPortSignal;  /* signal for replies to streamer requests */
+  Item     dsReqReplyPort;        /* reply port for requests to streamer */
+  uint32_t dsReqReplyPortSignal;  /* signal for replies to streamer requests */
 
-  uint32 subscriberPortSignal;  /* signal for receipt of subscriber messages */
-  Item   subscriberPort;        /* message port for our data type */
+  uint32_t subscriberPortSignal;  /* signal for receipt of subscriber messages */
+  Item     subscriberPort;        /* message port for our data type */
 
   DSStreamCBPtr streamCBPtr;    /* stream control block of stream we are connected to */
 
@@ -54,10 +56,10 @@ typedef struct AcqContext
 
 } AcqContext, *AcqContextPtr;
 
-int32 InitDataAcq(int32 dataAcqCount);
-int32 CloseDataAcq(void);
+int32_t InitDataAcq(int32_t dataAcqCount);
+int32_t CloseDataAcq(void);
 
-int32 NewDataAcq(AcqContextPtr *pCtx, char* fileName, long deltaPriority);
+int32_t NewDataAcq(AcqContextPtr *pCtx, char* fileName, long deltaPriority);
 void  DisposeDataAcq(AcqContextPtr ctx);
 
 #endif /* __3do_dataacq_h__ */

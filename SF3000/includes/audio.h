@@ -1,6 +1,8 @@
 #ifndef __3do_audio_h__
 #define __3do_audio_h__
 
+#include <stdint.h>
+
 #include "nodes.h"
 #include "operamath.h"      /* frac16 */
 #include "operror.h"
@@ -102,8 +104,8 @@ enum audio_folio_tags
 
 /* Declare SWIs */
 
-//Err __swi(AUDIOSWI+0) TweakKnob( Item KnobItem, int32 Value );
-Err TweakKnob( Item KnobItem, int32 Value );
+//Err __swi(AUDIOSWI+0) TweakKnob( Item KnobItem, int32_t Value );
+Err TweakKnob( Item KnobItem, int32_t Value );
 //Err __swi(AUDIOSWI+1) StartInstrument( Item Instrument, TagArg *TagList);
 Err StartInstrument( Item Instrument, TagArg *TagList);
 //Err __swi(AUDIOSWI+8) ConnectInstruments( Item SrcIns, char *SrcName,
@@ -136,7 +138,7 @@ Item   LoadSample ( char *Name );
 Err  UnloadSample ( Item SampleItem );
 
 /* Modified user routines as of 3/15/93 ********************************/
-Item  LoadInstrument( char *Name, Item AudioDevice, uint8 Priority);
+Item  LoadInstrument( char *Name, Item AudioDevice, uint8_t Priority);
 
 Err GetAudioItemInfo( Item AnyItem, TagArg *tp );
 

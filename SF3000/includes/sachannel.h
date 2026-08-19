@@ -31,9 +31,9 @@ typedef struct SAudioChannel
   Item                 channelInstrument; /* DSP instrument to play channel's data chunks */
   boolean              instStarted; /* flag to know if instrument is started */
   boolean              instPaused; /* flag to know if instrument is paused */
-  ulong                pauseTime; /* stream clock value when pause was initiated */
+  uint32_t             pauseTime; /* stream clock value when pause was initiated */
   boolean              attachmentsRunning; /* flag to know if attachments are running */
-  ulong                signalMask; /* the ORd signals for all the current cues on this channel */
+  uint32_t             signalMask; /* the ORd signals for all the current cues on this channel */
   SubsQueue            dataQueue; /* waiting data chunks */
   long                 inuseCount; /* number of buffers currently in the in use queue */
   struct SAudioBuffer* inuseQueueHead; /* pointer to head of buffers queued to the audio folio */

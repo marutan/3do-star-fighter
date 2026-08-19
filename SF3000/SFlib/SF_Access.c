@@ -15,7 +15,7 @@
 /* Global variables */
 
 long file_return;
-ubyte *backdrop;
+uint8_t *backdrop;
 
 /**************************************/
 

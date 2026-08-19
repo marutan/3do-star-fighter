@@ -75,8 +75,8 @@ typedef struct Player {
 /* Public routine prototypes */
 /*****************************/
 
-int32 PlayCPakStream(ScreenContext *screenContextPtr, char *streamFileName,
-                     PlayCPakUserFn userFn, void *userContext);
+int32_t PlayCPakStream(ScreenContext *screenContextPtr, char *streamFileName,
+                       PlayCPakUserFn userFn, void *userContext);
 void DismantlePlayer(PlayerPtr ctx);
 
 #endif /* _PLAYSTREAM_H_ */

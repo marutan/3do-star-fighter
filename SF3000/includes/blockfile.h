@@ -1,6 +1,8 @@
 #ifndef __3do_blockfile_h__
 #define __3do_blockfile_h__
 
+#include <stdint.h>
+
 #include "types.h"
 #include "filesystem.h"
 
@@ -21,7 +23,7 @@ typedef struct BlockFile {
 Item    CreateBlockFileIOReq(Item deviceItem, Item iodoneReplyPort);
 Err     OpenBlockFile(char *name, BlockFilePtr bf);
 void    CloseBlockFile(BlockFilePtr bf);
-Err     AsynchReadBlockFile(BlockFilePtr bf, Item ioreqItem, void* buffer, int32 count, int32 offset);
+Err     AsynchReadBlockFile(BlockFilePtr bf, Item ioreqItem, void* buffer, int32_t count, int32_t offset);
 Err     WaitReadDoneBlockFile(Item ioreqItem);
 
 

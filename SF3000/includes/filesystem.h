@@ -1,6 +1,8 @@
 #ifndef __3do_filesystem_h__
 #define __3do_filesystem_h__
 
+#include <stdint.h>
+
 #include "types.h"
 #include "io.h"
 #include "discdata.h"
@@ -12,7 +14,7 @@
 
 typedef struct FileStatus {
   DeviceStatus fs;
-  uint32       fs_ByteCount;
+  uint32_t     fs_ByteCount;
 } FileStatus;
 
 

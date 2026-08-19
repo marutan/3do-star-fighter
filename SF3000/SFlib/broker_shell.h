@@ -12,6 +12,8 @@
 **
 ******************************************************************************/
 
+#include <stdint.h>
+
 #include "event.h"
 #include "types.h"
 
@@ -51,7 +53,7 @@ enum {
 extern int BS_ConnectEventBroker(void);
 
 #ifdef __BS_JOYSTICK_H
-extern uint32 BS_WatchingJoyStick(void);
+extern uint32_t BS_WatchingJoyStick(void);
 extern int BS_WatchJoyStick(int);
 #define BS_IgnoreJoyStick() BS_WatchJoyStick(-1)
 #else
@@ -59,7 +61,7 @@ typedef void BS_StickData;
 #endif /*  __BS_JOYSTICK_H */
 
 #ifdef __BS_CPAD_H
-extern uint32 BS_WatchingCPad(void);
+extern uint32_t BS_WatchingCPad(void);
 extern int BS_WatchCPad(int);
 #define BS_IgnoreCPad() BS_WatchCPad(-1)
 #else
@@ -67,7 +69,7 @@ typedef void BS_CPadData;
 #endif /*  __BS_CPAD_h */
 
 #ifdef __BS_LGUN_H
-extern uint32 BS_WatchingLGun(void);
+extern uint32_t BS_WatchingLGun(void);
 extern int BS_WatchLGun(int);
 #define BS_IgnoreLGun() BS_WatchLGun(-1)
 #else
@@ -75,21 +77,21 @@ typedef void BS_LGunData;
 #endif /*  __BS_LGUN_H */
 
 #ifdef __BS_MOUSE_H
-extern uint32 BS_WatchingMouse(void);
+extern uint32_t BS_WatchingMouse(void);
 extern int BS_WatchMouse(int);
 #define BS_IgnoreMouse() BS_WatchMouse(-1)
 #else
 typedef void BS_MouseData;
 #endif /* __BS_MOUSE_H */
 
-extern int32 BS_GetPeripheralCount(uint32 devMask);
+extern int32_t BS_GetPeripheralCount(uint32_t devMask);
 extern int BS_CountPeripherals(void);
 
 extern int BS_DisconnectBroker(void);
 
-extern uint32 BS_GetOtherSignals(void);
+extern uint32_t BS_GetOtherSignals(void);
 
-extern int32 BS_NiceWaitEvent(BS_StickData **sdp, BS_CPadData **cpdp,
+extern int32_t BS_NiceWaitEvent(BS_StickData **sdp, BS_CPadData **cpdp,
                               BS_MouseData **mdp, BS_LGunData **lgdp);
 
 #endif /* __BROKER_SHELL_H */

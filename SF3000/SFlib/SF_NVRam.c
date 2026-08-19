@@ -3,6 +3,9 @@
 
 // Includes
 
+
+#include <stdint.h>
+
 #include "SF_NVRam.h"
 #include "SF_Message.h"
 #include "blockfile.h"
@@ -72,7 +75,7 @@ nvram_save(char *filename, char *gameprefix, char *addressofsavefile,
   IOInfo fileInfo;
   char full_filename[40];
   long loop;
-  uint32 numberOfBlocks, blockSize;
+  uint32_t numberOfBlocks, blockSize;
   FileStatus file_status;
 
   // CREATE FULL PATHNAME

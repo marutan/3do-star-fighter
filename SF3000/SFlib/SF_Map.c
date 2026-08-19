@@ -957,7 +957,7 @@ map_showstatus(ship_stack *ship)
 
   long item_loop, item_valueloop, icon_perfvalue;
 
-  long info_x, info_y, height, width, baricon,
+  int32_t info_x, info_y, height, width, baricon,
       item_maxloop = (ship == players_ship) ? 12 : 7;
 
   long keypad;

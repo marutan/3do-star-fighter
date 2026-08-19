@@ -15,13 +15,15 @@
  *
  *******************************************************************************************/
 
+#include <stdint.h>
+#include <stdio.h>
+
 #include "preparestream.h"
 #include "blockfile.h"
 #include "satemplates.h"
 #include "types.h"
 #include "umemory.h"
 
-#include <stdio.h>
 
 /*********************************************************************************************
  * Routine to allocate and initialize a buffer list for use with the streamer
@@ -69,10 +71,10 @@ CreateBufferList(long numBuffers, long bufferSize)
  * Routine to find and load a stream header into memory given a stream file
  *name.
  *********************************************************************************************/
-int32
+int32_t
 FindAndLoadStreamHeader(DSHeaderChunkPtr headerPtr, char *fileName)
 {
-  int32 status;
+  int32_t status;
   BlockFile blockFile;
   Item ioDoneReplyPort;
   Item ioReqItem;
@@ -169,10 +171,10 @@ BAILOUT:
 /*********************************************************************************************
  * Routine to load the default stream header.
  *********************************************************************************************/
-int32
+int32_t
 UseDefaultStreamHeader(DSHeaderChunkPtr headerPtr)
 {
-  int32 index;
+  int32_t index;
 
   headerPtr->headerVersion = DS_STREAM_VERSION;
   headerPtr->streamBlockSize = kDefaultBlockSize;

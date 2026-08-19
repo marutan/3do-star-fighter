@@ -18,6 +18,8 @@
 
 /**************************************/
 
+#include <stdint.h>
+
 #include "SF_Music.h"
 #include "SF_Allocation.h"
 #include "audio.h"
@@ -62,9 +64,9 @@ Item music_taskref; // Task ref of player
 SPPlayer *music_player = NULL; // Sample player
 SPSound *music_sample = NULL;  // Sample ref
 
-int32 MUSIC_SIGNALPARENT; // SIGNAL FROM TASK TO PARENT
+int32_t MUSIC_SIGNALPARENT; // SIGNAL FROM TASK TO PARENT
 
-int32 MUSIC_PLAY, // SIGNALS FOR THE MUSIC PLAYING THREAD TO USE
+int32_t MUSIC_PLAY, // SIGNALS FOR THE MUSIC PLAYING THREAD TO USE
     MUSIC_REPEAT, MUSIC_STOP, MUSIC_TERMINATE, MUSIC_PAUSE, MUSIC_RESUME,
     MUSIC_COMMAND, MUSIC_MAKETIME, MUSIC_PLAYVOICE;
 
@@ -423,7 +425,7 @@ music_thread(void)
 
 {
 
-  int32 music_playersignal, music_signal, result;
+  int32_t music_playersignal, music_signal, result;
 
   // OPEN AUDIO FOLIO
 
@@ -612,7 +614,7 @@ music_loadin(long play_voiceover)
 
   char music_file[128];
   char music_loadtrack = MUSIC_PROGRAM[MUSIC_TRACK];
-  int32 result;
+  int32_t result;
 
   // SET VOLUME FOR PLAY
 
@@ -646,7 +648,7 @@ music_loadin(long play_voiceover)
 /**************************************/
 
 void
-music_command(int32 command)
+music_command(int32_t command)
 
 // Purpose : Accepts & processes commands from player [only if player active]
 // Accepts : Signal command

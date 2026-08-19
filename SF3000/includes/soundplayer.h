@@ -1,6 +1,8 @@
 #ifndef __3do_soundplayer_h__
 #define __3do_soundplayer_h__
 
+#include <stdint.h>
+
 #include "types.h"
 
 /* -------------------- Typedefs */
@@ -61,9 +63,9 @@ extern const char sp_markerNameBegin[];
 /* -------------------- Functions */
 
 /* SPPlayer create, deletion, set attributes */
-Err spCreatePlayer (SPPlayer **resultPlayer, Item samplerIns, uint32 numBuffers, uint32 bufSize, void * const buffers[]);
+Err spCreatePlayer (SPPlayer **resultPlayer, Item samplerIns, uint32_t numBuffers, uint32_t bufSize, void * const buffers[]);
 Err spDeletePlayer (SPPlayer *);
-int32 spGetPlayerSignalMask (const SPPlayer *);
+int32_t spGetPlayerSignalMask (const SPPlayer *);
 
 /* SPPlayer control */
 Err spStartReading (SPSound *startSound, const char *startMarkerName);
@@ -71,8 +73,8 @@ Err spStartPlaying (SPPlayer *, const TagArg *samplerTags);
 Err spStop (SPPlayer *);
 Err spPause (SPPlayer *);
 Err spResume (SPPlayer *);
-int32 spService (SPPlayer *, int32 signals);
-int32 spGetPlayerStatus (const SPPlayer *);
+int32_t spService (SPPlayer *, int32_t signals);
+int32_t spGetPlayerStatus (const SPPlayer *);
 
 /* SPSound add, remove, status */
 Err spAddSoundFile (SPSound **resultSound, SPPlayer *, const char *fileName);

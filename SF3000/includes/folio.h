@@ -1,6 +1,8 @@
 #ifndef __3do_folio_h__
 #define __3do_folio_h__
 
+#include <stdint.h>
+
 #include "types.h"
 #include "nodes.h"
 #include "item.h"
@@ -10,12 +12,12 @@ typedef struct Folio Folio;
 struct Folio
 {
   ItemNode fn;
-  int32    f_OpenCount;
-  uint8    f_TaskDataIndex;
-  uint8    f_MaxSwiFunctions;
-  uint8    f_MaxUserFunctions;
-  uint8    f_MaxNodeType;
-  int32    f_Private[17];
+  int32_t  f_OpenCount;
+  uint8_t  f_TaskDataIndex;
+  uint8_t  f_MaxSwiFunctions;
+  uint8_t  f_MaxUserFunctions;
+  uint8_t  f_MaxNodeType;
+  int32_t  f_Private[17];
 };
 
 

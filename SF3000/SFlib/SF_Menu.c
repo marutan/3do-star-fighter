@@ -1442,7 +1442,7 @@ menu_enter(long current_menu, long reset_to_top)
 
 {
 
-  long cel_base = 0, option_draw, width, height, item_ypos, item_variable;
+  int32_t cel_base = 0, option_draw, width, height, item_ypos, item_variable;
 
   char item_variabletext[16];
   menu_item *item_draw;
@@ -1768,7 +1768,7 @@ menu_enter(long current_menu, long reset_to_top)
 
       SetTextCelColor(cel_text[cel_base], 0,
                       (option_draw < 2) ? YELLOW_15 : RED_15);
-      sprintf(item_variabletext, "%ld", item_variable);
+      sprintf(item_variabletext, "%d", item_variable);
       UpdateTextInCel(cel_text[cel_base], TRUE, item_variabletext);
       GetTextCelSize(cel_text[cel_base], &width, &height);
       SetTextCelCoords(cel_text[cel_base], 270 - width,

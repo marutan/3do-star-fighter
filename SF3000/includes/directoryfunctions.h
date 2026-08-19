@@ -4,7 +4,7 @@
 #include "types.h"
 
 Directory *OpenDirectoryItem(Item openFileItem);
-int32      ReadDirectory (Directory *dir, DirectoryEntry *de);
+int32_t    ReadDirectory (Directory *dir, DirectoryEntry *de);
 void       CloseDirectory (Directory *dir);
 
 #endif /*  __3do_directoryfunctions_h__ */
