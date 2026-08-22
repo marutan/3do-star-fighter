@@ -17,7 +17,7 @@ extern long camera_x_velocity;
 extern long camera_y_velocity;
 extern long camera_z_velocity;
 
-extern long test_mode;
+extern int32_t test_mode;
 
 extern ship_stack *ship_being_viewed;
 

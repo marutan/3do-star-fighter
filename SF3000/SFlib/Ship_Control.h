@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 #include "Ship_Struct.h"
 
 #define C_LEFT 1
@@ -8,8 +10,8 @@
 #define C_FIRE 32
 #define ROT_LIMIT ((1024 * 1024) - 1)
 
-extern long cosine_table[2048];
-extern long *sine_table;
+extern int32_t cosine_table[2048];
+extern int32_t *sine_table;
 
 #include "Misc_Struct.h"
 extern docking_struct docked;
@@ -18,8 +20,8 @@ extern docking_struct docked;
 extern game_status status;
 
 // Get these for the satellite update
-extern long ground_laser_type;
-extern long ground_laser_rate;
+extern int32_t ground_laser_type;
+extern int32_t ground_laser_rate;
 
 extern ship_list ships;
 

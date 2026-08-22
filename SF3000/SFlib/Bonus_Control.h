@@ -1,9 +1,10 @@
+#include <stdint.h>
 #include "Ship_Struct.h"
 
 extern ship_list ships;
 extern ship_stack *players_ship;
 
-extern long bonus_collision_this_frame;
+extern int32_t bonus_collision_this_frame;
 
 void bonus_control(ship_stack *);
 

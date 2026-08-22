@@ -1,10 +1,15 @@
+#ifndef __sflib_smoke_control_h__
+#define __sflib_smoke_control_h__
+
+#include <stdint.h>
+
 #include "Ship_Struct.h"
 #include "Smoke_Struct.h"
 
 extern smoke_list smokes;
 
-extern long cosine_table[2048];
-extern long *sine_table;
+extern int32_t cosine_table[2048];
+extern int32_t *sine_table;
 
 extern long which_graphics_set;
 
@@ -43,3 +48,5 @@ void fighter_thrusters(ship_stack *);
 #define SECTION_SMOKE2 16
 #define SECTION_SMOKE3 17
 #define SECTION_SMOKE4 18
+
+#endif /* __sflib_smoke_control_h__ */

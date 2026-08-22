@@ -1,10 +1,14 @@
+#ifndef __sflib_laser_control_h__
+#define __sflib_laser_control_h__
+
+#include <stdint.h>
 #include "Graphic_Struct.h"
 #include "Laser_Struct.h"
 #include "Ship_Struct.h"
 
 extern laser_list lasers;
-extern long cosine_table[2048];
-extern long *sine_table;
+extern int32_t cosine_table[2048];
+extern int32_t *sine_table;
 
 extern char height_map[256][256];
 
@@ -40,3 +44,5 @@ void add_small_fighter_laser(laser_details *, ship_stack *, long);
 
 #define LASER_TYPE_SMALL_SHIP 0
 #define LASER_TYPE_GUN_BASE 1
+
+#endif /* __sflib_laser_control_h__ */

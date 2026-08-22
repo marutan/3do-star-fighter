@@ -5,6 +5,8 @@
 // 							512 = HALF THE NUMBER OF
 // SAMS 							2048 = DOUBLE THE FIRE RATE
 
+#include <stdint.h>
+
 // I HAVE SET THIS LOWER BECAUSE HAVING PLAYED IT I FELT THERE WERE TOO MANY
 
 #define SAM_FIRE_RATE 650
@@ -30,7 +32,7 @@
 #define COLL_DOWN_RIGHT 254
 #define COLL_RIGHT 255
 
-extern long cosine_table[2048];
+extern int32_t cosine_table[2048];
 extern long pex_table[16384];
 extern long pex_table_near[2048];
 extern long rotated_coords[3200][3];
@@ -64,7 +66,7 @@ extern game_status status;
 
 extern long star_coords[128][4];
 
-extern long *sine_table;
+extern int32_t *sine_table;
 
 extern ship_stack *players_ship;
 
@@ -81,14 +83,14 @@ void setup_tables(void);
 
 extern planet_data planet_info;
 
-extern long ground_ship_rate;
-extern long ground_sam_rate;
-extern long ground_laser_rate;
-extern long ground_ship_type;
-extern long ground_laser_type;
-extern long air_ship_type;
+extern int32_t ground_ship_rate;
+extern int32_t ground_sam_rate;
+extern int32_t ground_laser_rate;
+extern int32_t ground_ship_type;
+extern int32_t ground_laser_type;
+extern int32_t air_ship_type;
 
-extern long test_mode;
+extern int32_t test_mode;
 
 extern long are_we_in_space_or_wot;
 
@@ -104,6 +106,6 @@ extern bonus_crystal_object_struct bonus_crystal_object;
 
 extern long which_graphics_set;
 
-extern long players_x_control;
-extern long players_y_control;
-extern long players_thrust_control;
+extern int32_t players_x_control;
+extern int32_t players_y_control;
+extern int32_t players_thrust_control;

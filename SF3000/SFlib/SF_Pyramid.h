@@ -5,6 +5,8 @@
 
 // Includes
 
+#include <stdint.h>
+
 #include "SF_CelUtils.h"
 
 // Definitions
@@ -38,8 +40,8 @@ typedef struct pyramid // Pyramid structure data
 // External Definitions
 
 extern cel_celdata cel_quad;
-extern long cosine_table[2048];
-extern long *sine_table;
+extern int32_t cosine_table[2048];
+extern int32_t *sine_table;
 extern long cheat_feature1;
 
 // Function Prototypes

@@ -1,3 +1,7 @@
+#ifndef __sflib_weapons_h__
+#define __sflib_weapons_h__
+
+#include <stdint.h>
 #include "Ship_Struct.h"
 
 // Weapon types
@@ -16,8 +20,8 @@
 
 extern long which_graphics_set;
 
-extern long cosine_table[2048];
-extern long *sine_table;
+extern int32_t cosine_table[2048];
+extern int32_t *sine_table;
 
 extern long pod_counter;
 extern char height_map[256][256];
@@ -38,3 +42,5 @@ void add_mine(ship_stack *);
 void add_wing_pod(ship_stack *);
 
 void add_sam(long, long, long, ship_stack *, long);
+
+#endif /*  __sflib_weapons_h__ */

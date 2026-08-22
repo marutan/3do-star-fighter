@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 #include "Camera_Struct.h"
 #include "SF_CelUtils.h"
 #include "SF_Mission.h"
@@ -9,7 +11,7 @@
 #include "Misc_Struct.h"
 extern docking_struct docked;
 
-extern long test_mode;
+extern int32_t test_mode;
 
 /* External Definitions */
 

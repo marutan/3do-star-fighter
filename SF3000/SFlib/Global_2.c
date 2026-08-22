@@ -1,4 +1,7 @@
 // Setup various structures
+#include <stdint.h>
+
+#include "Global_2.h"
 #include "Ship_Struct.h"
 #include "Smoke_Struct.h"
 #include "Camera_Struct.h"
@@ -31,42 +34,42 @@ docking_struct docked;
 bonus_crystal_adder_struct bonus_crystal_adder;
 bonus_crystal_hill_struct bonus_crystal_hill;
 bonus_crystal_object_struct bonus_crystal_object;
-long bonus_collision_this_frame = 0;
+int32_t bonus_collision_this_frame = 0;
 
 // Players control rates
-long players_x_control = 0;
-long players_y_control = 0;
-long players_z_control = 0;
-long players_thrust_control = 0;
+int32_t players_x_control = 0;
+int32_t players_y_control = 0;
+int32_t players_z_control = 0;
+int32_t players_thrust_control = 0;
 
 // ########### bug fix for sound_conteol
-long laser_sound_counter = 0;
+int32_t laser_sound_counter = 0;
 
 // Two nearest ships of this type make engine sounds
 ship_stack *sound_big_ship;
 ship_stack *sound_small_ship;
-long sound_channel_small_ship = -1;
-long sound_channel_big_ship = -1;
-long sound_sample_small_ship = 0;
-long sound_channel_shields_low = -1;
-long sound_channel_beam_laser = -1;
-long engine_sounds_on_or_wot = 0;
+int32_t sound_channel_small_ship = -1;
+int32_t sound_channel_big_ship = -1;
+int32_t sound_sample_small_ship = 0;
+int32_t sound_channel_shields_low = -1;
+int32_t sound_channel_beam_laser = -1;
+int32_t engine_sounds_on_or_wot = 0;
 
 ship_stack *ship_being_viewed = 0;
 
 // Rate of fire for ground objects - chances in 1024
-long ground_laser_rate = 512;
-long ground_sam_rate = 0;
-long ground_ship_rate = 8;
+int32_t ground_laser_rate = 512;
+int32_t ground_sam_rate = 0;
+int32_t ground_ship_rate = 8;
 
-long ground_laser_type = 2;
-long ground_ship_type = 0;
-long air_ship_type = 0;
+int32_t ground_laser_type = 2;
+int32_t ground_ship_type = 0;
+int32_t air_ship_type = 0;
 
 // Toggle for the ground lasers
-long laser_counter;
+int32_t laser_counter;
 
-long test_mode = 0;
+int32_t test_mode = 0;
 
 // Misc counters etc.
 long pod_counter = 0;
@@ -77,8 +80,8 @@ long ship_viewed_last_frame_x_rot;
 ship_stack *ship_viewed_last_frame;
 
 // Setup data tables for quick reference look up
-long cosine_table[2048];
-long *sine_table = &cosine_table[256 * 3];
+int32_t cosine_table[2048];
+int32_t *sine_table = &cosine_table[256 * 3];
 long pex_table[16384];
 long pex_table_near[2048];
 long quick_height_table[256][4];

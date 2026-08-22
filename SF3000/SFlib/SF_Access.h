@@ -5,6 +5,8 @@
 
 // Includes
 
+#include <stdint.h>
+
 #include "SF_Allocation.h"
 #include "SF_CelUtils.h"
 #include "SF_Mission.h"
@@ -43,7 +45,7 @@ extern char skyfile[1024];               // Skyfile
 extern mission_data mission;             // Mission data
 extern cel_celdata cel_quad;             // Cel info block
 extern char tangent_table[4100];         // Tangent Data
-extern long cosine_table[2048];          // Cosine table
+extern int32_t cosine_table[2048];          // Cosine table
 extern char animate_poly[1024];          // Texture animations file
 extern game_configuration configuration; // Game configuration
 

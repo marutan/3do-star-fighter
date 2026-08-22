@@ -1,10 +1,12 @@
 #ifndef __SOUND_UPDATE_H
 #define __SOUND_UPDATE_H
 
+#include <stdint.h>
+
 #include "Ship_Struct.h"
 
-extern long cosine_table[2048];
-extern long *sine_table;
+extern int32_t cosine_table[2048];
+extern int32_t *sine_table;
 
 typedef struct sound_details {
   long stereo_pos;
@@ -26,11 +28,11 @@ extern ship_stack *players_ship;
 
 extern ship_stack *sound_big_ship;
 extern ship_stack *sound_small_ship;
-extern long sound_channel_small_ship;
-extern long sound_channel_big_ship;
-extern long sound_sample_small_ship;
-extern long engine_sounds_on_or_wot;
-extern long sound_channel_shields_low;
+extern int32_t sound_channel_small_ship;
+extern int32_t sound_channel_big_ship;
+extern int32_t sound_sample_small_ship;
+extern int32_t engine_sounds_on_or_wot;
+extern int32_t sound_channel_shields_low;
 
 extern long camera_x_position;
 extern long camera_y_position;
@@ -41,7 +43,7 @@ extern long camera_y_velocity;
 extern long camera_z_velocity;
 
 // bugggggg fix
-extern long laser_sound_counter;
+extern int32_t laser_sound_counter;
 
 #define SMALL_SHIP_ENGINE_ON 0
 #define SMALL_SHIP_ENGINE_OFF 1
