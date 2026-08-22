@@ -1,117 +1,117 @@
 
 // Setup various structures
 #include "Ship_Struct.h"
-ship_list ships;
-ship_stack *players_ship;
+extern ship_list ships;
+extern ship_stack *players_ship;
 
 #include "Smoke_Struct.h"
-smoke_list smokes;
+extern smoke_list smokes;
 
 #include "Camera_Struct.h"
-camera_data camera[MAX_CAMERAS];
+extern camera_data camera[MAX_CAMERAS];
 
 #include "Laser_Struct.h"
-laser_list lasers;
+extern laser_list lasers;
 
-laser_stack *beam_lasers[32];
-beam_laser_data beam_laser;
+extern laser_stack *beam_lasers[32];
+extern beam_laser_data beam_laser;
 
 #include "Bit_Struct.h"
-bit_list bits;
+extern bit_list bits;
 
 #include "Explosion_Struct.h"
-explosion_list explosions;
+extern explosion_list explosions;
 
 #include "Misc_Struct.h"
 
 // Docking stuff for the players ship
-docking_struct docked;
+extern docking_struct docked;
 
 // Bonus crystal stuff
-bonus_crystal_adder_struct bonus_crystal_adder;
-bonus_crystal_hill_struct bonus_crystal_hill;
-bonus_crystal_object_struct bonus_crystal_object;
-long bonus_collision_this_frame = 0;
+extern bonus_crystal_adder_struct bonus_crystal_adder;
+extern bonus_crystal_hill_struct bonus_crystal_hill;
+extern bonus_crystal_object_struct bonus_crystal_object;
+extern long bonus_collision_this_frame;
 
 // Players control rates
-long players_x_control = 0;
-long players_y_control = 0;
-long players_z_control = 0;
-long players_thrust_control = 0;
+extern long players_x_control;
+extern long players_y_control;
+extern long players_z_control;
+extern long players_thrust_control;
 
 // ########### bug fix for sound_conteol
-long laser_sound_counter = 0;
+extern long laser_sound_counter;
 
 // Two nearest ships of this type make engine sounds
-ship_stack *sound_big_ship;
-ship_stack *sound_small_ship;
-long sound_channel_small_ship = -1;
-long sound_channel_big_ship = -1;
-long sound_sample_small_ship = 0;
-long sound_channel_shields_low = -1;
-long sound_channel_beam_laser = -1;
-long engine_sounds_on_or_wot = 0;
+extern ship_stack *sound_big_ship;
+extern ship_stack *sound_small_ship;
+extern long sound_channel_small_ship;
+extern long sound_channel_big_ship;
+extern long sound_sample_small_ship;
+extern long sound_channel_shields_low;
+extern long sound_channel_beam_laser;
+extern long engine_sounds_on_or_wot;
 
-ship_stack *ship_being_viewed = 0;
+extern ship_stack *ship_being_viewed;
 
 // Rate of fire for ground objects - chances in 1024
-long ground_laser_rate = 512;
-long ground_sam_rate = 0;
-long ground_ship_rate = 8;
+extern long ground_laser_rate;
+extern long ground_sam_rate;
+extern long ground_ship_rate;
 
-long ground_laser_type = 2;
-long ground_ship_type = 0;
-long air_ship_type = 0;
+extern long ground_laser_type;
+extern long ground_ship_type;
+extern long air_ship_type;
 
 // Toggle for the ground lasers
-long laser_counter;
+extern long laser_counter;
 
-long test_mode = 0;
+extern long test_mode;
 
 // Misc counters etc.
-long pod_counter = 0;
+extern long pod_counter;
 
-long which_graphics_set;
+extern long which_graphics_set;
 
-long ship_viewed_last_frame_x_rot;
-ship_stack *ship_viewed_last_frame;
+extern long ship_viewed_last_frame_x_rot;
+extern ship_stack *ship_viewed_last_frame;
 
 // Setup data tables for quick reference look up
-long cosine_table[2048];
-long *sine_table = &cosine_table[256 * 3];
-long pex_table[16384];
-long pex_table_near[2048];
-long quick_height_table[256][4];
-char tangent_table[4100];
+extern long cosine_table[2048];
+extern long *sine_table;
+extern long pex_table[16384];
+extern long pex_table_near[2048];
+extern long quick_height_table[256][4];
+extern char tangent_table[4100];
 
 // Collision table for static ground obejcts
-char collision_map[128][128];
+extern char collision_map[128][128];
 
 // Setup data tables for the stars
-long star_coords[128][4];
+extern long star_coords[128][4];
 
 // Setup temp workspace for rotated coords and screen coords
 
 // For use by the landscape rotator
-long rotated_coords[3200][3];
-long screen_coords[3200][2];
+extern long rotated_coords[3200][3];
+extern long screen_coords[3200][2];
 
 // For use by the graphics - ships , static objects , explosion bits etc.
-long graphic_rotated_coords[256][4];
-long graphic_screen_coords[256][2];
+extern long graphic_rotated_coords[256][4];
+extern long graphic_screen_coords[256][2];
 
 // Temp store for misc use
-long *temp_store = &graphic_rotated_coords[0][0];
+extern long *temp_store;
 
 // General store for all polygon graphics - ships , static objects , explosion
 // bits This contains all coord data + polygon link data All explosion data and
 // collision data Misc items such as score / hits counter etc.
-long graphics_data[19000];
+extern long graphics_data[19000];
 
 // Global pointers to items in the graphics table
-long *static_graphics_adr;
-long *ships_adr;
-long *explosion_bits_adr;
+extern long *static_graphics_adr;
+extern long *ships_adr;
+extern long *explosion_bits_adr;
 
 // Is the 3DO quicker than the arm tests
 // mat33f16 matrix ;

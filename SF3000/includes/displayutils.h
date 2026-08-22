@@ -28,7 +28,7 @@ typedef struct ScreenContext
   uint32_t  sc_BitmapHeight;       /* pixel height of each bitmap       */
 } ScreenContext;
 
-Item    sc_BitmapItems[MAXSCREENS]; /* bitmap item for the screen */
+extern Item    sc_BitmapItems[MAXSCREENS]; /* bitmap item for the screen */
 
 
 Item     CreateBasicDisplay(ScreenContext *sc, uint32_t displayType, uint32_t numScreens);

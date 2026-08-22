@@ -94,7 +94,8 @@ OBJECTS	=	Star3000.o \
 		SFlib/bs_joystick.o \
 		SFlib/broker_shell.o \
 		SFlib/SF_Joystick.o \
-		SFlib/test_prog.o 
+		SFlib/test_prog.o \
+		SFlib/Global_2.o
 #		"{3DOLibs}"cstartup.o
 
 LIBS			=		"{SubscriberDir}subscriber.lib" \
