@@ -1,5 +1,6 @@
 #include <stdint.h>
 
+#include "Global_2.h"
 #include "SF_CelUtils.h"
 #include "Ship_Control.h"
 #include "Ship_Struct.h"
@@ -25,16 +26,11 @@ extern void rotate_node_from_c(void *);
 extern long wave_counter;
 extern long wave_counter2;
 extern long wave_counter3;
-extern long camera_x_rotation;
-extern long camera_y_rotation;
-extern long camera_x_position;
-extern long camera_y_position;
-extern long camera_z_position;
 extern long test_grid_flip;
 extern struct camera_data camera[3];
 
 extern game_status status;
-extern long pod_counter;
+extern int32_t pod_counter;
 extern long *temp_store;
 
 extern int32_t laser_counter;
@@ -42,16 +38,8 @@ extern int32_t laser_counter;
 #include "SF_Mission.h"
 extern planet_data planet_info;
 
-extern int32_t players_x_control;
-extern int32_t players_y_control;
-extern int32_t players_z_control;
-extern int32_t players_thrust_control;
 
 extern long keypad_iomap[8];
-
-extern int32_t bonus_collision_this_frame;
-
-extern int32_t test_mode;
 
 // Shitty get it ready for another show fix
 extern long plot_clouds_or_wot;

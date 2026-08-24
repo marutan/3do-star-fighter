@@ -2,13 +2,12 @@
 #define __sflib_laser_control_h__
 
 #include <stdint.h>
+#include "Global_2.h"
 #include "Graphic_Struct.h"
 #include "Laser_Struct.h"
 #include "Ship_Struct.h"
 
 extern laser_list lasers;
-extern int32_t cosine_table[2048];
-extern int32_t *sine_table;
 
 extern char height_map[256][256];
 
@@ -18,7 +17,6 @@ extern beam_laser_data beam_laser;
 extern ship_stack *players_ship;
 
 extern long bonus_collision_ref;
-extern long sound_channel_beam_laser;
 
 void laser_update(void);
 

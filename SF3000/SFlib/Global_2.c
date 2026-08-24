@@ -72,36 +72,36 @@ int32_t laser_counter;
 int32_t test_mode = 0;
 
 // Misc counters etc.
-long pod_counter = 0;
+int32_t pod_counter = 0;
 
-long which_graphics_set;
+int32_t which_graphics_set;
 
-long ship_viewed_last_frame_x_rot;
+int32_t ship_viewed_last_frame_x_rot;
 ship_stack *ship_viewed_last_frame;
 
 // Setup data tables for quick reference look up
 int32_t cosine_table[2048];
 int32_t *sine_table = &cosine_table[256 * 3];
-long pex_table[16384];
-long pex_table_near[2048];
-long quick_height_table[256][4];
+int32_t pex_table[16384];
+int32_t pex_table_near[2048];
+int32_t quick_height_table[256][4];
 char tangent_table[4100];
 
 // Collision table for static ground obejcts
 char collision_map[128][128];
 
 // Setup data tables for the stars
-long star_coords[128][4];
+int32_t star_coords[128][4];
 
 // Setup temp workspace for rotated coords and screen coords
 
 // For use by the landscape rotator
-long rotated_coords[3200][3];
-long screen_coords[3200][2];
+int32_t rotated_coords[3200][3];
+int32_t screen_coords[3200][2];
 
 // For use by the graphics - ships , static objects , explosion bits etc.
 long graphic_rotated_coords[256][4];
-long graphic_screen_coords[256][2];
+int32_t graphic_screen_coords[256][2];
 
 // Temp store for misc use
 long *temp_store = &graphic_rotated_coords[0][0];
@@ -109,7 +109,7 @@ long *temp_store = &graphic_rotated_coords[0][0];
 // General store for all polygon graphics - ships , static objects , explosion
 // bits This contains all coord data + polygon link data All explosion data and
 // collision data Misc items such as score / hits counter etc.
-long graphics_data[19000];
+int32_t graphics_data[19000];
 
 // Global pointers to items in the graphics table
 long *static_graphics_adr;

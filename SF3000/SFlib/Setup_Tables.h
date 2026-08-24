@@ -1,3 +1,5 @@
+#ifndef __sflib_setup_tables_h__
+#define __sflib_setup_tables_h__
 
 // THIS WILL CHANGE ALL THE MISSION SAM RATINGS
 
@@ -18,6 +20,7 @@
 // NOTE THESE SETTING WILL ONLY CHANGE THE FIRE RATE FOR ALL GROUND OBJECTS ON
 // ALL MISSIONS
 
+#include "Global_2.h"
 #include "Camera_Struct.h"
 #include "SF_CelUtils.h"
 #include "SF_Mission.h"
@@ -32,24 +35,14 @@
 #define COLL_DOWN_RIGHT 254
 #define COLL_RIGHT 255
 
-extern int32_t cosine_table[2048];
-extern long pex_table[16384];
-extern long pex_table_near[2048];
-extern long rotated_coords[3200][3];
-
 extern char height_map[256][256];
 extern char sprite_map[256][256];
 extern char poly_map[128][128];
 
-extern long screen_coords[3200][2];
-extern long graphic_rotated_coords[256][4];
-extern long graphic_screen_coords[256][2];
-extern long quick_height_table[256][4];
 extern char collision_map[128][128];
 
 // Camera Stuff
 extern ship_stack *ship_viewed_last_frame;
-extern long ship_viewed_last_frame_x_rot;
 
 extern long camera_x_velocity;
 extern long camera_y_velocity;
@@ -63,10 +56,6 @@ extern mission_data mission;
 
 #include "SF_Status.h"
 extern game_status status;
-
-extern long star_coords[128][4];
-
-extern int32_t *sine_table;
 
 extern ship_stack *players_ship;
 
@@ -83,15 +72,6 @@ void setup_tables(void);
 
 extern planet_data planet_info;
 
-extern int32_t ground_ship_rate;
-extern int32_t ground_sam_rate;
-extern int32_t ground_laser_rate;
-extern int32_t ground_ship_type;
-extern int32_t ground_laser_type;
-extern int32_t air_ship_type;
-
-extern int32_t test_mode;
-
 extern long are_we_in_space_or_wot;
 
 extern long planet_1_x_pos;
@@ -104,8 +84,4 @@ extern long planet_2_z_pos;
 
 extern bonus_crystal_object_struct bonus_crystal_object;
 
-extern long which_graphics_set;
-
-extern int32_t players_x_control;
-extern int32_t players_y_control;
-extern int32_t players_thrust_control;
+#endif /* __sflib_setup_tables_h__ */

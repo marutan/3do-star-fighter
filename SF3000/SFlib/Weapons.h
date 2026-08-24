@@ -2,6 +2,7 @@
 #define __sflib_weapons_h__
 
 #include <stdint.h>
+#include "Global_2.h"
 #include "Ship_Struct.h"
 
 // Weapon types
@@ -17,15 +18,6 @@
 #define POD_2 (1 << 1)
 #define POD_3 (1 << 2)
 #define POD_4 (1 << 3)
-
-extern long which_graphics_set;
-
-extern int32_t cosine_table[2048];
-extern int32_t *sine_table;
-
-extern long pod_counter;
-extern char height_map[256][256];
-extern char poly_map[128][128];
 
 void weapon_control(ship_stack *);
 

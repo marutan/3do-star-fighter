@@ -1,7 +1,9 @@
 
 /* Include Headers */
 
+#include <stdint.h>
 #include "Draw_Frame.h"
+#include "Plot_Land.h"
 #include "Bit_Control.h"
 #include "Bonus_Control.h"
 #include "Collision.h"

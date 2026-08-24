@@ -34,10 +34,6 @@ extern int32_t sound_sample_small_ship;
 extern int32_t engine_sounds_on_or_wot;
 extern int32_t sound_channel_shields_low;
 
-extern long camera_x_position;
-extern long camera_y_position;
-extern long camera_z_position;
-
 extern long camera_x_velocity;
 extern long camera_y_velocity;
 extern long camera_z_velocity;

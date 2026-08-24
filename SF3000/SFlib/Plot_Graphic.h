@@ -3,16 +3,6 @@
 
 #include <stdint.h>
 
-extern long camera_x_rotation;
-extern long camera_y_rotation;
-extern long camera_z_rotation;
-extern long camera_x_position;
-extern long camera_y_position;
-extern long camera_z_position;
-extern long camera_x_velocity;
-extern long camera_y_velocity;
-extern long camera_z_velocity;
-
 extern long atg_selected;
 extern long ata_selected;
 
@@ -34,6 +24,15 @@ extern void rotate_sky_node(void *);
 extern void plot_planets(void);
 extern void clip_3d_line(int32_t *x1, int32_t *y1, int32_t *z1, int32_t *x2,
                          int32_t *y2, int32_t *z2);
+
+extern int32_t collision_box_colour_adder;
+extern int32_t camera_x_position;
+extern int32_t camera_y_position;
+extern int32_t camera_z_position;
+extern int32_t camera_x_rotation;
+extern int32_t camera_y_rotation;
+extern int32_t camera_z_rotation;
+
 
 #ifndef __GRAPHIC_STUFF_H
 #define __GRAPHIC_STUFF_H

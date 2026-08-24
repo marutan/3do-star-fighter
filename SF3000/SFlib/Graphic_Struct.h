@@ -1,6 +1,8 @@
 #ifndef __GRAPHIC_SET_H
 #define __GRAPHIC_SET_H
 
+#include "Global_2.h"
+
 // General structure to get addresses of data for a graphic
 
 typedef struct graphics_details {
@@ -170,7 +172,6 @@ typedef struct section_details {
 extern long *static_graphics_adr;
 extern long *ships_adr;
 extern long *explosion_bits_adr;
-extern long graphics_data[19000];
 extern char poly_map[128][128];
 extern char collision_map[128][128];
 extern char height_map[256][256];

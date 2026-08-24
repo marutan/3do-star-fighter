@@ -1,29 +1,20 @@
 #ifndef __sflib_draw_land_h__
 #define __sflib_draw_land_h__
 
+#include "Global_2.h"
 #include "SF_CelUtils.h"
 #include "SF_Mission.h"
 #include "Ship_Struct.h"
 
 extern planet_data planet_info;
 
-extern long camera_x_position;
-extern long camera_y_position;
-extern long camera_z_position;
-extern long camera_x_rotation;
-extern long camera_y_rotation;
-extern long camera_z_rotation;
 extern long camera_x_velocity;
 extern long camera_y_velocity;
 extern long camera_z_velocity;
 
-extern int32_t test_mode;
-
 extern ship_stack *ship_being_viewed;
 
 extern long land_sort_offset;
-
-extern long pex_table[16384];
 
 extern long air_to_ground_scan_temp;
 extern long air_to_ground_scan;
@@ -42,8 +33,6 @@ extern long ata_selected;
 extern char sky[1024];
 extern CCB *skycel;
 extern cel_celdata cel_quad;
-
-extern long which_graphics_set;
 
 extern void plot_stars(void);
 extern void setup_rotations(void);

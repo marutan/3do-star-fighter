@@ -1,3 +1,7 @@
+#ifndef __sflib_plot_land_h__
+#define __sflib_plot_land_h__
+#endif /* __sflib_plot_land_h__ */
+
 extern long wave_counter;
 extern long wave_counter2;
 extern long wave_counter3;

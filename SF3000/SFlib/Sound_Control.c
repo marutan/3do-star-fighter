@@ -1,9 +1,11 @@
+#include <stdint.h>
+#include <string.h>
 #include "Sound_Control.h"
+#include "Plot_Graphic.h"
 #include "Maths_Stuff.h"
 #include "Misc_Struct.h"
 #include "Plot_Graphic.h"
 #include "SF_Sound.h"
-#include "string.h"
 
 // #include "SF_Status.h"
 // #include "SF_Message.h"

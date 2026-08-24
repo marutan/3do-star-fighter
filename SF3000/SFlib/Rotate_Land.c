@@ -8,7 +8,9 @@ Coord system bit 31-24 = grid pos (out of 256  -  2^8)
 
 #define ROT_OFFSET -(2 * 1024)
 
+#include <stdint.h>
 #include "Rotate_Land.h"
+#include "Draw_Land.h"
 #include "Maths_Stuff.h"
 #include "Misc_Struct.h"
 #include "Plot_Graphic.h"

@@ -6,13 +6,6 @@
 #include "Ship_Struct.h"
 #include "Smoke_Struct.h"
 
-extern smoke_list smokes;
-
-extern int32_t cosine_table[2048];
-extern int32_t *sine_table;
-
-extern long which_graphics_set;
-
 void smoke_update(void);
 
 void add_smoke(long, long, long, long, long, long, long, long);
