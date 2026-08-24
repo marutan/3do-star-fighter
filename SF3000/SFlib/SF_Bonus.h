@@ -39,8 +39,6 @@ typedef struct crystal_award // Definition of awards structure
 
 extern performance_data player_performance;
 extern performance_data player_megaperformance;
-extern ship_stack *players_ship;
-extern ship_list ships;
 
 // Function Prototypes
 

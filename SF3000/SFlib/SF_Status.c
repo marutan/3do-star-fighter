@@ -1,6 +1,9 @@
 // File : SF_Status
 // In-Game Control & Status update Routines
 
+#include <stdio.h>
+#include <stdint.h>
+#include "Global_2.h"
 #include "SF_Status.h"
 #include "Bonus_Control.h"
 #include "Explosion.h"
@@ -11,7 +14,6 @@
 #include "SF_Mission.h"
 #include "SF_Palette.h"
 #include "Weapons.h"
-#include "stdio.h"
 
 /**************************************/
 

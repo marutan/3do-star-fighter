@@ -88,8 +88,6 @@ typedef struct game_status {
 extern game_status status;
 extern mission_data mission;
 extern performance_data player_performance;
-extern ship_stack *players_ship;
-extern ship_list ships;
 extern planet_data planet_info;
 extern long player_crashed_xpos;
 extern long player_crashed_ypos;

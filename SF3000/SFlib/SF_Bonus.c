@@ -1,6 +1,9 @@
 // File : SF_Bonus.c
 // Bonus Award Control Routines
 
+#include <stdio.h>
+#include <string.h>
+#include "Global_2.h"
 #include "SF_Bonus.h"
 #include "SF_ARMUtils.h"
 #include "SF_Message.h"
@@ -9,9 +12,6 @@
 #include "SF_Status.h"
 #include "Ship_Struct.h"
 #include "Weapons.h"
-
-#include <stdio.h>
-#include <string.h>
 
 // External definitions
 

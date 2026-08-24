@@ -477,11 +477,6 @@ long test_display_thorg_graphics(long);
 long test_display_space_graphics(long);
 long test_display_death_star_graphics(long);
 
-extern int32_t which_graphics_set;
 extern char poly_map[128][128];
-extern char collision_map[128][128];
-
-#include "Misc_Struct.h"
-extern bonus_crystal_object_struct bonus_crystal_object;
 
 #endif

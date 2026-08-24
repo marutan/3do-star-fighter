@@ -33,8 +33,6 @@ extern game_status status;
 extern mission_data mission;
 extern performance_data player_performance;
 extern performance_data player_resetperformance;
-extern ship_stack *players_ship;
-extern camera_data camera[MAX_CAMERAS];
 extern cel_celdata cel_quad;
 extern char animate[2052];
 extern ship_list ships;

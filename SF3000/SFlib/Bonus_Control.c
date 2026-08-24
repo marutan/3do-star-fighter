@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+#include "Global_2.h"
 #include "Bonus_Control.h"
 #include "Collision.h"
 #include "Collision_Update.h"
@@ -5,8 +8,6 @@
 #include "Graphics_Set.h"
 #include "SF_ARMUtils.h"
 #include "Ship_Control.h"
-#include "stdio.h"
-#include "string.h"
 
 // ################################################
 // #                                              #

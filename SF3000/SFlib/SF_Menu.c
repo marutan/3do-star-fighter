@@ -1,5 +1,8 @@
 // File : SF_Menu.c		-	Menu selection routines
 
+#include <string.h>
+#include <stdint.h>
+#include "Global_2.h"
 #include "SF_Menu.h"
 #include "SF_ARMAnim.h"
 #include "SF_ARMCell.h"
@@ -22,7 +25,6 @@
 #include "Setup_Tables.h"
 #include "Sound_Control.h"
 
-#include <string.h>
 
 /***************************************************************************************************/
 /*											MENU

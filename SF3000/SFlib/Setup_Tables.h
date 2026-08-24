@@ -39,8 +39,6 @@ extern char sprite_map[256][256];
 extern char poly_map[128][128];
 
 // Camera Stuff
-extern ship_stack *ship_viewed_last_frame;
-
 extern long camera_x_velocity;
 extern long camera_y_velocity;
 extern long camera_z_velocity;
@@ -70,7 +68,5 @@ extern long planet_1_z_pos;
 extern long planet_2_x_pos;
 extern long planet_2_y_pos;
 extern long planet_2_z_pos;
-
-extern bonus_crystal_object_struct bonus_crystal_object;
 
 #endif /* __sflib_setup_tables_h__ */

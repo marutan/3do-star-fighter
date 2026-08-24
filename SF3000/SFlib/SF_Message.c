@@ -3,6 +3,9 @@
 
 // Includes
 
+#include <stdio.h>
+#include <stdint.h>
+#include "Global_2.h"
 #include "SF_Message.h"
 #include "SF_ARMCell.h"
 #include "SF_ARMUtils.h"
@@ -13,7 +16,6 @@
 #include "SF_Palette.h"
 #include "SF_Sound.h"
 #include "SF_Utility.h"
-#include "stdio.h"
 
 // Global variables
 

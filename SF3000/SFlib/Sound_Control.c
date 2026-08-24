@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <string.h>
+#include "Global_2.h"
 #include "Sound_Control.h"
 #include "Plot_Graphic.h"
 #include "Maths_Stuff.h"

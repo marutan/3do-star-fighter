@@ -199,7 +199,6 @@ typedef struct message // Game text message
 
 extern message messages[FONT_MAXMESSAGE];
 extern game_status status;
-extern camera_data camera[MAX_CAMERAS];
 extern char *pilot_names[16];
 
 // Function Prototypes

@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include "Bit_Struct.h"
 
-extern bit_list bits;
 #define ROT_LIMIT ((1024 * 1024) - 1)
 
 void bit_update(void);

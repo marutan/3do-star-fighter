@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+#include "Global_2.h"
 #include "Explosion.h"
 #include "Bit_Control.h"
 #include "Bonus_Control.h"
@@ -16,8 +20,6 @@
 #include "Smoke_Control.h"
 #include "Sound_Control.h"
 #include "Weapons.h"
-#include "stdio.h"
-#include "string.h"
 
 void
 static_explode(long grid_pos, long damage)

@@ -16,9 +16,7 @@
 #include "SF_Parameters.h"
 #include "SF_Pyramid.h"
 #include "SF_Status.h"
-
 #include "Camera_Struct.h"
-#include "Ship_Struct.h"
 
 // Definitions for user messages
 
@@ -144,9 +142,6 @@ extern menu_info menu_status;
 extern menu menus[MAX_MENUS];
 extern TextCel *cel_text[FONT_MAXMENU];
 extern game_status status;
-extern camera_data camera[MAX_CAMERAS];
-extern ship_list ships;
-extern ship_stack *players_ship;
 extern game_parameters parameters;
 extern game_configuration configuration;
 extern performance_data player_performance;

@@ -32,8 +32,6 @@ void explode_static_from_collision_box(long grid_ref, long explosion_velocity,
 void explode_ship_from_collision_box(ship_stack *, long explosion_velocity,
                                      long owner, long style, long, long);
 
-extern explosion_list explosions;
-
 #define PARACHUTE_NO_EXPLODE -32768
 
 #define EXPLOSION_STYLE_NORMAL 0

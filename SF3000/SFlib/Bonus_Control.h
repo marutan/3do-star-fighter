@@ -1,10 +1,8 @@
+#ifndef __sflib_bonus_control_h__
+#define __sflib_bonus_control_h__
+
 #include <stdint.h>
 #include "Ship_Struct.h"
-
-extern ship_list ships;
-extern ship_stack *players_ship;
-
-extern int32_t bonus_collision_this_frame;
 
 void bonus_control(ship_stack *);
 
@@ -16,6 +14,4 @@ void update_bonus_crystal_adder(void);
 
 void add_bonus_from_collision_box(long, long);
 
-#include "Misc_Struct.h"
-
-extern bonus_crystal_adder_struct bonus_crystal_adder;
+#endif /* __sflib_bonus_control_h__ */

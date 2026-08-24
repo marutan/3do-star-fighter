@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdint.h>
+#include "Global_2.h"
 #include "Bit_Control.h"
 #include "Collision.h"
 #include "Explosion.h"
@@ -7,7 +10,6 @@
 #include "SF_ARMUtils.h"
 #include "Smoke_Control.h"
 #include "Sound_Control.h"
-#include "stdio.h"
 
 void
 bit_update(void)

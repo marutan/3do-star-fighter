@@ -1,6 +1,10 @@
 // File : SF_Control
 // Game Control Routines
 
+#include <string.h>
+#include <stdint.h>
+#include <event.h>
+#include "Global_2.h"
 #include "SF_Control.h"
 #include "Camera_Struct.h"
 #include "SF_ARMUtils.h"
@@ -16,8 +20,6 @@
 #include "Setup_Tables.h"
 #include "Ship_Struct.h"
 #include "Weapons.h"
-#include <event.h>
-#include <string.h>
 
 /**************************************/
 

@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include "Global_2.h"
 #include "Collision.h"
 #include "Explosion.h"
 #include "Graphic_Struct.h"
@@ -15,7 +17,6 @@
 #include "Smoke_Control.h"
 #include "Sound_Control.h"
 #include "Weapons.h"
-#include "stdio.h"
 
 #include "SF_Message.h"
 #include "SF_Status.h"

@@ -1,3 +1,5 @@
+#ifndef __sflib_global_2_h__
+#define __sflib_global_2_h__
 
 #include <stdint.h>
 
@@ -119,3 +121,5 @@ extern long *explosion_bits_adr;
 // mat33f16 matrix ;
 // vec3f16 pre_rot [ 128 ] ;
 // vec3f16 post_rot [ 128 ] ;
+
+#endif /* __sflib_global_2_h__ */

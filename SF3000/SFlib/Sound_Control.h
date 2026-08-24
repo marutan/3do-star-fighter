@@ -24,22 +24,11 @@ void stop_engine_sounds(void);
 
 void start_engine_sounds(void);
 
-extern ship_stack *players_ship;
-
-extern ship_stack *sound_big_ship;
-extern ship_stack *sound_small_ship;
-extern int32_t sound_channel_small_ship;
-extern int32_t sound_channel_big_ship;
-extern int32_t sound_sample_small_ship;
-extern int32_t engine_sounds_on_or_wot;
 extern int32_t sound_channel_shields_low;
 
 extern long camera_x_velocity;
 extern long camera_y_velocity;
 extern long camera_z_velocity;
-
-// bugggggg fix
-extern int32_t laser_sound_counter;
 
 #define SMALL_SHIP_ENGINE_ON 0
 #define SMALL_SHIP_ENGINE_OFF 1
