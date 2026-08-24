@@ -1,5 +1,8 @@
 /* Include Headers */
 
+#include <stdint.h>
+#include <stdio.h>
+#include "Global_2.h"
 #include "Bit_Control.h"
 #include "Bonus_Control.h"
 #include "Collision.h"
@@ -21,7 +24,6 @@
 #include "Sound_Control.h"
 #include "Update_Frame.h"
 #include "Weapons.h"
-#include "stdio.h"
 
 #include <debug.h>
 

@@ -20,7 +20,6 @@
 // NOTE THESE SETTING WILL ONLY CHANGE THE FIRE RATE FOR ALL GROUND OBJECTS ON
 // ALL MISSIONS
 
-#include "Global_2.h"
 #include "Camera_Struct.h"
 #include "SF_CelUtils.h"
 #include "SF_Mission.h"
@@ -39,8 +38,6 @@ extern char height_map[256][256];
 extern char sprite_map[256][256];
 extern char poly_map[128][128];
 
-extern char collision_map[128][128];
-
 // Camera Stuff
 extern ship_stack *ship_viewed_last_frame;
 
@@ -48,22 +45,14 @@ extern long camera_x_velocity;
 extern long camera_y_velocity;
 extern long camera_z_velocity;
 
-#include "Misc_Struct.h"
-extern docking_struct docked;
-
 #include "SF_Mission.h"
 extern mission_data mission;
 
 #include "SF_Status.h"
 extern game_status status;
 
-extern ship_stack *players_ship;
-
 extern cel_celdata cel_quad;
 extern char skyfile[1024];
-
-extern ship_list ships;
-extern camera_data camera[MAX_CAMERAS];
 
 extern void machine_code_constants(void *);
 extern void plot_land_constants(void *);

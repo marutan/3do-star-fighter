@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdint.h>
+#include "Global_2.h"
 #include "Smoke_Control.h"
 #include "Collision.h"
 #include "Graphic_Struct.h"
@@ -6,7 +9,6 @@
 #include "Plot_Graphic.h"
 #include "SF_ARMLink.h"
 #include "SF_ARMUtils.h"
-#include "stdio.h"
 
 void
 smoke_update(void)

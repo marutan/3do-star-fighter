@@ -1,3 +1,5 @@
+#include <stdint.h>
+#include "Global_2.h"
 #include "Laser_Control.h"
 #include "Bonus_Control.h"
 #include "Collision.h"

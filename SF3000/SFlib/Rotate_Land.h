@@ -2,7 +2,6 @@
 #define __sflib_rotate_land_h__
 
 #include <stdint.h>
-#include "Global_2.h"
 
 /* Setup data tables for quick reference look up */
 extern int32_t cosine_table[2048];

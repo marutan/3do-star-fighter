@@ -2,7 +2,6 @@
 #define __sflib_weapons_h__
 
 #include <stdint.h>
-#include "Global_2.h"
 #include "Ship_Struct.h"
 
 // Weapon types

@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+#include "Global_2.h"
 #include "Ship_Control.h"
 #include "Collision.h"
 #include "Collision_Update.h"
@@ -21,8 +25,6 @@
 #include "Smoke_Control.h"
 #include "Sound_Control.h"
 #include "Weapons.h"
-#include "stdio.h"
-#include "string.h"
 
 void
 update_docking(ship_stack *ship)

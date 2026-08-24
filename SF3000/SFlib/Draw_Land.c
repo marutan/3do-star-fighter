@@ -1,3 +1,5 @@
+#include <stdint.h>
+#include "Global_2.h"
 #include "Draw_Land.h"
 #include "Bit_Control.h"
 #include "Graphics_Set.h"

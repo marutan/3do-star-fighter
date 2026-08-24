@@ -3,7 +3,6 @@
 
 #include <stdint.h>
 
-#include "Global_2.h"
 #include "Camera_Struct.h"
 #include "SF_CelUtils.h"
 #include "SF_Mission.h"

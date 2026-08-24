@@ -1,6 +1,8 @@
 
 /* Include Headers */
 
+#include <stdint.h>"
+#include "Global_2.h"
 #include "Update_Frame.h"
 #include "Bit_Control.h"
 #include "Bonus_Control.h"

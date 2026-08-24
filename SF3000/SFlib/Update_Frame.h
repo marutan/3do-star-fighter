@@ -1,6 +1,5 @@
 #include <stdint.h>
 
-#include "Global_2.h"
 #include "SF_CelUtils.h"
 #include "Ship_Control.h"
 #include "Ship_Struct.h"
@@ -10,9 +9,6 @@
 
 #include "SF_Parameters.h"
 extern game_configuration configuration;
-
-#include "Misc_Struct.h"
-extern docking_struct docked;
 
 #include "SF_Joystick.h"
 extern stick_struct pro_stick;

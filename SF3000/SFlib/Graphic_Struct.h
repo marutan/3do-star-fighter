@@ -1,8 +1,6 @@
 #ifndef __GRAPHIC_SET_H
 #define __GRAPHIC_SET_H
 
-#include "Global_2.h"
-
 // General structure to get addresses of data for a graphic
 
 typedef struct graphics_details {

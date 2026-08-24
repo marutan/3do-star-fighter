@@ -2,7 +2,6 @@
 #define __sflib_bit_control_h__
 
 #include <stdint.h>
-#include "Global_2.h"
 #include "Bit_Struct.h"
 
 extern bit_list bits;

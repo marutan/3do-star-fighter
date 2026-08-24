@@ -1,7 +1,6 @@
 #ifndef __sflib_draw_land_h__
 #define __sflib_draw_land_h__
 
-#include "Global_2.h"
 #include "SF_CelUtils.h"
 #include "SF_Mission.h"
 #include "Ship_Struct.h"
