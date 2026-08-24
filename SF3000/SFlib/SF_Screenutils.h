@@ -35,26 +35,24 @@
 /* External Variables */
 
 extern ScreenContext *screen;
-extern uint8_t *backdrop;
 extern Item VBLIOReq;
 extern Item VRAMIOReq;
 extern cel_celdata cel_quad;
 extern menu_info menu_status;
 extern menu menus[MAX_MENUS];
 extern CCB *cel_plotlist[CEL_MAXTEMP];
-extern char *cel_plutdata;
 extern message messages[FONT_MAXMESSAGE];
 extern long info;
 
 /* Function Prototypes */
 
-void screen_base(long updateflags);        // Draw base screen backdrops
-void screen_update(long);                  // Draw rest of screen, flip etc.
+void screen_base(int32_t updateflags);     // Draw base screen backdrops
+void screen_update(int32_t);               // Draw rest of screen, flip etc.
 void screen_intercept(void);               // Draw temp plotting list if full
-void screen_clear(long, long, long, long); // Clear screen
-void screen_swap(long);                    // Fade screenbanks
-void screen_postswap(long);                // Fade screenbanks after flip
-void screen_setswap(long);                 // Set next type of screen swap
+void screen_clear(int32_t, int32_t, int32_t, int32_t); // Clear screen
+void screen_swap(int32_t);                 // Fade screenbanks
+void screen_postswap(int32_t);             // Fade screenbanks after flip
+void screen_setswap(int32_t);              // Set next type of screen swap
 void screenswap_zoominbox(void);           // SCREENSWAP ROUTINE 1
 void screenswap_blurscreen(void);          // SCREENSWAP ROUTINE 2
 

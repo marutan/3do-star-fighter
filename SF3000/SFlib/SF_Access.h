@@ -25,14 +25,11 @@
 #define DATA_CONFIGURE 1 // Load configure file flag
 #define DATA_FILES 2     // Load game files flag
 
+// Variables in SF_Access.c
+extern uint8_t *backdrop;
+
 // External Definitions
 
-extern char *cel_list32;                 // Pointer to 32x32 texture sprites
-extern char *cel_list16;                 // Pointer to 16x16 ground sprites
-extern char *cel_game;                   // Pointer to game textures list
-extern char *cel_palette;                // Pointer to palette
-extern char *cel_codedpalette;           // Pointer to coded6 palette
-extern char *cel_plutdata;               // Pointer to plut data area
 extern planet_data planet_info;          // Planet type information
 extern char *map512;                     // Low res map
 extern char sprite_map[256][256];        // Pointer to map [sprite] data
@@ -42,7 +39,6 @@ extern char animate[2052];               // Pointer to map [animations] data
 extern char cels4x4[16 * CEL_MAX4];      // Pointer to 4x4 compacted land cels
 extern int32_t graphics_data[19000];     // Pointer to polygon datafiles
 extern char skyfile[1024];               // Skyfile
-extern mission_data mission;             // Mission data
 extern cel_celdata cel_quad;             // Cel info block
 extern char tangent_table[4100];         // Tangent Data
 extern int32_t cosine_table[2048];       // Cosine table

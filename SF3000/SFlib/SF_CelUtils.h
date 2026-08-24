@@ -128,13 +128,6 @@ typedef struct alpha_char {
 
 // External variables
 
-extern char *cel_game;
-extern char *cel_list32;
-extern char *cel_list16;
-extern char *cel_creation;
-extern char *cel_palette;
-extern char *cel_codedpalette;
-extern char *cel_plutdata;
 extern CCB *cel_plut;
 extern CCB *cel_plotlist[CEL_MAXTEMP];
 extern char cels4x4[16 * CEL_MAX4];

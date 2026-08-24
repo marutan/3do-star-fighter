@@ -29,13 +29,10 @@
 
 extern game_configuration configuration;
 extern game_parameters parameters;
-extern game_status status;
-extern mission_data mission;
 extern performance_data player_performance;
 extern performance_data player_resetperformance;
 extern cel_celdata cel_quad;
 extern char animate[2052];
-extern ship_list ships;
 extern ship_sdb pleb_special_data;
 extern formation_ship formation[8];
 extern menu menus[MAX_MENUS];

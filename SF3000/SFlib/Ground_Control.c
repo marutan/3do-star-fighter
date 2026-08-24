@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "Star3000.h"
+#include "Global_2.h"
 #include "Ground_Control.h"
 #include "Graphic_Struct.h"
 #include "Laser_Control.h"
@@ -10,7 +13,6 @@
 #include "Ship_Control.h"
 #include "Sound_Control.h"
 #include "Weapons.h"
-#include "stdio.h"
 
 #define FIND_OBJECT_POSITION                                                   \
   x_pos = (unsigned) x_grid << 25;                                             \

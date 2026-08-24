@@ -5,13 +5,14 @@
 
 // Includes
 
+#include <stdio.h>
+#include <stdint.h>
 #include "Misc_Struct.h"
 #include "SF_Mission.h"
 #include "SF_Status.h"
 #include "Ship_Control.h"
 #include "Ship_Struct.h"
 
-#include "stdio.h"
 
 /**************************************/
 
@@ -86,14 +87,6 @@ typedef struct formation_ship // Structure for an individual formation position
 #define SDB_FORMATION_AGGRESSIVE 1
 #define SDB_FORMATION_DEFENSIVE 2
 
-// External Definitions
-
-extern ship_list ships;
-extern ship_stack *players_ship;
-extern mission_data mission;
-extern game_status status;
-extern docking_struct docked;
-
 // Function Prototypes
 
 void war_addmissionships(performance_data *); // Add all ships on mission start
@@ -114,10 +107,10 @@ void war_update_attacked_friend(
 void war_update_attacked_enemy(
     ship_stack *, ship_sdb *); // Update an enemy ship that has been fired upon
 
-long war_update_defend_leader(
+int32_t war_update_defend_leader(
     ship_stack *, ship_sdb *,
     ship_stack *); // See if a ship should defend it's formation leader
-long war_settoattack(
+int32_t war_settoattack(
     ship_stack *,
     ship_stack *); // Update status of a ship that has been fired upon
 void ship_settoflightpoint(
@@ -127,16 +120,16 @@ void war_update_multipleattackrequests(
     ship_stack *,
     ship_sdb
         *); // Fire weapons / Acquire new targets for Multiple targetting ship
-long ship_setmultipletargets(
-    ship_stack *, long,
+int32_t ship_setmultipletargets(
+    ship_stack *, int32_t,
     char); // Acquire new target(s) for ship within search range
 
-long war_setformationposition(
+int32_t war_setformationposition(
     ship_stack *, char,
-    long); // Put a ship in formation with the player at a fixed pos
-long war_addshiptoformation(
+    int32_t); // Put a ship in formation with the player at a fixed pos
+int32_t war_addshiptoformation(
     ship_stack *formation_ship,
-    long); // Put a ship in formation with the player at any pos
+    int32_t); // Put a ship in formation with the player at any pos
 void war_squashformationup(void); // Squash to the players formation
 
 void

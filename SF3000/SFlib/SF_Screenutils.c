@@ -5,6 +5,7 @@
 
 #include "io.h"
 
+#include "SF_Access.h"
 #include "SF_ARMCell.h"
 #include "SF_ARMSky.h"
 #include "SF_Screenutils.h"
@@ -16,12 +17,12 @@
 
 // Global variables
 
-long screen_swaptype;
+static int32_t screen_swaptype;
 
 /**************************************/
 
 void
-screen_base(long updateflags)
+screen_base(int32_t updateflags)
 {
 
   // Purpose : Optionally prints image backdrop or SPORT clears screen
@@ -52,13 +53,13 @@ screen_base(long updateflags)
 /**************************************/
 
 void
-screen_update(long updateflags)
+screen_update(int32_t updateflags)
 {
 
   // Purpose : Screen display, optionally prints cel list, menu etc. & flips
   // screens Accepts : Update flags Returns : nothing
 
-  long temp_cels;
+  int32_t temp_cels;
 
   // WAIT FOR FRAME DELAY ?
 
@@ -138,7 +139,7 @@ screen_intercept(void)
   // Accepts : Nothing
   // Returns : Nothing
 
-  long temp_cels;
+  int32_t temp_cels;
 
   // WAIT FOR DELAY
 
@@ -161,7 +162,7 @@ screen_intercept(void)
 /**************************************/
 
 void
-screen_clear(long red, long green, long blue, long screen_type)
+screen_clear(int32_t red, int32_t green, int32_t blue, int32_t screen_type)
 
 // Purpose : Clears the screen
 // Accepts : Screen, RGB colour
@@ -191,7 +192,7 @@ screen_clear(long red, long green, long blue, long screen_type)
 /**************************************/
 
 void
-screen_swap(long swap_type)
+screen_swap(int32_t swap_type)
 
 // Purpose : Calls relavent screenswap routine
 // Accepts : Screenswap type
@@ -215,7 +216,7 @@ screen_swap(long swap_type)
 /**************************************/
 
 void
-screen_postswap(long swap_type)
+screen_postswap(int32_t swap_type)
 
 // Purpose : Calls relavent screenswap routine (after banks flipped)
 // Accepts : Screenswap type
@@ -235,7 +236,7 @@ screen_postswap(long swap_type)
 /**************************************/
 
 void
-screen_setswap(long swap_type)
+screen_setswap(int32_t swap_type)
 
 // Purpose : Sets next type of screen swap when banks are flipped
 // Accepts : Screenswap type
@@ -257,7 +258,7 @@ screenswap_zoominbox(void)
 {
 
   CCB screen_fade;
-  long fade_loop, fade_xloop, fade_yloop;
+  int32_t fade_loop, fade_xloop, fade_yloop;
 
   screen_fade.ccb_Flags = CCB_LAST |   // This is the only cel
                           CCB_SPABS |  // Absolute SOURCEPTR

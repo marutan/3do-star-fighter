@@ -27,30 +27,30 @@
 #include "Weapons.h"
 #include "stdio.h"
 
-long test_cam = 0;
+static int32_t test_cam = 0;
 
 void
-draw_frame(long camera_number)
+draw_frame(int32_t camera_number)
 {
-  long temp_long;
-  long coll_check;
-  static long engine_zoom = 0;
-  static long last_camera = 0;
+  int32_t temp_long;
+  int32_t coll_check;
+  static int32_t engine_zoom = 0;
+  static int32_t last_camera = 0;
   ship_stack *view_ship = camera[camera_number].view_ship;
-  long x_dist, y_dist, z_dist, x_y_dist;
+  int32_t x_dist, y_dist, z_dist, x_y_dist;
   target_struct tracking_camera;
   rotate_node node_data;
   graphics_details *details = (graphics_details *) ships_adr;
 
-  static long dead_cam_rot = 0;
+  static int32_t dead_cam_rot = 0;
 
-  long ship_size = ((1 << 22) + ((details + view_ship->type)->clip_size)) >> 12;
+  int32_t ship_size = ((1 << 22) + ((details + view_ship->type)->clip_size)) >> 12;
 
-  long old_camera_x_position = camera_x_position;
-  long old_camera_y_position = camera_y_position;
-  long old_camera_z_position = camera_z_position;
+  int32_t old_camera_x_position = camera_x_position;
+  int32_t old_camera_y_position = camera_y_position;
+  int32_t old_camera_z_position = camera_z_position;
 
-  long docked_camera = 0;
+  int32_t docked_camera = 0;
 
   // camera[camera_number].counter2 = 0 ;
 

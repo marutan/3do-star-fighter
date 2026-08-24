@@ -1,3 +1,6 @@
+#ifndef __sflib_ship_control_h__
+#define __sflib_ship_control_h__
+
 #include <stdint.h>
 
 #include "Ship_Struct.h"
@@ -10,43 +13,29 @@
 #define C_FIRE 32
 #define ROT_LIMIT ((1024 * 1024) - 1)
 
-extern int32_t cosine_table[2048];
-extern int32_t *sine_table;
-
-#include "Misc_Struct.h"
-extern docking_struct docked;
-
-#include "SF_Status.h"
-extern game_status status;
-
 // Get these for the satellite update
 extern int32_t ground_laser_type;
 extern int32_t ground_laser_rate;
 
-extern ship_list ships;
-
 extern ship_sdb pleb_special_data;
 
-extern ship_stack *players_ship;
+void ship_control(ship_stack *ship);
 
-extern mission_data mission;
+void big_ship_control(ship_stack *ship);
 
-void ship_control(ship_stack *);
+void satellite_control(ship_stack *satellite);
 
-void big_ship_control(ship_stack *);
+void parachute_control(ship_stack *parachute);
 
-void satellite_control(ship_stack *);
+void car_control(ship_stack *car);
 
-void parachute_control(ship_stack *);
+void check_shippy_collision(ship_stack *ship);
 
-void car_control(ship_stack *);
+void update_docking(ship_stack *ship);
 
-void check_shippy_collision(ship_stack *);
-
-void update_docking(ship_stack *);
-
-ship_stack *add_ship(long, long, long, long, long, ship_sdb *,
-                     performance_data *);
+ship_stack *add_ship(int32_t x_pos, int32_t y_pos, int32_t z_pos,
+                     int32_t x_rot, int32_t type,
+                     ship_sdb *special_data, performance_data *performance);
 
 // command_override for big ships
 #define BIG_SHIP_COMMAND_NORMAL 0
@@ -55,3 +44,5 @@ ship_stack *add_ship(long, long, long, long, long, ship_sdb *,
 #define BIG_SHIP_COMMAND_STATIC 3
 
 #define BIG_SHIP_COMMAND_STATIC_FREE 4
+
+#endif /* __sflib_ship_control_h__ */

@@ -1,6 +1,8 @@
 // File : SF_Access
 // General File Access Routines
 
+#include <stdarg.h>
+#include "Star3000.h"
 #include "SF_Access.h"
 #include "SF_ARMAnim.h"
 #include "SF_ARMBurn.h"
@@ -9,12 +11,11 @@
 #include "SF_Music.h"
 #include "SF_Utility.h"
 #include "blockfile.h"
-#include "stdarg.h"
 #include "types.h"
 
 /* Global variables */
 
-long file_return;
+static long file_return;
 uint8_t *backdrop;
 
 /**************************************/

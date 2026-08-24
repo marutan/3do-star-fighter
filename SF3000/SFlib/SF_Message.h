@@ -198,7 +198,6 @@ typedef struct message // Game text message
 // External Definitions
 
 extern message messages[FONT_MAXMESSAGE];
-extern game_status status;
 extern char *pilot_names[16];
 
 // Function Prototypes

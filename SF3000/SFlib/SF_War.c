@@ -1,19 +1,22 @@
 // File : SF_War
 // Ship setup, update & AI control routines
 
+#include <stdio.h>
+#include <stdint.h>
+#include "Star3000.h"
+#include "Global_2.h"
 #include "SF_War.h"
 #include "Plot_Graphic.h"
 #include "SF_ARMUtils.h"
 #include "SF_Control.h"
 #include "SF_Message.h"
 #include "SF_Palette.h"
-#include "stdio.h"
 
 /**************************************/
 
 // Global variables
 
-long cockpit_missiles,  // Counter for incoming missiles
+int32_t cockpit_missiles,  // Counter for incoming missiles
     cockpit_enemybig,   // Counter for enemy big ships
     cockpit_enemysmall; // Counter for enemy fighters attacking you
 
@@ -128,9 +131,9 @@ war_addmissionships(performance_data *players_performance)
   ship_sdb *ship_sdb_ptr;        // Pointer to a ship's special data block
   flight_path *ship_flight_ptr;  // Pointer to a ship's flightpath data
   performance_data *performance; // Pointer to a ship's performance datablock
-  long ship_count;               // General ship counter
+  int32_t ship_count;               // General ship counter
 
-  unsigned long ship_type, // Type of ship
+  uint32_t ship_type, // Type of ship
       ship_instance,       // Instance of type
       ship_loop;           // Loop variable
 
@@ -228,7 +231,7 @@ war_addmissionships(performance_data *players_performance)
         default:
           performance = NULL; // Default is NULL
           printf(
-              "Adding ship in war.c with no performance block - type is %ld\n",
+              "Adding ship in war.c with no performance block - type is %d\n",
               ship_type);
           break;
       }
@@ -328,7 +331,7 @@ war_updatemissionships()
 
   ship_stack *ship;       // Pointer to a ship
   ship_sdb *ship_sdb_ptr; // Pointer to a ship's special data block
-  long player_st;         // Player increase shields timer
+  int32_t player_st;         // Player increase shields timer
 
   // RESET DISPLAY COUNTERS FOR INFO
 
@@ -493,7 +496,7 @@ war_updateship_attack(ship_stack *ship, ship_sdb *ship_sdb_ptr)
 
 {
 
-  long weapon_firerequest;       // Random fire value
+  int32_t weapon_firerequest;       // Random fire value
   performance_data *performance; // Pointer to a ship's performance datablock
 
   // IS THE SHIP ATTACKING THE PLAYER ? IF SO, INC EMENY FIGHTER COUNTER
@@ -671,8 +674,8 @@ war_updateship_flightpath(ship_stack *ship, ship_sdb *ship_sdb_ptr)
 
 {
 
-  long dist;
-  long check_limit;
+  int32_t dist;
+  int32_t check_limit;
 
   flight_path *ship_flight_ptr;
 
@@ -940,7 +943,7 @@ war_update_attacked_enemy(ship_stack *ship, ship_sdb *ship_sdb_ptr)
  **
  ************************************************************************************************************************************/
 
-long
+int32_t
 war_update_defend_leader(ship_stack *ship, ship_sdb *ship_sdb_ptr,
                          ship_stack *ship_following)
 
@@ -1002,7 +1005,7 @@ war_update_defend_leader(ship_stack *ship, ship_sdb *ship_sdb_ptr,
  **
  ************************************************************************************************************************************/
 
-long
+int32_t
 war_settoattack(ship_stack *this_ship, ship_stack *ship_toattack)
 
 // Purpose : Forces a ship to attack another ship (if control flags allow it)
@@ -1095,7 +1098,7 @@ war_update_multipleattackrequests(ship_stack *ship, ship_sdb *ship_sdb_ptr)
 
 {
 
-  unsigned long weapon_firerequest; // Random fire value
+  uint32_t weapon_firerequest; // Random fire value
   performance_data *performance;    // Pointer to a ship's performance datablock
 
   if ((ship_sdb_ptr->target_counter--) ==
@@ -1139,8 +1142,8 @@ war_update_multipleattackrequests(ship_stack *ship, ship_sdb *ship_sdb_ptr)
 
 /**************************************/
 
-long
-ship_setmultipletargets(ship_stack *this_ship, long maxsearch_distance,
+int32_t
+ship_setmultipletargets(ship_stack *this_ship, int32_t maxsearch_distance,
                         char search_shipside)
 
 // Purpose : Sets nearest 3 opponent targets for ship
@@ -1152,10 +1155,10 @@ ship_setmultipletargets(ship_stack *this_ship, long maxsearch_distance,
   ship_stack *ship_search;
   ship_sdb *search_ship_sdb_ptr;
 
-  long target_distances[3];
+  int32_t target_distances[3];
   void *targets[3] = {NULL, NULL, NULL};
 
-  long xsearch_distance, ysearch_distance, zsearch_distance, heighest_distance,
+  int32_t xsearch_distance, ysearch_distance, zsearch_distance, heighest_distance,
       target_insert,
       this_ship_xpos = this_ship->x_pos, // Get X,Y,Z position of our ship
       this_ship_ypos = this_ship->y_pos, this_ship_zpos = this_ship->z_pos;
@@ -1270,9 +1273,9 @@ ship_setmultipletargets(ship_stack *this_ship, long maxsearch_distance,
 
 /**************************************/
 
-long
+int32_t
 war_setformationposition(ship_stack *formation_ship, char formation_position,
-                         long print_message)
+                         int32_t print_message)
 
 // Purpose : Registers a ship at a fixed position in the players formation
 // Accepts : Pointer to a ship, and a formation position number
@@ -1319,8 +1322,8 @@ war_setformationposition(ship_stack *formation_ship, char formation_position,
 
 /**************************************/
 
-long
-war_addshiptoformation(ship_stack *formation_ship, long print_message)
+int32_t
+war_addshiptoformation(ship_stack *formation_ship, int32_t print_message)
 
 // Purpose : Registers a ship in the players formation
 // Accepts : Pointer to a ship, print-message flag (0 = no)
@@ -1380,8 +1383,8 @@ war_distancecheckwithplayer(ship_stack *ship, ship_sdb *ship_sdb_ptr)
 // update, Pointer to it's special data block Returns : Nothing
 
 {
-  long dist;
-  long distance_length = (ship_sdb_ptr->side == SDB_SIDE_FRIEND)
+  int32_t dist;
+  int32_t distance_length = (ship_sdb_ptr->side == SDB_SIDE_FRIEND)
                              ? __WAR_MDC_FRIEND
                              : __WAR_MDC_ENEMY;
 

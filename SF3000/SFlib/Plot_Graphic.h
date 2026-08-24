@@ -32,6 +32,17 @@ extern int32_t camera_z_position;
 extern int32_t camera_x_rotation;
 extern int32_t camera_y_rotation;
 extern int32_t camera_z_rotation;
+extern int32_t air_to_ground_scan_temp;
+extern long air_to_ground_scan;
+extern int32_t air_to_ground_x;
+extern int32_t air_to_ground_y;
+extern int32_t air_to_ground_z;
+
+extern int32_t air_to_air_scan_temp;
+extern long air_to_air_scan;
+extern int32_t air_to_air_x;
+extern int32_t air_to_air_y;
+extern int32_t air_to_air_z;
 
 
 #ifndef __GRAPHIC_STUFF_H

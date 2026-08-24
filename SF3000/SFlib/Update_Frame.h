@@ -1,8 +1,6 @@
 #include <stdint.h>
 
 #include "SF_CelUtils.h"
-#include "Ship_Control.h"
-#include "Ship_Struct.h"
 // #include "graphics.h"
 #include "Camera_Struct.h"
 #include "SF_Status.h"
@@ -16,17 +14,9 @@ extern stick_struct pro_stick;
 /* External Definitions */
 
 extern void rotate_node_from_c(void *);
-extern long wave_counter;
-extern long wave_counter2;
-extern long wave_counter3;
-extern long test_grid_flip;
-
-extern game_status status;
-extern long *temp_store;
 
 #include "SF_Mission.h"
 extern planet_data planet_info;
-
 
 extern long keypad_iomap[8];
 

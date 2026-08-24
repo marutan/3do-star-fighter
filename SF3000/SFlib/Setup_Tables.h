@@ -43,12 +43,6 @@ extern long camera_x_velocity;
 extern long camera_y_velocity;
 extern long camera_z_velocity;
 
-#include "SF_Mission.h"
-extern mission_data mission;
-
-#include "SF_Status.h"
-extern game_status status;
-
 extern cel_celdata cel_quad;
 extern char skyfile[1024];
 

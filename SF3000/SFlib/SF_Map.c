@@ -1,6 +1,8 @@
 // File : SF_Map
 // Map display routines
 
+#include "Star3000.h"
+#include "Global_2.h"
 #include "SF_Map.h"
 #include "SF_ARMAnim.h"
 #include "SF_ARMCell.h"

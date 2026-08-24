@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <event.h>
+#include "Star3000.h"
 #include "Global_2.h"
 #include "SF_Control.h"
 #include "Camera_Struct.h"

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
+#include "Star3000.h"
 #include "Global_2.h"
 #include "Ship_Control.h"
 #include "Collision.h"
@@ -31,9 +32,9 @@ update_docking(ship_stack *ship)
 {
 
   ship_stack *mother = docked.ship;
-  long counter;
-  long x_rot, y_rot, z_rot;
-  long x_pos, y_pos, z_pos;
+  int32_t counter;
+  int32_t x_rot, y_rot, z_rot;
+  int32_t x_pos, y_pos, z_pos;
   rotate_node node_data;
 
   // Offset to put players centre pos above the floor
@@ -187,17 +188,17 @@ ship_control(ship_stack *ship)
 {
   char ecm_message[48];
 
-  long coll_check;
-  long temp_long;
-  long loop, loop2;
+  int32_t coll_check;
+  int32_t temp_long;
+  int32_t loop, loop2;
 
-  long cosine_y, sine_y;
-  long cosine_z, sine_z;
+  int32_t cosine_y, sine_y;
+  int32_t cosine_z, sine_z;
   target_struct target;
 
   ship_stack *temp_ship;
 
-  long x_control, y_control, z_control;
+  int32_t x_control, y_control, z_control;
 
   rotate_node node_data;
 
@@ -680,11 +681,11 @@ void
 check_shippy_collision(ship_stack *ship)
 {
 
-  long height_temp, rot_temp;
-  long temp_z_pos;
-  long new_rot;
-  long damage;
-  long temp_long;
+  int32_t height_temp, rot_temp;
+  int32_t temp_z_pos;
+  int32_t new_rot;
+  int32_t damage;
+  int32_t temp_long;
 
   // Is there a collision with t' ground
   temp_z_pos = find_ground_height(ship->x_pos, ship->y_pos);
@@ -810,8 +811,8 @@ void
 satellite_control(ship_stack *satellite)
 
 {
-  long x_pos, y_pos, z_pos;
-  long dist;
+  int32_t x_pos, y_pos, z_pos;
+  int32_t dist;
   ship_stack *target;
 
   // Fire at target if in range and arm_randomom fire = true
@@ -870,7 +871,7 @@ parachute_control(ship_stack *parachute)
 
 {
 
-  long coll_check;
+  int32_t coll_check;
 
   // Spin on the x
   parachute->x_rot = ((parachute->x_rot) - 16 * 1024) & ROT_LIMIT;
@@ -910,11 +911,11 @@ car_control(ship_stack *car)
 
 {
 
-  long height_temp, rot_temp;
+  int32_t height_temp, rot_temp;
   target_struct target;
-  long x_aim, y_aim;
+  int32_t x_aim, y_aim;
   ship_stack *ship;
-  long x_pos, y_pos, z_pos, dist;
+  int32_t x_pos, y_pos, z_pos, dist;
 
   // Rig the tank fire
   if ((arm_random() & 31) == 1) {
@@ -1159,7 +1160,7 @@ big_ship_control(ship_stack *ship)
 
 {
 
-  long loop;
+  int32_t loop;
 
   rotate_node node_data;
 
@@ -1183,13 +1184,13 @@ big_ship_control(ship_stack *ship)
 
   ship_stack *target_ship;
   ship_stack *temp_ship;
-  long x_dist, y_dist, z_dist;
-  long dist, temp_dist;
+  int32_t x_dist, y_dist, z_dist;
+  int32_t dist, temp_dist;
 
   target_struct target;
-  long x_aim, y_aim;
+  int32_t x_aim, y_aim;
 
-  long laser_type;
+  int32_t laser_type;
 
   // Test collsion stuff
   // ship_stack test_ship ;
@@ -1642,7 +1643,8 @@ big_ship_control(ship_stack *ship)
 // ###########################################################
 
 ship_stack *
-add_ship(long x_pos, long y_pos, long z_pos, long x_rot, long type,
+add_ship(int32_t x_pos, int32_t y_pos, int32_t z_pos,
+         int32_t x_rot, int32_t type,
          ship_sdb *special_data, performance_data *performance)
 
 {

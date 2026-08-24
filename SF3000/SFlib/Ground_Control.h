@@ -12,8 +12,4 @@ extern int32_t ground_ship_rate;
 extern int32_t ground_laser_type;
 extern int32_t ground_ship_type;
 
-extern long *temp_store;
-extern mission_data mission;
-extern int32_t laser_counter;
-
 #endif /* __sflib_ground_control_h__ */

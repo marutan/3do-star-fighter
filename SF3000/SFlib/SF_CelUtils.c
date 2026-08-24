@@ -3,12 +3,13 @@
 
 //	Includes
 
+#include <string.h>
+#include "Star3000.h"
 #include "SF_CelUtils.h"
 #include "SF_ARMCell.h"
 #include "SF_ARMSky.h"
 #include "SF_Palette.h"
 #include "SF_Screenutils.h"
-#include <string.h>
 
 //	Definitions
 

@@ -2,6 +2,7 @@
 
 #include <string.h>
 #include <stdint.h>
+#include "Star3000.h"
 #include "Global_2.h"
 #include "SF_Menu.h"
 #include "SF_ARMAnim.h"
@@ -2485,7 +2486,7 @@ menu_formationgroup(long nothing)
           if (ship_sdb_ptr->side == SDB_SIDE_FRIEND) { // Yes, Is it a friend ?
             if (ship_sdb_ptr->control_mode ==
                 SDB_MODE_ATTACK) { // Yes, Not currently in formation ?
-              printf("Recalling ship ->%ld\n",
+              printf("Recalling ship ->%d\n",
                      war_addshiptoformation(ship,
                                             0)); // Yes, Add it to the formation
             }

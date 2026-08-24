@@ -2,6 +2,7 @@
 /* Include Headers */
 
 #include <stdint.h>
+#include "Star3000.h"
 #include "Global_2.h"
 #include "Update_Frame.h"
 #include "Bit_Control.h"

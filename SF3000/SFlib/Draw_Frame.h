@@ -13,12 +13,8 @@
 
 #include "Misc_Struct.h"
 
-/* External Definitions */
-
-extern void rotate_node_from_c(void *);
-
 /* Local Function prototypes */
 
-void draw_frame(long);
+void draw_frame(int32_t camera_numer);
 
 #endif /* __sflib_draw_frame_h__ */

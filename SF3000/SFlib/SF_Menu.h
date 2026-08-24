@@ -141,7 +141,6 @@ extern long configure_waiting;
 extern menu_info menu_status;
 extern menu menus[MAX_MENUS];
 extern TextCel *cel_text[FONT_MAXMENU];
-extern game_status status;
 extern game_parameters parameters;
 extern game_configuration configuration;
 extern performance_data player_performance;

@@ -34,7 +34,7 @@ SOptions			= -bi
 LOptions			= -aif -r -b 0x00
 LStackSize			= 8192
 
-CFLAGS = -I SFLib -I includes
+CFLAGS = -I SFLib/ -I includes/ -I .
 
 #####################################
 #	Object files

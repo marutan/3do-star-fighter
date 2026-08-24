@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "Star3000.h"
 #include "Global_2.h"
 #include "SF_Bonus.h"
 #include "SF_ARMUtils.h"
@@ -15,7 +16,6 @@
 
 // External definitions
 
-extern game_status status;
 char crystal_string[40];
 
 /************************************************************************************************************************************
