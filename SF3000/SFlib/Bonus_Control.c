@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 #include "Global_2.h"
 #include "Bonus_Control.h"
 #include "Collision.h"
@@ -19,8 +20,8 @@ void
 bonus_control(ship_stack *bonus)
 
 {
-  long coll_check;
-  long spin_rate = (128 - bonus->counter);
+  int32_t coll_check;
+  int32_t spin_rate = (128 - bonus->counter);
 
   if (spin_rate < 16) {
     spin_rate = 16;
@@ -66,9 +67,9 @@ bonus_control(ship_stack *bonus)
 }
 
 void
-add_crystal_from_static(long x_grid, long y_grid, long chance)
+add_crystal_from_static(int32_t x_grid, int32_t y_grid, int32_t chance)
 {
-  long x_pos, y_pos, z_pos, type;
+  int32_t x_pos, y_pos, z_pos, type;
 
   graphics_details *details = (graphics_details *) static_graphics_adr;
 
@@ -152,10 +153,10 @@ add_crystal_from_static(long x_grid, long y_grid, long chance)
 }
 
 void
-start_bonus_crystal_adder(long x_grid, long y_grid)
+start_bonus_crystal_adder(int32_t x_grid, int32_t y_grid)
 {
 
-  long height;
+  int32_t height;
 
   height = ((height_map[y_grid << 1][x_grid << 1]) << 21) + (1 << 24);
 
@@ -187,8 +188,8 @@ update_bonus_crystal_adder(void)
 }
 
 void
-add_bonus(long x_pos, long y_pos, long z_pos, long x_vel, long y_vel,
-          long z_vel, long type)
+add_bonus(int32_t x_pos, int32_t y_pos, int32_t z_pos, int32_t x_vel, int32_t y_vel,
+          int32_t z_vel, int32_t type)
 
 {
 
@@ -219,15 +220,15 @@ add_bonus(long x_pos, long y_pos, long z_pos, long x_vel, long y_vel,
 }
 
 void
-add_bonus_from_collision_box(long ref, long grid_ref)
+add_bonus_from_collision_box(int32_t ref, int32_t grid_ref)
 {
 
-  long x_pos, y_pos, z_pos, type, loop;
+  int32_t x_pos, y_pos, z_pos, type, loop;
   collision_details_header *coll_data_header;
   collision_details *coll_data;
   graphics_details *details = (graphics_details *) static_graphics_adr;
 
-  static long toggle = 7;
+  static int32_t toggle = 7;
 
   if (bonus_collision_this_frame > 0) {
     return;

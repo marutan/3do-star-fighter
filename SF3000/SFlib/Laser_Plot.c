@@ -3,6 +3,7 @@
  */
 #include <stdint.h>
 
+#include "Star3000.h"
 #include "Global_2.h"
 #include "Laser_Struct.h"
 #include "Maths_Stuff.h"

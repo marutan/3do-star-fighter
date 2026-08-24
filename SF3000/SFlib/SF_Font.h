@@ -24,7 +24,6 @@
 // Externals
 
 extern message messages[FONT_MAXMESSAGE];
-extern ScreenContext *screen;
 
 // Function Prototypes
 

@@ -3,6 +3,8 @@
 
 // Includes
 
+#include "Star3000.h"
+#include "Global_2.h"
 #include "SF_Pyramid.h"
 #include "SF_ARMCell.h"
 #include "SF_Access.h"

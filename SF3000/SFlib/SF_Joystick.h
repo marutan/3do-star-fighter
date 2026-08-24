@@ -36,7 +36,6 @@ long joystick_registerports(
 
 // external variables
 
-extern Item parent_taskref;    // Task ref of parent
 extern stick_struct pro_stick; //
 
 #endif

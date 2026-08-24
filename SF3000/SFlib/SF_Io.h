@@ -35,7 +35,6 @@
 // External variables
 
 extern stick_struct pro_stick;
-extern game_configuration configuration;
 
 // Function Prototypes
 

@@ -35,11 +35,6 @@ typedef struct crystal_award // Definition of awards structure
   long parameter3;
 } crystal_award;
 
-// External variables
-
-extern performance_data player_performance;
-extern performance_data player_megaperformance;
-
 // Function Prototypes
 
 void bonus_parachute(long);             // Add a random parachute bonus

@@ -14,7 +14,6 @@
 
 extern menu menus[MAX_MENUS];
 extern pyramid pyramids[4];
-extern performance_data player_performance;
 
 // Function Prototypes
 

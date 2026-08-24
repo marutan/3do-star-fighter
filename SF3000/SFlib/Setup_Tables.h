@@ -34,24 +34,12 @@
 #define COLL_DOWN_RIGHT 254
 #define COLL_RIGHT 255
 
-extern char height_map[256][256];
-extern char sprite_map[256][256];
-extern char poly_map[128][128];
-
-// Camera Stuff
-extern long camera_x_velocity;
-extern long camera_y_velocity;
-extern long camera_z_velocity;
-
-extern cel_celdata cel_quad;
 extern char skyfile[1024];
 
 extern void machine_code_constants(void *);
 extern void plot_land_constants(void *);
 
 void setup_tables(void);
-
-extern planet_data planet_info;
 
 extern long are_we_in_space_or_wot;
 

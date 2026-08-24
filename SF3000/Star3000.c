@@ -104,20 +104,15 @@ char animate_poly[1024];     // Pointer to texture animations file
 // System Variables
 // ----------------
 
-long configure_waiting =
+int32_t configure_waiting =
     0; // Initial configure load ? Decides language / main menu
-ScreenContext screenbanks,
-    *screen = &screenbanks; // Screen
+static ScreenContext screenbanks;
+ScreenContext *screen = &screenbanks; // Screen
 
-Item ioreq_timer; // IO requests
+static Item ioreq_timer; // IO requests
 Item VRAMIOReq;
 Item VBLIOReq;
 Item parent_taskref; // Task ref of parent
-
-// Sound System Variables
-// ----------------------
-
-long music_background = 0;
 
 // Game status declarations
 // ------------------------
@@ -135,7 +130,7 @@ game_parameters parameters = {
 };
 mission_data mission; // Mission data
 
-long cheat_feature1 = 0, cheat_feature2 = 0, cheat_feature3 = 0,
+int32_t cheat_feature1 = 0, cheat_feature2 = 0, cheat_feature3 = 0,
      cheat_feature4 = 0;
 
 // Performance datablocks for players ship
@@ -194,7 +189,8 @@ char *pilot_names[16] = {"",
                          "Trainee Pilot 1",
                          "Trainee Pilot 2"};
 
-long keypad, keypad_constant, menu_command;
+long keypad, keypad_constant;
+static long menu_command;
 
 // MAIN GAME CODE
 

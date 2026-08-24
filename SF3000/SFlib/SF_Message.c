@@ -522,7 +522,7 @@ message_addcamera(long current_camera)
     if (camera[current_camera].view != 0) {
       char temp[32];
       strcat(cam_message, " ");
-      sprintf(temp, "%ld", camera[current_camera].instance + 1);
+      sprintf(temp, "%d", camera[current_camera].instance + 1);
       strcat(cam_message, temp);
       //			sprintf(cam_message,"%s %ld", cam_message,
       // camera [current_camera].instance+1);

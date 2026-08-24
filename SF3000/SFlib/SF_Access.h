@@ -30,20 +30,9 @@ extern uint8_t *backdrop;
 
 // External Definitions
 
-extern planet_data planet_info;          // Planet type information
-extern char *map512;                     // Low res map
-extern char sprite_map[256][256];        // Pointer to map [sprite] data
-extern char height_map[256][256];        // Pointer to map [height] data
-extern char poly_map[128][128];          // Pointer to map [polygon] data
 extern char animate[2052];               // Pointer to map [animations] data
-extern char cels4x4[16 * CEL_MAX4];      // Pointer to 4x4 compacted land cels
-extern int32_t graphics_data[19000];     // Pointer to polygon datafiles
 extern char skyfile[1024];               // Skyfile
-extern cel_celdata cel_quad;             // Cel info block
 extern char tangent_table[4100];         // Tangent Data
-extern int32_t cosine_table[2048];       // Cosine table
-extern char animate_poly[1024];          // Texture animations file
-extern game_configuration configuration; // Game configuration
 
 /* Function Prototypes */
 

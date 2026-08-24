@@ -134,29 +134,17 @@ typedef struct menu {
 /* External definitions */
 
 extern long first_frame;
-extern long music_background;
 extern long info;
-extern long configure_waiting;
 
 extern menu_info menu_status;
 extern menu menus[MAX_MENUS];
 extern TextCel *cel_text[FONT_MAXMENU];
-extern game_parameters parameters;
-extern game_configuration configuration;
-extern performance_data player_performance;
-extern cel_celdata cel_quad;
 extern pyramid pyramids[4];
 
 extern char MUSIC_PROGRAM[MUSIC_PLAYLISTLENGTH];
 extern char MUSIC_PROGRAMLENGTH;
-extern long cheat_feature3;
 extern stick_struct pro_stick;
 extern BS_StickData joystick;
-
-extern long cheat_feature1;
-extern long cheat_feature2;
-extern long cheat_feature3;
-extern long cheat_feature4;
 
 /* Function Prototypes */
 

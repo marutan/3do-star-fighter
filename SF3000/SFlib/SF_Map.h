@@ -13,13 +13,7 @@
 
 // External Definitions
 
-extern Item VBLIOReq;
-extern ship_list ships;
 extern long first_frame;
-extern cel_celdata cel_quad;
-extern performance_data player_performance;
-extern char *pilot_names[16];
-extern long cheat_feature4;
 
 // Structure definitions
 

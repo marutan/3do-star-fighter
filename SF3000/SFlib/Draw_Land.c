@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include "Star3000.h"
 #include "Global_2.h"
 #include "Draw_Land.h"
 #include "Bit_Control.h"

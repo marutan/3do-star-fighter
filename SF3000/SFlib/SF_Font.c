@@ -3,6 +3,7 @@
 
 // Includes
 
+#include "Star3000.h"
 #include "SF_Font.h"
 #include "SF_Allocation.h"
 #include "SF_Screenutils.h"

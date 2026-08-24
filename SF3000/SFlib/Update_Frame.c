@@ -34,8 +34,6 @@
 #include "SF_Message.h"
 #include "SF_Status.h"
 
-extern game_status status;
-
 void
 update_frame(long keypad)
 

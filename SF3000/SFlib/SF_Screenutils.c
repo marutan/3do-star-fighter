@@ -5,6 +5,7 @@
 
 #include "io.h"
 
+#include "Star3000.h"
 #include "SF_Access.h"
 #include "SF_ARMCell.h"
 #include "SF_ARMSky.h"

@@ -85,8 +85,6 @@ typedef struct game_status {
 
 // External Definitions
 
-extern performance_data player_performance;
-extern planet_data planet_info;
 extern long player_crashed_xpos;
 extern long player_crashed_ypos;
 extern long player_crashed_zpos;

@@ -4,6 +4,7 @@
 #include "stdio.h"
 #include "umemory.h"
 
+#include "Star3000.h"
 #include "SF_Allocation.h"
 #include "SF_Io.h"
 #include "SF_Music.h"

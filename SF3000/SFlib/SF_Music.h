@@ -43,8 +43,4 @@ void music_command(int32_t);   // INTERNAL - Execute command
 void music_trackgetnext(long); // INTERNAL - Play next / previous track
 void music_loadin(long);       // INTERNAL - Load in music
 
-// external variables
-
-extern Item parent_taskref; // Task ref of parent
-
 #endif

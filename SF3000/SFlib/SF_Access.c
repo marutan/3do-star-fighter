@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include "Star3000.h"
+#include "Global_2.h"
 #include "SF_Access.h"
 #include "SF_ARMAnim.h"
 #include "SF_ARMBurn.h"

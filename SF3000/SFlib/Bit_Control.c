@@ -19,9 +19,9 @@ bit_update(void)
   bit_stack *bit;
   bit_stack *bit_temp;
 
-  long loop;
-  long temp_long;
-  long coll_check, coll_check_2;
+  int32_t loop;
+  int32_t temp_long;
+  int32_t coll_check, coll_check_2;
 
   bit = (bits.info).start_address;
 
@@ -125,9 +125,9 @@ bit_update(void)
 }
 
 void
-add_bit(long x_pos, long y_pos, long z_pos, long x_vel, long y_vel, long z_vel,
-        long colour1, long colour2, long type, long explosion_velocity,
-        long owner, long style)
+add_bit(int32_t x_pos, int32_t y_pos, int32_t z_pos, int32_t x_vel, int32_t y_vel, int32_t z_vel,
+        int32_t colour1, int32_t colour2, int32_t type, int32_t explosion_velocity,
+        int32_t owner, int32_t style)
 
 {
 
@@ -138,16 +138,16 @@ add_bit(long x_pos, long y_pos, long z_pos, long x_vel, long y_vel, long z_vel,
   // going in the direction specified by the x y z velocity and a
   // addition arm_randomom velocity based on the bit type.
 
-  long velocity;
-  long coll_check;
-  long pointer;
-  long x_dir, y_dir, z_dir;
-  long x_rot, y_rot;
+  int32_t velocity;
+  int32_t coll_check;
+  int32_t pointer;
+  int32_t x_dir, y_dir, z_dir;
+  int32_t x_rot, y_rot;
   bit_stack *bit;
 
   bit_stack *temp_bit = NULL;
   bit_stack *new_bit = NULL;
-  long new_bit_val = (1 << 20);
+  int32_t new_bit_val = (1 << 20);
 
   bit = armlink_addtolist(&bits);
 

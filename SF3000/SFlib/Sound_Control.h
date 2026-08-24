@@ -26,10 +26,6 @@ void start_engine_sounds(void);
 
 extern int32_t sound_channel_shields_low;
 
-extern long camera_x_velocity;
-extern long camera_y_velocity;
-extern long camera_z_velocity;
-
 #define SMALL_SHIP_ENGINE_ON 0
 #define SMALL_SHIP_ENGINE_OFF 1
 

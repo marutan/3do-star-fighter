@@ -126,21 +126,6 @@ typedef struct alpha_char {
   char delay;
 } alpha_char;
 
-// External variables
-
-extern CCB *cel_plut;
-extern CCB *cel_plotlist[CEL_MAXTEMP];
-extern char cels4x4[16 * CEL_MAX4];
-extern cel_celdata cel_quad;
-extern char *map512;
-extern char *map128;
-extern char *map32;
-extern char cache_lookup[64 * 64 * 2];
-extern char cache_free[CEL_MAXCREATION];
-extern ScreenContext *screen;
-extern int32_t cosine_table[2048];
-extern int32_t *sine_table;
-
 // Function Prototypes
 
 long cel_initialise(void); // Initialise cel lists

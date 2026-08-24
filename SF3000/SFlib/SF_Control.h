@@ -27,17 +27,11 @@
 
 // External Variables
 
-extern game_configuration configuration;
-extern game_parameters parameters;
-extern performance_data player_performance;
-extern performance_data player_resetperformance;
-extern cel_celdata cel_quad;
 extern char animate[2052];
 extern ship_sdb pleb_special_data;
 extern formation_ship formation[8];
 extern menu menus[MAX_MENUS];
 extern TextCel *cel_text[FONT_MAXMENU];
-extern long cheat_feature2;
 extern BS_StickData joystick;
 
 // Function Prototypes

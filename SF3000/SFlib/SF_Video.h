@@ -8,10 +8,6 @@
 #include "PlayCPakStream.h"
 #include "SF_Screenutils.h"
 
-// External Variables
-
-extern ScreenContext *screen;
-
 // Function Prototypes
 
 long video_play(char *video_file); // Play a Cinepak video sequence

@@ -5,6 +5,7 @@
 
 #include <string.h>
 #include "Star3000.h"
+#include "Global_2.h"
 #include "SF_CelUtils.h"
 #include "SF_ARMCell.h"
 #include "SF_ARMSky.h"

@@ -2,6 +2,7 @@
 /* Include Headers */
 
 #include <stdint.h>
+#include "Star3000.h"
 #include "Global_2.h"
 #include "Draw_Frame.h"
 #include "Plot_Land.h"

@@ -20,6 +20,7 @@
 
 #include <stdint.h>
 
+#include "Star3000.h"
 #include "SF_Music.h"
 #include "SF_Allocation.h"
 #include "audio.h"

@@ -34,13 +34,8 @@
 
 /* External Variables */
 
-extern ScreenContext *screen;
-extern Item VBLIOReq;
-extern Item VRAMIOReq;
-extern cel_celdata cel_quad;
 extern menu_info menu_status;
 extern menu menus[MAX_MENUS];
-extern CCB *cel_plotlist[CEL_MAXTEMP];
 extern message messages[FONT_MAXMESSAGE];
 extern long info;
 

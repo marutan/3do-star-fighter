@@ -13,6 +13,7 @@
 
 /**************************************/
 
+#include "Star3000.h"
 #include "SF_Joystick.h"
 #include "mem.h"
 #include "stdio.h"

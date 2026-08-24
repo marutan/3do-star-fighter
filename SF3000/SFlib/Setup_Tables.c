@@ -13,6 +13,7 @@
 #include "SF_ARMUtils.h"
 #include "Smoke_Control.h"
 #include "Sound_Control.h"
+#include "Plot_Graphic.h"
 
 void
 setup_tables(void)

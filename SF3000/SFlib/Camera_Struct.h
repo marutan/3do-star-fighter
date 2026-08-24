@@ -1,6 +1,8 @@
 #ifndef __CAMERA_SET_H
 #define __CAMERA_SET_H
 
+#include <stdint.h>
+
 #define MAX_CAMERAS 3
 
 #define CAMERA_NORMAL 0
@@ -10,19 +12,19 @@
 
 typedef struct camera_data {
   struct ship_stack *view_ship;
-  long x_rot;
-  long y_rot;
-  long zoom;
-  long type;
-  long view;
-  long instance;
-  long x_pos;
-  long y_pos;
-  long z_pos;
-  long x_pos2;
-  long y_pos2;
-  long counter2;
-  long counter;
+  int32_t x_rot;
+  int32_t y_rot;
+  int32_t zoom;
+  int32_t type;
+  int32_t view;
+  int32_t instance;
+  int32_t x_pos;
+  int32_t y_pos;
+  int32_t z_pos;
+  int32_t x_pos2;
+  int32_t y_pos2;
+  int32_t counter2;
+  int32_t counter;
 } camera_data;
 
 #endif

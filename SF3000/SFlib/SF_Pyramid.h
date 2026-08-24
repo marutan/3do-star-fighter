@@ -37,13 +37,6 @@ typedef struct pyramid // Pyramid structure data
   char mission[MAX_MISSIONS]; // Array of missions in pyramid
 } pyramid;
 
-// External Definitions
-
-extern cel_celdata cel_quad;
-extern int32_t cosine_table[2048];
-extern int32_t *sine_table;
-extern long cheat_feature1;
-
 // Function Prototypes
 
 void pyramid_initialiselevel(long);   // Clear a pyramid level
