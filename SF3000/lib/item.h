@@ -1,6 +1,8 @@
 #ifndef __3do_item_h__
 #define __3do_item_h__
 
+#include "types.h"
+
 /*
 **  Kernel item management definitions
 **

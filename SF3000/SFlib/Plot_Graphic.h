@@ -10,12 +10,9 @@ extern void plot_spinning_ship(long, long);
 
 extern void plot_ship_graphic(void *);
 extern void plot_bit_graphic(void *);
-extern void rotate_node_from_c(void *);
 extern void plot_smoke(void *);
 extern void machine_code_constants(void *);
 extern void rotate_sky(void *);
-extern long find_rotation(long, long);
-extern void plot_laser(void *);
 extern void plot_bit(void *);
 extern void rotate_sky_node(void *);
 extern void plot_planets(void);

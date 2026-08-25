@@ -67,11 +67,6 @@ void plot_bit_graphic(void *)
   UNIMPLEMENTED;
 }
 
-void rotate_node_from_c(void *)
-{
-  UNIMPLEMENTED;
-}
-
 void plot_smoke(void *)
 {
   UNIMPLEMENTED;
@@ -83,18 +78,6 @@ void machine_code_constants(void *)
 }
 
 void rotate_sky(void *)
-{
-  UNIMPLEMENTED;
-}
-
-long find_rotation(long, long)
-{
-  UNIMPLEMENTED;
-
-  return 0;
-}
-
-void plot_laser(void *)
 {
   UNIMPLEMENTED;
 }

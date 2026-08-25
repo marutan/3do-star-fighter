@@ -34,7 +34,7 @@ SOptions			= -bi
 LOptions			= -aif -r -b 0x00
 LStackSize			= 8192
 
-CFLAGS = -I SFLib/ -I includes/ -I . -Wall
+CFLAGS = -I SFLib/ -I lib/ -I . -Wall
 
 #####################################
 #	Object files
@@ -88,14 +88,40 @@ OBJECTS	=	Star3000.o \
 		SFlib/Weapons.o \
 		SFlib/Collision_Update.o \
 		SFlib/Laser_Plot.o \
-#		SFlib/Smoke_Plot.o \
 		SFlib/Ship_Command.o \
 		SFlib/Graphics_Set.o \
 		SFlib/bs_joystick.o \
 		SFlib/broker_shell.o \
 		SFlib/SF_Joystick.o \
 		SFlib/test_prog.o \
-		SFlib/Global_2.o
+		SFlib/Global_2.o \
+		lib/task.o \
+		lib/msgport.o \
+		lib/operror.o \
+		lib/kernel.o \
+		lib/graphics.o \
+		lib/audio.o \
+		lib/displayutils.o \
+		lib/io.o \
+		lib/soundplayer.o \
+		lib/textlib.o \
+		lib/event.o \
+		lib/fontlib.o \
+		lib/mem.o \
+		lib/filefunctions.o \
+		lib/directoryfunctions.o \
+		lib/blockfile.o \
+		lib/umemory.o \
+		lib/saudiosubscriber.o \
+		lib/datastreamlib.o \
+		lib/controlsubscriber.o \
+		lib/dataacq.o \
+		lib/cpaksubscriber.o \
+		lib/timerutils.o \
+		lib/datastream.o \
+		lib/item.o
+
+#		SFlib/Smoke_Plot.o \
 #		"{3DOLibs}"cstartup.o
 
 LIBS			=		"{SubscriberDir}subscriber.lib" \

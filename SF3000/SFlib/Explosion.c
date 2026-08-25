@@ -21,6 +21,7 @@
 #include "Smoke_Control.h"
 #include "Sound_Control.h"
 #include "Weapons.h"
+#include "Maths_Stuff.h"
 
 void
 static_explode(long grid_pos, long damage)

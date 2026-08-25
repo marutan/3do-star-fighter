@@ -58,5 +58,13 @@ extern Err ReplyMsg(Item msg, int32_t result,
 #define DeleteMsgPort(x) DeleteItem(x)
 #define DeleteMsg(x)     DeleteItem(x)
 
+// PJH hack, for some reason these funcs are called from PlayCPakStream in sf3000
+// but not in the
+
+int32_t PollForMsg(Item, void *, void *, void *, int32_t*);
+Item NewMsgPort(void *);
+Item CreateMsgItem(Item);
+void RemoveMsgItem(Item);
+void RemoveMsgPort(Item);
 
 #endif /* __3do_msgport_h__ */
