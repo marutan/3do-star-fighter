@@ -28,8 +28,6 @@
 #include "Weapons.h"
 #include "stdio.h"
 
-static int32_t test_cam = 0;
-
 void
 draw_frame(int32_t camera_number)
 {
@@ -38,7 +36,6 @@ draw_frame(int32_t camera_number)
   static int32_t engine_zoom = 0;
   static int32_t last_camera = 0;
   ship_stack *view_ship = camera[camera_number].view_ship;
-  int32_t x_dist, y_dist, z_dist, x_y_dist;
   target_struct tracking_camera;
   rotate_node node_data;
   graphics_details *details = (graphics_details *) ships_adr;

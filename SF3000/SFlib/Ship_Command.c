@@ -30,15 +30,6 @@
 void
 small_ship_command_update(ship_stack *ship)
 {
-
-  ship_stack *temp_ship;
-  long x_rot, y_rot, z_rot;
-  long x_dist, y_dist, z_dist, dist;
-  long temp_long, temp_long2;
-  long coll_check;
-
-  rotate_node node_data;
-
   if (ship->attacker_rating == 197) {
     new_fighter_control(ship);
     return;

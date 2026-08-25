@@ -38,13 +38,9 @@ void
 update_frame(long keypad)
 
 {
-  long loop, temp_long;
+  long temp_long;
   ship_stack *ship;
-  ship_stack *temp_ship;
-  laser_stack *laser;
   long type;
-  long *end_of_collision_stack;
-  long *start_of_collision_stack = temp_store;
 
   static long test_graphic = 1;
   static long key_press = 0;

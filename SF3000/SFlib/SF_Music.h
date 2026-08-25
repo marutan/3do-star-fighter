@@ -3,6 +3,7 @@
 #ifndef __SF_MUSIC
 #define __SF_MUSIC
 
+#include <stdint.h>
 #include "types.h"
 
 // Definitions
@@ -13,7 +14,7 @@
 
 // Variables in SF_Music.c
 extern char MUSIC_PROGRAM[MUSIC_PLAYLISTLENGTH];
-extern char MUSIC_PROGRAMLENGTH;
+extern uint8_t MUSIC_PROGRAMLENGTH;
 
 // Function Prototypes
 

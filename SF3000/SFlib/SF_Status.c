@@ -60,7 +60,6 @@ status_updatestatus(void)
 
 {
   long camloop;
-  char message_string[40];
   ship_stack *ship;
 
   // ARE WE DISPLAYING LIVES ON SCREEN ?
@@ -102,8 +101,10 @@ status_updatestatus(void)
     }
   }
 
-  status.clock1 = (++status.clock1) & 3;  // Fast clock
-  status.clock2 = (++status.clock2) & 31; // Slow clock
+  ++status.clock1;
+  status.clock1 = (status.clock1) & 3;  // Fast clock
+  ++status.clock2;
+  status.clock2 = (status.clock2) & 31; // Slow clock
 
   if (status.clock3 < 1023) {
     status.clock3 += 1; // Frame clock upto 1023

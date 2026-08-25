@@ -54,10 +54,6 @@ rotate_land(void)
                //camera_y_rotation ] )>>12 ;
 
   /* Setup the cosine and sine values of the y rotation for quick access */
-  long cosine_y = cosine_table[camera_y_rotation];
-  long sine_y = -sine_table[camera_y_rotation];
-
-  static long silly = 0;
 
   rot_data = (rot_struct *) (&machine_code_vars[0]);
 

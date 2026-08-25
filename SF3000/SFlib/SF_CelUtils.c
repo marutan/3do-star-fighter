@@ -363,7 +363,7 @@ cel_addalphastring(char *alpha_string, long alpha_xpos, long alpha_ypos,
 
 {
 
-  char char_toadd;
+  uint8_t char_toadd;
 
   while (*alpha_string != 0) {
     char_toadd = 255;
@@ -428,7 +428,7 @@ cel_getalphastringlen(char *alpha_string)
 
 {
 
-  char char_toadd;
+  uint8_t char_toadd;
   long pixel_length = 0;
 
   if (*alpha_string == 0) { // If no string, just return zero

@@ -161,7 +161,6 @@ add_smoke(long x_pos, long y_pos, long z_pos, long x_vel, long y_vel,
   long coll_check;
   long counter;
   smoke_stack *smoke;
-  long size;
 
   smoke_stack *temp_smoke = NULL;
   smoke_stack *new_smoke = NULL;

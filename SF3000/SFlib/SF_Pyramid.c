@@ -351,8 +351,6 @@ pyramid_showmission(void)
 // Returns : Nothing
 
 {
-
-  char string[40];
   long mission_num = return_mission(&pyramids[parameters.level]);
 
   if (pyramids[parameters.level].mission[mission_num] ==

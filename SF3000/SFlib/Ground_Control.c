@@ -19,8 +19,6 @@
   y_pos = (unsigned) y_grid << 25;                                             \
   z_pos = (long) ((height_map[(y_grid << 1)][(x_grid << 1)]) - 17) << 21;
 
-//if (z_pos < 0) z_pos = 0 ;\ 
-
 void
 ground_update(void)
 
@@ -38,7 +36,6 @@ ground_update(void)
   long x_grid, y_grid;
   long x_pos, y_pos, z_pos;
   long type;
-  long loop;
 
   ship_stack *pleb_ship;
 

@@ -19,8 +19,6 @@ bit_update(void)
   bit_stack *bit;
   bit_stack *bit_temp;
 
-  int32_t loop;
-  int32_t temp_long;
   int32_t coll_check, coll_check_2;
 
   bit = (bits.info).start_address;
@@ -140,7 +138,6 @@ add_bit(int32_t x_pos, int32_t y_pos, int32_t z_pos, int32_t x_vel, int32_t y_ve
 
   int32_t velocity;
   int32_t coll_check;
-  int32_t pointer;
   int32_t x_dir, y_dir, z_dir;
   int32_t x_rot, y_rot;
   bit_stack *bit;
@@ -185,8 +182,6 @@ add_bit(int32_t x_pos, int32_t y_pos, int32_t z_pos, int32_t x_vel, int32_t y_ve
   x_dir = (cosine_table[x_rot] * cosine_table[y_rot] * velocity) >> 5;
   y_dir = (sine_table[x_rot] * cosine_table[y_rot] * velocity) >> 5;
   z_dir = (sine_table[y_rot] * velocity) << 7;
-
-  pointer = ((arm_random()) & (MAX_BITS - 1));
 
   // Set start point of bit + arm_randomom bit
   bit->x_pos = x_pos + (x_dir >> 1);

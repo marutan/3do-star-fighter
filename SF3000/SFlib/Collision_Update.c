@@ -30,16 +30,14 @@
 void
 collision_update(void)
 {
-  long loop, coll_check;
+  long coll_check;
   ship_stack *ship;
   ship_stack *temp_ship;
   ship_stack *other_ship;
 
   laser_stack *laser;
-  long type;
   long *end_of_collision_stack;
   long *start_of_collision_stack = temp_store;
-  static long bonus_shader = 1;
 
   // Update tims stuff before any ships are deleted
   // This is the high level ship controlling

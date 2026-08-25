@@ -17,7 +17,6 @@
 
 /* Global variables */
 
-static long file_return;
 uint8_t *backdrop;
 
 /**************************************/

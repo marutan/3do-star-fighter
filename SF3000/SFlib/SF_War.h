@@ -125,7 +125,7 @@ int32_t ship_setmultipletargets(
     char); // Acquire new target(s) for ship within search range
 
 int32_t war_setformationposition(
-    ship_stack *, char,
+    ship_stack *, uint8_t,
     int32_t); // Put a ship in formation with the player at a fixed pos
 int32_t war_addshiptoformation(
     ship_stack *formation_ship,

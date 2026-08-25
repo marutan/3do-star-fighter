@@ -831,7 +831,7 @@ game_play(long command)
         arm_addgamecel(
             &cel_quad,
             BASECEL_DIRECTION +
-                (4 + (((players_ship->x_rot + (64 << 10))) >> 17) & 7),
+                ((4 + (((players_ship->x_rot + (64 << 10))) >> 17)) & 7),
             1024, 1024);
 
         // Add grid reference

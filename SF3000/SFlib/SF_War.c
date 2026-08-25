@@ -973,7 +973,7 @@ war_update_defend_leader(ship_stack *ship, ship_sdb *ship_sdb_ptr,
     return (0);
   }
 
-  if (arm_random() & 3 != 3) { // If not rnd(4) then no attack
+  if ((arm_random() & 3) != 3) { // If not rnd(4) then no attack
     return (0);
   }
 
@@ -1274,7 +1274,7 @@ ship_setmultipletargets(ship_stack *this_ship, int32_t maxsearch_distance,
 /**************************************/
 
 int32_t
-war_setformationposition(ship_stack *formation_ship, char formation_position,
+war_setformationposition(ship_stack *formation_ship, uint8_t formation_position,
                          int32_t print_message)
 
 // Purpose : Registers a ship at a fixed position in the players formation
@@ -1353,7 +1353,7 @@ war_squashformationup(void)
 // Returns : Nothing
 
 {
-  char ship_formationplace = 1, ship_formationcount;
+  uint8_t ship_formationplace = 1, ship_formationcount;
 
   ship_stack *ship_in_formation;
 

@@ -2369,14 +2369,12 @@ menu_displayformation(long formation_display)
 
   ship_stack *ship = (ship_stack *) (ships.info).start_address;
 
-  char names_attack[16];
+  uint8_t names_attack[16];
 
   long form_xpos = 0 - 16, form_ypos = 65 - 16, form_search,
-
        friendly_total = 0, friendly_totalout = 0, friendly_attacking = 0,
-       friendly_loop,
-
        pilot_toggley = 0;
+  uint32_t friendly_loop;
 
   while ((ship->header).status == 1) {
     if (ship->special_data != NULL) {
@@ -3170,8 +3168,9 @@ menu_endflightc(long nothing)
 // Returns : 1 if no clashes, 0 if clashes
 
 {
-  char clash_check[7] = {0, 0, 0, 0, 0, 0, 0};
-  long clash_loop, clash_fail = 1;
+  uint8_t clash_check[7] = {0, 0, 0, 0, 0, 0, 0};
+  uint32_t clash_loop;
+  long clash_fail = 1;
 
   for (clash_loop = 0; clash_loop < 7; clash_loop++) {
     clash_check[configuration.flight_controls[clash_loop]] = 1;

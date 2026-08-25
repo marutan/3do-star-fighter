@@ -73,7 +73,6 @@ add_air_to_ground(ship_stack *ship)
   ship_stack *atg;
 
   graphics_details *details = (graphics_details *) static_graphics_adr;
-  long *graphic_data;
   long aim_height, x_grid, y_grid, type;
 
   ship->counter = 8;
@@ -132,7 +131,6 @@ air_to_air_control(ship_stack *ata)
 
   long coll_check, x_aim, y_aim;
   target_struct target;
-  ship_stack *ship_hit;
   ship_stack *aim_at = (ship_stack *) (ata->target);
 
   target.x_pos = ata->x_pos;

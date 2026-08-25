@@ -37,9 +37,8 @@ new_fighter_control(ship_stack *ship)
 {
 
   rotate_node node_data;
-  rotate_node node_data2;
   target_struct target;
-  long x_aim, y_aim, z_aim, aim;
+  long x_aim, y_aim, aim;
   long x_dist, y_dist, z_dist, dist;
   long temp_long, temp_long2, temp_long3;
   long x_rot_rel, y_rot_rel;
@@ -49,7 +48,7 @@ new_fighter_control(ship_stack *ship)
   long coll_check = 0;
   long goto_x, goto_y, goto_z;
   long loop;
-  long y_limit, mode;
+  long mode;
 
   ship_stack *temp_ship;
 
@@ -109,7 +108,7 @@ new_fighter_control(ship_stack *ship)
   ship->aim_counter -= 1;
   if (ship->aim_counter < 0) {
     // Slight chance of short burst of mega steering
-    if (arm_random() & 3 == 0) {
+    if ((arm_random() & 3) == 0) {
       ship->aim_counter = 32 + (arm_random() & 31);
       ship->aim_x_vel = 512 + (arm_random() & 511);
     } else {
@@ -578,19 +577,12 @@ new_flight_path_control(ship_stack *ship)
 {
 
   rotate_node node_data;
-  rotate_node node_data2;
   target_struct target;
-  long x_aim, y_aim, z_aim, aim;
+  long x_aim, y_aim;
   long x_dist, y_dist, z_dist, dist;
   long temp_long, temp_long2;
 
   long z_roll;
-
-  long y_limit, mode;
-
-  ship_stack *temp_ship;
-
-  mode = ship->special_data->control_mode;
 
   // Test remove fire requests
   // ship->fire_request = WEAPON_NOTHING ;
@@ -686,11 +678,12 @@ new_flight_path_control(ship_stack *ship)
   if (y_aim < 0) {
     y_aim = -y_aim;
   }
-  if (x_aim > y_aim) {
-    aim = x_aim;
-  } else {
-    aim = y_aim;
-  }
+
+//  if (x_aim > y_aim) {
+//    aim = x_aim;
+//  } else {
+//    aim = y_aim;
+//  }
 
   ship->z_control = -((node_data.x_pos / temp_long));
 
@@ -775,15 +768,14 @@ new_formation_control(ship_stack *ship)
 {
 
   rotate_node node_data;
-  rotate_node node_data2;
   target_struct target;
-  long x_aim, y_aim, z_aim, aim;
+  long x_aim, y_aim, aim;
   long x_dist, y_dist, z_dist, dist;
-  long temp_long, temp_long2;
+  long temp_long;
 
   long z_roll;
 
-  long y_limit, mode;
+  long mode;
 
   ship_stack *temp_ship;
 

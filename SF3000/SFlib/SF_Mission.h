@@ -3,6 +3,7 @@
 #ifndef __SF_MISSION
 #define __SF_MISSION
 
+#include <stdint.h>
 #include "SF_Mission.h"
 
 /* Status structure defines */
@@ -58,13 +59,13 @@ typedef struct ship_sdb // Ship control structure
   char side;         //	2
   char killstatus;   //	3
 
-  char flightpath_point;   //	4
+  uint8_t flightpath_point;   //	4
   char command_override;   //	5
-  char formation_position; //	6
+  uint8_t formation_position; //	6
   char fire_instruction;   //	7
 
   char distance_check;  //	8
-  char pilot_name;      //	9
+  uint8_t pilot_name;      //	9
   char cloaking_device; //	10
   char start_direction; //	11
 
@@ -73,7 +74,7 @@ typedef struct ship_sdb // Ship control structure
   char bomb_timer;  //	14
   char ship_type;   //	15
 
-  char init_ref; //	16
+  uint8_t init_ref; //	16
   char x_start;  //	17
   char y_start;  //	18
   char z_start;  //	19

@@ -100,7 +100,7 @@ aim_laser(long x_pos, long y_pos, long z_pos, long x_aim, long y_aim,
   // Given a targets coords it will aim and add the laser
 
   target_struct target;
-  long x_dist, y_dist, z_dist, distance;
+  long distance;
 
   // Find the x & y angle between you and the target
   target.x_pos = x_pos;

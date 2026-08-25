@@ -410,7 +410,7 @@ InitCPakPlayerFromStreamHeader(PlayerPtr ctx, char *streamFileName)
   if (fStreamHasAudio) {
     /* Preload audio instrument templates, if any are specified
      */
-    if (ctx->hdr.preloadInstList != 0) {
+//    if (ctx->hdr.preloadInstList != 0) { Should never be null
       ctlBlock.loadTemplates.tagListPtr = ctx->hdr.preloadInstList;
 
       status = DSControl(ctx->messageItem, NULL, ctx->streamCBPtr,
@@ -418,7 +418,7 @@ InitCPakPlayerFromStreamHeader(PlayerPtr ctx, char *streamFileName)
       if (status != 0) {
         goto CLEANUP;
       }
-    }
+//    }
 
     /* Enable any audio channels whose enable bit is set.
      * NOTE: Channel zero is enabled by default, so we don't check it.

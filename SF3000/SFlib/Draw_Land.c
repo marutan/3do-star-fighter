@@ -29,12 +29,11 @@ draw_land()
 
 {
   long loop, temp_long, height_scaler;
-  long mc_vars[6];
   ship_stack *ship;
   bit_stack *bit;
   smoke_stack *smoke;
   laser_stack *laser;
-  long size_x, size_y, size_z, size;
+  long size_x, size_y, size_z, size = 0;
   long x_pos, y_pos, z_pos;
   rotate_node node_data;
 
@@ -47,7 +46,6 @@ draw_land()
   static char *map_base_adr = (char *) &poly_map[0][0];
 
   graphics_details *object_details = (graphics_details *) static_graphics_adr;
-  graphics_details *ship_details = (graphics_details *) ships_adr;
   graphics_details *details;
 
   // More test stuff

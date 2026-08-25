@@ -190,10 +190,8 @@ ship_control(ship_stack *ship)
 
   int32_t coll_check;
   int32_t temp_long;
-  int32_t loop, loop2;
+  int32_t loop;
 
-  int32_t cosine_y, sine_y;
-  int32_t cosine_z, sine_z;
   target_struct target;
 
   ship_stack *temp_ship;
@@ -201,17 +199,6 @@ ship_control(ship_stack *ship)
   int32_t x_control, y_control, z_control;
 
   rotate_node node_data;
-
-  graphics_details *details = (graphics_details *) ships_adr;
-
-  smoke_details_header *smoke_header;
-  smoke_details *smoke_data;
-
-  thruster_details_header *thruster_header;
-  thruster_details *thruster_data;
-
-  laser_details_header *laser_header;
-  laser_details *laser_data;
 
   // Check ship collisions
   if (ship->what_hit_me != 0) {
@@ -913,7 +900,7 @@ car_control(ship_stack *car)
 
   int32_t height_temp, rot_temp;
   target_struct target;
-  int32_t x_aim, y_aim;
+  int32_t x_aim;
   ship_stack *ship;
   int32_t x_pos, y_pos, z_pos, dist;
 

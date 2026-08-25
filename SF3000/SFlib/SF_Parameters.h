@@ -3,6 +3,8 @@
 #ifndef __SF_PARAMETERS
 #define __SF_PARAMETERS
 
+#include <stdint.h>
+
 // Definitions
 
 #define MENUSWITCH_TIMEOUT 2048
@@ -31,7 +33,7 @@ typedef struct game_configuration {
   char free3;
 
   char language;
-  char control_method;
+  uint8_t control_method;
   char music_volume;
   char sound_volume;
 
@@ -40,7 +42,7 @@ typedef struct game_configuration {
   char video_on;
   char free5;
 
-  char flight_controls[12];
+  uint8_t flight_controls[12];
 
   long stick_x_min;
   long stick_x_max;

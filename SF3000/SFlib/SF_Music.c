@@ -79,7 +79,7 @@ long MUSIC_PLAYERTASKACTIVE = 0, // Current status of player
     player_status;               // Music player status
 
 char MUSIC_PROGRAM[MUSIC_PLAYLISTLENGTH]; // Music play list
-char MUSIC_PROGRAMLENGTH;                 // Number of tracks in play list
+uint8_t MUSIC_PROGRAMLENGTH;              // Number of tracks in play list
 char MUSIC_VOICEOVERTOPLAY[128];          // Filename of voice over to play
 long MUSIC_BUFFERS,                       // Memory / Buffer Allocation
     MUSIC_BUFFERSIZE;
@@ -614,7 +614,7 @@ music_loadin(long play_voiceover)
 {
 
   char music_file[128];
-  char music_loadtrack = MUSIC_PROGRAM[MUSIC_TRACK];
+  uint8_t music_loadtrack = MUSIC_PROGRAM[MUSIC_TRACK];
   int32_t result;
 
   // SET VOLUME FOR PLAY

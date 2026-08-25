@@ -5,6 +5,7 @@
 
 // Includes
 
+#include <stdint.h>
 #include "SF_Bonus.h"
 #include "SF_Mission.h"
 #include "Ship_Struct.h"
@@ -68,7 +69,7 @@ typedef struct game_status {
   char fast_crystals; // Fast crystals to add
   char mega_ship;     // Counter for megaship
 
-  char chain_next;         // Pointer to next in list to destroy
+  uint8_t chain_next;      // Pointer to next in list to destroy
   char chain_timer;        // Timer before next destroyed
   char display_lives;      // Are we displaying number of lives ?
   char missions_completed; // Number of missions completed by player

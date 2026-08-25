@@ -34,7 +34,6 @@ nvram_load(char *filename, char *gameprefix, char *addressofloadfile,
   Item ioReqItem;
   Item fileitem;
   char full_filename[40];
-  long loop;
 
   // CREATE FULL PATHNAME
   sprintf(full_filename, "/NVRAM/%s%s", gameprefix,
@@ -73,10 +72,8 @@ nvram_save(char *filename, char *gameprefix, char *addressofsavefile,
 {
   Item fileitem;
   Item ioReqItem;
-  IOReq *ioReqP;
   IOInfo fileInfo;
   char full_filename[40];
-  long loop;
   uint32_t numberOfBlocks, blockSize;
   FileStatus file_status;
 
@@ -131,7 +128,6 @@ nvram_save(char *filename, char *gameprefix, char *addressofsavefile,
   memset(&fileInfo, 0, sizeof(IOInfo));
   fileInfo.ioi_Command = FILECMD_ALLOCBLOCKS;
   fileInfo.ioi_Offset = numberOfBlocks;
-  ioReqP = (IOReq *) LookupItem(ioReqItem);
 
   if (DoIO(ioReqItem, &fileInfo) < 0) // Check for not enough memory
   {
@@ -155,7 +151,6 @@ nvram_save(char *filename, char *gameprefix, char *addressofsavefile,
   memset(&fileInfo, 0, sizeof(IOInfo));
   fileInfo.ioi_Command = FILECMD_SETEOF; // Set command to SET EOF
   fileInfo.ioi_Offset = sizeofsavefile;  // Set EOF length
-  ioReqP = (IOReq *) LookupItem(ioReqItem);
   DoIO(ioReqItem, &fileInfo);
 
   // TIDY UP & RETURN SUCCESS
