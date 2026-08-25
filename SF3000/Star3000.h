@@ -74,7 +74,9 @@ extern char *pilot_names[16];
 //extern long keypad;
 //extern long keypad_constant;
 
+void UNIMPLEMENTEDFFL(const char *func, const char *file, unsigned line);
 
+#define UNIMPLEMENTED UNIMPLEMENTEDFFL(__func__, __FILE__, __LINE__)
 
 
 

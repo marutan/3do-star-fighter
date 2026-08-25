@@ -1472,3 +1472,10 @@ game_pyramidcomplete(void)
   parameters.level =
       (parameters.level + 1) & 3; // Go onto next (or back to first) level
 }
+
+void
+UNIMPLEMENTEDFFL(const char *func, const char *file, unsigned line)
+{
+  fprintf(stderr, "UNIMPLEMENTED %s %s:%u\n", func, file, line);
+  exit(EXIT_FAILURE);
+}

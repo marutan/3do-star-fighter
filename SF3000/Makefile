@@ -88,7 +88,7 @@ OBJECTS	=	Star3000.o \
 		SFlib/Weapons.o \
 		SFlib/Collision_Update.o \
 		SFlib/Laser_Plot.o \
-		SFlib/Smoke_Plot.o \
+#		SFlib/Smoke_Plot.o \
 		SFlib/Ship_Command.o \
 		SFlib/Graphics_Set.o \
 		SFlib/bs_joystick.o \
@@ -125,8 +125,8 @@ All: $(App)
 
 #.s.o:	Ä	.s
 #	{ASM} -i "{3DOIncludes}" -i "{StreamDir}" -i "{SubscriberDir}Includes:" {SOptions} -o {TargDir}{Default}.s.o {DepDir}{Default}.s
-.s.o:
-	@echo "$@ No asm yet"
+#.s.o:
+#	@echo "$@ No asm yet"
 
 
 #####################################
