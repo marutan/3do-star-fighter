@@ -5,34 +5,18 @@
 
 // Includes
 
-#include "Camera_Struct.h"
-#include "SF_ARMAnim.h"
-#include "SF_ARMCell.h"
-#include "SF_Allocation.h"
-#include "SF_CelUtils.h"
-#include "SF_Font.h"
-#include "SF_Joystick.h"
-#include "SF_Menu.h"
-#include "SF_Mission.h"
-#include "SF_Parameters.h"
-#include "SF_Status.h"
-#include "SF_War.h"
 #include "Ship_Struct.h"
+
+// Variables in SF_Control.c
+extern long player_crashed_xpos;
+extern long player_crashed_ypos;
+extern long player_crashed_zpos;
 
 // Definitions
 
 #define BRIEF_CONTINUE 1 // Continue with mission briefing
 #define BRIEF_START 2    // Start from mission briefing
 #define BRIEF_QUIT 4     // Quit from mission briefing
-
-// External Variables
-
-extern char animate[2052];
-extern ship_sdb pleb_special_data;
-extern formation_ship formation[8];
-extern menu menus[MAX_MENUS];
-extern TextCel *cel_text[FONT_MAXMENU];
-extern BS_StickData joystick;
 
 // Function Prototypes
 

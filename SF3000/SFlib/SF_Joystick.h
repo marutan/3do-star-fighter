@@ -22,6 +22,10 @@ typedef struct stick_struct {
   long b;
 } stick_struct;
 
+// Variables in SF_Joystick.c
+extern stick_struct pro_stick;
+extern BS_StickData joystick; // Data block for our joystick
+
 // Function Prototypes
 
 long joystick_initialise(void); // Initialise joystick reader
@@ -34,8 +38,5 @@ void joystick_command(long); // INTERNAL - Execute command
 long joystick_registerports(
     void); // INTERNAL - Sets up watches for joysticks, returns # connected
 
-// external variables
-
-extern stick_struct pro_stick; //
 
 #endif

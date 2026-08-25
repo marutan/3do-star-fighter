@@ -20,10 +20,11 @@
 
 #include "SF_Message.h"
 #include "SF_Status.h"
+#include "SF_War.h"
 
 // ################################################
 // #                                              #
-// #       Fast turn fighters	  			     #
+// #       Fast turn fighters                     #
 // #                                              #
 // ################################################
 

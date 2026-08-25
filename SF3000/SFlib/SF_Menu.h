@@ -131,20 +131,10 @@ typedef struct menu {
   menu_item items[9];
 } menu;
 
-/* External definitions */
-
-extern long first_frame;
-extern long info;
-
+/* Variables in SF_Menu.c */
+extern gamefile save_gamefile;
 extern menu_info menu_status;
 extern menu menus[MAX_MENUS];
-extern TextCel *cel_text[FONT_MAXMENU];
-extern pyramid pyramids[4];
-
-extern char MUSIC_PROGRAM[MUSIC_PLAYLISTLENGTH];
-extern char MUSIC_PROGRAMLENGTH;
-extern stick_struct pro_stick;
-extern BS_StickData joystick;
 
 /* Function Prototypes */
 

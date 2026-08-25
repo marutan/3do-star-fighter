@@ -11,6 +11,7 @@
 #include "SF_ARMUtils.h"
 #include "SF_Music.h"
 #include "SF_Utility.h"
+#include "SF_ARMSky.h"
 #include "blockfile.h"
 #include "types.h"
 

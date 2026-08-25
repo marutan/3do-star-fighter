@@ -21,6 +21,11 @@
 #include "Setup_Tables.h"
 #include "Ship_Struct.h"
 #include "Weapons.h"
+#include "SF_ARMCell.h"
+#include "SF_War.h"
+#include "SF_Menu.h"
+#include "SF_Mission.h"
+#include "SF_Font.h"
 
 /**************************************/
 

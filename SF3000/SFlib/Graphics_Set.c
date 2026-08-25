@@ -1,3 +1,4 @@
+#include "Star3000.h"
 #include "Global_2.h"
 #include "Graphics_Set.h"
 #include "Bonus_Control.h"

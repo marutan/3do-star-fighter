@@ -13,6 +13,7 @@
 #include "SF_Palette.h"
 #include "SF_Screenutils.h"
 #include "SF_Utility.h"
+#include "SF_Message.h"
 
 /**************************************/
 

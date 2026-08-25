@@ -18,17 +18,10 @@
 
 // EXTERNAL VARIABLES
 
-extern gamefile save_gamefile;            // Game saver
-extern pyramid pyramids[4];               // Pyramids array
-extern menu_info menu_status;             // Menu status
-extern menu menus[MAX_MENUS];             // Menus
-extern TextCel *cel_text[FONT_MAXMENU];   // Cels for Menu entries
-extern message messages[FONT_MAXMESSAGE]; // Text cels for In-game messages
 extern alpha_char cel_character;          // For adding characters to char map
 extern long cockpit_missiles;             // Number of missiles attacking player
 extern long cockpit_enemybig;             // Number of enemy big ships
 extern long cockpit_enemysmall; // Number of enemy fighters attacking player
-extern long keypad_iomap[8];    // Keypad control map
 
 // LOCAL FUNCTION PROTOTYPES
 

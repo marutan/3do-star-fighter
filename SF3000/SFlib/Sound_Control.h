@@ -5,9 +5,6 @@
 
 #include "Ship_Struct.h"
 
-extern int32_t cosine_table[2048];
-extern int32_t *sine_table;
-
 typedef struct sound_details {
   long stereo_pos;
   long volume;
@@ -23,8 +20,6 @@ void update_engine_sounds(void);
 void stop_engine_sounds(void);
 
 void start_engine_sounds(void);
-
-extern int32_t sound_channel_shields_low;
 
 #define SMALL_SHIP_ENGINE_ON 0
 #define SMALL_SHIP_ENGINE_OFF 1

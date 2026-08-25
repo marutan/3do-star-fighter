@@ -1,6 +1,7 @@
 //	File : SF_Palette
 //	Palette changing utilities
 
+#include "Star3000.h"
 #include "SF_Palette.h"
 
 /**************************************/

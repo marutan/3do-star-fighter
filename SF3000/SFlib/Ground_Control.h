@@ -2,7 +2,6 @@
 #define __sflib_ground_control_h__
 
 #include <stdint.h>
-#include "SF_Mission.h"
 
 void ground_update(void);
 

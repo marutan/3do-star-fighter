@@ -71,9 +71,8 @@ extern performance_data player_megaperformance;   // Players mega performance da
 
 extern char *pilot_names[16];
 
-extern long keypad;
-extern long keypad_constant;
-extern long menu_command;
+//extern long keypad;
+//extern long keypad_constant;
 
 
 

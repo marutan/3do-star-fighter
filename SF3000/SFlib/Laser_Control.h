@@ -6,10 +6,6 @@
 #include "Laser_Struct.h"
 #include "Ship_Struct.h"
 
-extern char height_map[256][256];
-
-extern long bonus_collision_ref;
-
 void laser_update(void);
 
 void add_laser(long, long, long, long, long, long, long, long, long, long,

@@ -1,6 +1,7 @@
 //	File : SF_Utility
 //	General game utility routines
 
+#include "Star3000.h"
 #include "SF_Utility.h"
 #include "SF_Io.h"
 

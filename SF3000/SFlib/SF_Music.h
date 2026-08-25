@@ -11,6 +11,10 @@
 #define MUSIC_PLAYFROMTRACK 0x1 // Music track control commands
 #define MUSIC_MOVETRACK 0x2
 
+// Variables in SF_Music.c
+extern char MUSIC_PROGRAM[MUSIC_PLAYLISTLENGTH];
+extern char MUSIC_PROGRAMLENGTH;
+
 // Function Prototypes
 
 long music_initialise(long); // INITIALISE MUSIC PLAYER

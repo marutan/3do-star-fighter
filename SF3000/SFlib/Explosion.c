@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
+#include "Star3000.h"
 #include "Global_2.h"
 #include "Explosion.h"
 #include "Bit_Control.h"

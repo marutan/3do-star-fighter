@@ -3,17 +3,6 @@
 #ifndef __SF_PALETTE
 #define __SF_PALETTE
 
-// Includes
-
-#include "displayutils.h"
-#include "graphics.h"
-#include "utils3do.h"
-
-// External Variables
-
-extern ScreenContext *screen;
-extern Item VBLIOReq;
-
 // Palette definitions
 
 #define RED_15                                                                 \

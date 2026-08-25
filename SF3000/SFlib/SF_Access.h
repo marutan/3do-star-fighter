@@ -28,12 +28,6 @@
 // Variables in SF_Access.c
 extern uint8_t *backdrop;
 
-// External Definitions
-
-extern char animate[2052];               // Pointer to map [animations] data
-extern char skyfile[1024];               // Skyfile
-extern char tangent_table[4100];         // Tangent Data
-
 /* Function Prototypes */
 
 long load_mission(long, long);    // Load in a mission

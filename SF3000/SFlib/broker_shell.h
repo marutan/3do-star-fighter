@@ -30,6 +30,7 @@
 /* from this file and other files */
 
 #include "bs_joystick.h"
+#include "SF_Joystick.h"
 /* #include "bs_cpad.h" */
 /* #include "bs_mouse.h" */
 /* #include "bs_lgun.h" */
@@ -56,8 +57,6 @@ extern int BS_ConnectEventBroker(void);
 extern uint32_t BS_WatchingJoyStick(void);
 extern int BS_WatchJoyStick(int);
 #define BS_IgnoreJoyStick() BS_WatchJoyStick(-1)
-#else
-typedef void BS_StickData;
 #endif /*  __BS_JOYSTICK_H */
 
 #ifdef __BS_CPAD_H

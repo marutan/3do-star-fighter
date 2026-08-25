@@ -4,8 +4,10 @@
 // Includes
 
 
+#include <stdio.h>
 #include <stdint.h>
 
+#include "SF_Menu.h"
 #include "SF_NVRam.h"
 #include "SF_Message.h"
 #include "blockfile.h"

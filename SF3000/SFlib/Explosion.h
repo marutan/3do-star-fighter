@@ -1,3 +1,6 @@
+#ifndef __sflib_explosion_h__
+#define __sflib_explosion_h__
+
 #include "Explosion_Struct.h"
 #include "Graphic_Struct.h"
 #include "Ship_Struct.h"
@@ -45,3 +48,5 @@ void explode_ship_from_collision_box(ship_stack *, long explosion_velocity,
 #define GROUP_3 8
 #define GROUP_4 16
 #define GROUP_5 32
+
+#endif /* __sflib_explosion_h__ */

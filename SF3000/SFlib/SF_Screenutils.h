@@ -7,12 +7,6 @@
 
 #include <stdint.h>
 
-#include "SF_CelUtils.h"
-#include "SF_Menu.h"
-#include "SF_Message.h"
-#include "graphics.h"
-#include "utils3do.h"
-
 // Defines
 
 #define DISPLAY_WIDTH 320 // Global Screen Sizes
@@ -31,13 +25,6 @@
 
 #define SCR_UPDATE 0 // Screen bank specifiers
 #define SCR_DISPLAY 1
-
-/* External Variables */
-
-extern menu_info menu_status;
-extern menu menus[MAX_MENUS];
-extern message messages[FONT_MAXMESSAGE];
-extern long info;
 
 /* Function Prototypes */
 

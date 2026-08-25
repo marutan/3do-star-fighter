@@ -15,6 +15,9 @@
 #include "SF_War.h"
 #include "Sound_Control.h"
 #include "Weapons.h"
+#include "SF_Message.h"
+#include "SF_Font.h"
+#include "SF_Menu.h"
 
 /**************************************/
 

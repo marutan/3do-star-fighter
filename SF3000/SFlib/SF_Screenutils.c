@@ -10,6 +10,8 @@
 #include "SF_ARMCell.h"
 #include "SF_ARMSky.h"
 #include "SF_Screenutils.h"
+#include "SF_Message.h"
+#include "SF_Menu.h"
 
 // Defines
 

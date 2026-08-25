@@ -32,9 +32,8 @@
 #define FLIGHT_MENU 6
 #define FLIGHT_FLIP 7
 
-// External variables
-
-extern stick_struct pro_stick;
+// Variables in SF_Io.c
+extern long keypad_iomap[7];
 
 // Function Prototypes
 

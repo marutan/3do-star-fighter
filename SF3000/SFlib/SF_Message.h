@@ -195,7 +195,7 @@ typedef struct message // Game text message
   TextCel *textcel;
 } message;
 
-// External Definitions
+// Variables in SF_Message.c
 
 extern message messages[FONT_MAXMESSAGE];
 

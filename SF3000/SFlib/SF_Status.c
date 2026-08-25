@@ -15,6 +15,8 @@
 #include "SF_Mission.h"
 #include "SF_Palette.h"
 #include "Weapons.h"
+#include "Ship_Control.h"
+#include "SF_War.h"
 
 /**************************************/
 

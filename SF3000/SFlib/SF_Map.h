@@ -11,10 +11,6 @@
 #include "SF_Screenutils.h"
 #include "Ship_Struct.h"
 
-// External Definitions
-
-extern long first_frame;
-
 // Structure definitions
 
 typedef struct map_performance {

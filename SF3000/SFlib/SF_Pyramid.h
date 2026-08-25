@@ -7,8 +7,6 @@
 
 #include <stdint.h>
 
-#include "SF_CelUtils.h"
-
 // Definitions
 
 #define MAX_MISSIONS 15      // Max number of missions per level
@@ -36,6 +34,9 @@ typedef struct pyramid // Pyramid structure data
   long x_level;               // Current mission in sub-level
   char mission[MAX_MISSIONS]; // Array of missions in pyramid
 } pyramid;
+
+// Variables in SF_Pyramid.c
+extern pyramid pyramids[4];
 
 // Function Prototypes
 

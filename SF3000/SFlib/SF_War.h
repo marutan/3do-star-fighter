@@ -137,4 +137,7 @@ war_distancecheckwithplayer(ship_stack *,
                             ship_sdb *); // Check distance of ship against
                                          // player, take action if within range
 
+/* Variables in SF_Wat.c */
+extern formation_ship formation[__WAR_MF];
+
 #endif

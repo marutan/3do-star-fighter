@@ -83,12 +83,6 @@ typedef struct game_status {
 
 } game_status;
 
-// External Definitions
-
-extern long player_crashed_xpos;
-extern long player_crashed_ypos;
-extern long player_crashed_zpos;
-
 // Function Definitions
 
 void status_register(

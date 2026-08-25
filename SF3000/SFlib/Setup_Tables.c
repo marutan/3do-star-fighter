@@ -14,6 +14,7 @@
 #include "Smoke_Control.h"
 #include "Sound_Control.h"
 #include "Plot_Graphic.h"
+#include "SF_ARMSky.h"
 
 void
 setup_tables(void)

@@ -3,9 +3,6 @@
 
 #include <stdint.h>
 
-extern long atg_selected;
-extern long ata_selected;
-
 extern void plot_stars(void);
 extern void plot_space_stars(void);
 extern void setup_rotations(void);
@@ -42,12 +39,22 @@ extern long air_to_ground_scan;
 extern int32_t air_to_ground_x;
 extern int32_t air_to_ground_y;
 extern int32_t air_to_ground_z;
-
+extern int32_t atg_selected;
 extern int32_t air_to_air_scan_temp;
 extern long air_to_air_scan;
 extern int32_t air_to_air_x;
 extern int32_t air_to_air_y;
 extern int32_t air_to_air_z;
+extern int32_t ata_selected;
+extern int32_t silly_x;
+extern int32_t silly_y;
+extern int32_t planet_1_x_pos;
+extern int32_t planet_1_y_pos;
+extern int32_t planet_1_z_pos;
+extern int32_t planet_2_x_pos;
+extern int32_t planet_2_y_pos;
+extern int32_t planet_2_z_pos;
+extern int32_t are_we_in_space_or_wot;
 
 
 #ifndef __GRAPHIC_STUFF_H

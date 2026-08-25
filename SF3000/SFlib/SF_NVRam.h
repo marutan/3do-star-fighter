@@ -5,16 +5,6 @@
 
 // Includes
 
-#include "SF_Menu.h"
-#include "SF_Mission.h"
-#include "SF_Pyramid.h"
-#include "SF_Status.h"
-
-// External Variables
-
-extern menu menus[MAX_MENUS];
-extern pyramid pyramids[4];
-
 // Function Prototypes
 
 long nvram_save(char *, char *, char *, long); // Saves a file to NVRAM

@@ -28,11 +28,11 @@ typedef struct {
   StickEventData lastfilt;
 
   /* calibration data (min&max values for each axis) */
-  short minX, minY, minZ;
-  short maxX, maxY, maxZ;
+  uint16_t minX, minY, minZ;
+  uint16_t maxX, maxY, maxZ;
 
   /* daisy chain info */
-  short daisyNum, stickNum;
+  uint16_t daisyNum, stickNum;
 } BS_StickData;
 
 /* clear out the struct */

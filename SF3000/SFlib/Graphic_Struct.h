@@ -165,11 +165,9 @@ typedef struct section_details {
 #define SECTION_BIG_THRUST 2
 #define SECTION_BIG_SMOKE 3
 
-#endif
 
 extern long *static_graphics_adr;
 extern long *ships_adr;
 extern long *explosion_bits_adr;
-extern char poly_map[128][128];
-extern char collision_map[128][128];
-extern char height_map[256][256];
+
+#endif

@@ -5,14 +5,9 @@
 
 // Includes
 
+#include <stdio.h>
+#include <string.h>
 #include "SF_Pyramid.h"
-#include "stdio.h"
-#include "string.h"
-
-// External Variables
-
-extern Item VBLIOReq;
-extern pyramid pyramids[4];
 
 // Function Prototypes
 
