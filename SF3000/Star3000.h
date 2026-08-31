@@ -1,6 +1,19 @@
 #ifndef __star3000_h__
 #define __star3000_h__
 
+void UNIMPLEMENTEDFFL(const char *func, const char *file, unsigned line);
+#define UNIMPLEMENTED UNIMPLEMENTEDFFL(__func__, __FILE__, __LINE__)
+
+void PASSFL(const char *func, const char *file, unsigned line);
+#define PASS PASSFL(__func__, __FILE__, __LINE__)
+
+#ifdef DEBUG
+#include <assert.h>
+#define ASSERT(x) assert((x))
+#else
+#define ASSERT(x)
+#endif
+
 #include "SFlib/SF_Status.h"
 #include "SFlib/SF_CelUtils.h"
 #include "SFlib/SF_Parameters.h"
@@ -73,11 +86,6 @@ extern char *pilot_names[16];
 
 //extern long keypad;
 //extern long keypad_constant;
-
-void UNIMPLEMENTEDFFL(const char *func, const char *file, unsigned line);
-
-#define UNIMPLEMENTED UNIMPLEMENTEDFFL(__func__, __FILE__, __LINE__)
-
 
 
 #endif /* __star3000_h__ */

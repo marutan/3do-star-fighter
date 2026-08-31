@@ -1,6 +1,7 @@
 #ifndef __3do_mem_h__
 #define __3do_mem_h__
 
+#include <stdlib.h>
 #include <stdint.h>
 
 #include "types.h"
@@ -58,8 +59,8 @@ typedef struct MemList
 
 #else
 
-void *AllocMemFromMemLists(List *l, int32_t size, uint32_t typebits);
-void FreeMemToMemLists(List *l, void *p, int32_t size);
+//void *AllocMemFromMemLists(List *l, int32_t size, uint32_t typebits);
+//void FreeMemToMemLists(List *l, void *p, int32_t size);
 
 #endif
 
@@ -68,8 +69,12 @@ void FreeMemToMemLists(List *l, void *p, int32_t size);
 
 /* Useful macros */
 
-#define AllocMem(s,t)   AllocMemFromMemLists(CURRENTTASK->t_FreeMemoryLists,s,t)
-#define FreeMem(p,s)    FreeMemToMemLists(CURRENTTASK->t_FreeMemoryLists,p,s)
-#define ALLOCMEM(s,t)   AllocMemFromMemLists(CURRENTTASK->t_FreeMemoryLists,s,t)
+//#define AllocMem(s,t)   AllocMemFromMemLists(CURRENTTASK->t_FreeMemoryLists,s,t)
+//#define FreeMem(p,s)    FreeMemToMemLists(CURRENTTASK->t_FreeMemoryLists,p,s)
+//#define ALLOCMEM(s,t)   AllocMemFromMemLists(CURRENTTASK->t_FreeMemoryLists,s,t)
+
+#define AllocMem(s,t) calloc(1, (s))
+#define FreeMem(p,s)  free((p))
+#define ALLOCMEM(s,t) calloc(1, (s))
 
 #endif /* __3do_mem_h__ */

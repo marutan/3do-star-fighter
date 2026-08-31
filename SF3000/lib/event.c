@@ -1,12 +1,17 @@
+#include "Star3000.h"
 #include <stdint.h>
 #include "event.h"
-#include "Star3000.h"
 
 Err
 InitEventUtility(int32_t numControlPads, int32_t numMice,
                      int32_t focusListener)
 {
-  UNIMPLEMENTED;
+  // Only support the subset of options that SF3000 uses
+  ASSERT(numControlPads == 1);
+  ASSERT(numMice == 0);
+  ASSERT(focusListener == LC_Observer);
+
+  PASS;
 
   return 0;
 }

@@ -13,7 +13,7 @@
 #	Symbol definitions
 #####################################
 
-App			= Star3000
+App			= ../Star3000
 DebugFlag		= 0
 SourceDir		= Sylvester:Andrew-C:SF3000:
 ObjectDir		= :Objects:
@@ -34,7 +34,7 @@ SOptions			= -bi
 LOptions			= -aif -r -b 0x00
 LStackSize			= 8192
 
-CFLAGS = -I SFLib/ -I lib/ -I . -Wall
+CFLAGS = -I SFLib/ -I lib/ -I . -Wall -ggdb -DDEBUG
 
 #####################################
 #	Object files
@@ -175,8 +175,9 @@ $(App): $(OBJECTS)
 
 clean:
 	rm -f SFlib/*.o
+	rm -f lib/*.o
 	rm -f Star3000.o
-	rm -f Star3000
+	rm -f ../Star3000
 
 #	{LINK} {LOptions} {LDebugOptions}
 #		{OBJECTS}

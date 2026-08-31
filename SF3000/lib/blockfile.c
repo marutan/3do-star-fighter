@@ -5,15 +5,43 @@
 Item
 CreateBlockFileIOReq(Item deviceItem, Item iodoneReplyPort)
 {
-  UNIMPLEMENTED;
+  Item retval = CreateSizedItem(0, NULL, sizeof(int32_t));
 
-  return 0;
+  PASS;
+
+  return retval;
 }
 
 Err
 OpenBlockFile(char *name, BlockFilePtr bf)
 {
-  UNIMPLEMENTED;
+  PASS;
+
+  ASSERT(name);
+  ASSERT(bf->fDevice == 0);
+
+  bf->fDevice = CreateSizedItem(0, NULL, sizeof(FILE **));
+  if(bf->fDevice < 0) {
+    return -1;
+  }
+
+  FILE **pBlockFile = LookupItem(bf->fDevice);
+
+  *pBlockFile = fopen(name, "rb");
+  if(NULL == *pBlockFile) {
+    fprintf(stderr, "OpenBlockFile: Failed to open '%s'", name);
+    exit(EXIT_FAILURE);
+  }
+
+  // BlockFilePtr also needs filesize
+  fseek(*pBlockFile, 0, SEEK_END);
+  bf->fStatus.fs_ByteCount = ftell(*pBlockFile);
+  rewind(*pBlockFile);
+
+  // And the 'blocksize', which is just 1 byte on sensible OSes :D
+  bf->fStatus.fs.ds_DeviceBlockSize = 1;
+
+  fprintf(stderr, "OpenBlockFile: %p '%s' %d bytes\n", *pBlockFile, name, bf->fStatus.fs_ByteCount);
 
   return 0;
 }
@@ -21,13 +49,45 @@ OpenBlockFile(char *name, BlockFilePtr bf)
 void
 CloseBlockFile(BlockFilePtr bf)
 {
-  UNIMPLEMENTED;
+  ASSERT(bf);
+
+  PASS;
+
+  if(0 != bf->fDevice) {
+    FILE **pBlockFile = LookupItem(bf->fDevice);
+
+    if(NULL != *pBlockFile) {
+      fclose(*pBlockFile);
+    }
+
+   DeleteItem(bf->fDevice);
+  }
 }
 
 Err
-AsynchReadBlockFile(BlockFilePtr bf, Item ioreqItem, void* buffer, int32_t count, int32_t offset)
+AsynchReadBlockFile(BlockFilePtr bf, Item ioreqItem, void* buffer,
+                    int32_t count, int32_t offset)
 {
-  UNIMPLEMENTED;
+  ASSERT(bf);
+  ASSERT(buffer);
+  ASSERT(count > 0);
+
+  PASS;
+
+  // At the moment this is entirely synchronous
+
+  FILE **pBlockFile = LookupItem(bf->fDevice);
+  ASSERT(*pBlockFile); // Must have previosuly been opened
+
+  fprintf(stderr, "%p %d %d\n", *pBlockFile, count, offset); 
+
+  fseek(*pBlockFile, offset, SEEK_SET);
+
+  size_t retval = fread(buffer, count, 1, *pBlockFile);
+  if(retval != 1) {
+    fprintf(stderr, "AsynchReadBlockFile: Unable to read full %d bytes from file\n", count);
+    exit(EXIT_FAILURE);
+  }
 
   return 0;
 }
@@ -35,7 +95,10 @@ AsynchReadBlockFile(BlockFilePtr bf, Item ioreqItem, void* buffer, int32_t count
 Err
 WaitReadDoneBlockFile(Item ioreqItem)
 {
-  UNIMPLEMENTED;
+  PASS;
+
+  // At the moment this is entirely synchronous and the file
+  // will have been fully read in AsynchReadBlockFile()
 
   return 0;
 }

@@ -5,7 +5,8 @@
 
 /* Directory structures */
 
-#define RESOURCES_ROOT "$boot/SF_Resources/" // Main resources directory
+//#define RESOURCES_ROOT "$boot/SF_Resources/" // Main resources directory
+#define RESOURCES_ROOT "SF_Resources/" // Main resources directory
 
 #define CEL_ROOT "Cels/"     // For cel files
 #define MIS_ROOT "Missions/" // For mission & map files

@@ -1196,8 +1196,9 @@ game_initialise(void)
 
   // INITIALISE OS RESOURCES
 
-  parent_taskref = KernelBase->kb_CurrentTask->t
-                       .n_Item; // Put item ref# of game task in global variable
+//  parent_taskref = KernelBase->kb_CurrentTask->t
+//                       .n_Item; // Put item ref# of game task in global variable
+  parent_taskref = 0; // PJH HACK used to send messages (including some audio to parent process
 
   if (InitEventUtility(1, 0, LC_Observer) < 0) { // INITIALISE EVENT MANAGER
     game_end();
@@ -1478,4 +1479,10 @@ UNIMPLEMENTEDFFL(const char *func, const char *file, unsigned line)
 {
   fprintf(stderr, "UNIMPLEMENTED %s %s:%u\n", func, file, line);
   exit(EXIT_FAILURE);
+}
+
+void
+PASSFL(const char *func, const char *file, unsigned line)
+{
+  fprintf(stderr, "PASS %s %s:%u\n", func, file, line);
 }
