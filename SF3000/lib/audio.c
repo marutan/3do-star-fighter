@@ -107,18 +107,48 @@ ConnectInstruments( Item SrcIns, char *SrcName, Item DstIns, char *DstName)
   return 0;
 }
 
+/**
+ * This procedure breaks a connection made by ConnectInstruments() between two instruments. If the connection was to a knob of the second instrument, the knob is once again available for tweaking.
+ *
+ * @param SrcIns  Item number of the source instrument.
+ * @param SrcName Name of the output port of the source instrument to break
+ *                connection from.
+ * @param DstIns  Item number of the destination instrument.
+ * @param DstName Name of the input port of the destination instrument to
+ *                break connection to.
+ * @returns The procedure returns a non-negative value if successful or an
+ *              error code (a negative value) if an error occurs.
+ */
 Err
 DisconnectInstruments( Item SrcIns, char *SrcName,Item DstIns, char *DstName)
 {
-  UNIMPLEMENTED;
+  PASS;
 
   return 0;
 }
 
+/**
+ * This function frees the Instrument and unloads the Template loaded by
+ * LoadInstrument().
+ *
+ * Do not confuse this function with DeleteInstrument(), which deletes an
+ * Instrument created by CreateInstrument(). Calling DeleteInstrument() for an
+ * instrument created by LoadInstrument() deletes the Instrument, but not the
+ * Template, leaving you with an unaccessible Template Item that you can't
+ * delete. Calling UnloadInstrument() for and Instrument created by
+ * CreateInstrument() deletes Template for that Instrument along with all
+ * other Instruments created from that Template.
+ *
+ * @param Item number of the instrument.
+ * @returns The function returns 0 if successful or an error code (a negative
+ *          value) if an error occurs.
+ */
 Err
 UnloadInstrument( Item Instrument )
 {
-  UNIMPLEMENTED;
+  PASS;
+
+  DeleteItem(Instrument);
 
   return 0;
 }

@@ -36,7 +36,7 @@ nvram_load(char *filename, char *gameprefix, char *addressofloadfile,
   char full_filename[40];
 
   // CREATE FULL PATHNAME
-  sprintf(full_filename, "/NVRAM/%s%s", gameprefix,
+  sprintf(full_filename, "NVRAM/%s%s", gameprefix,
           filename); // Generate full filename and open it
   fileitem = OpenDiskFile(full_filename);
   if (fileitem < 0) {
@@ -79,7 +79,7 @@ nvram_save(char *filename, char *gameprefix, char *addressofsavefile,
 
   // CREATE FULL PATHNAME
 
-  sprintf(full_filename, "/NVRAM/%s%s", gameprefix,
+  sprintf(full_filename, "NVRAM/%s%s", gameprefix,
           filename); // Generate full filename and open it
 
   // CREATE DISK FILE
@@ -206,7 +206,7 @@ nvram_directory(long menu_number, long menu_entry, long menu_maxentry,
 
   // Open NVRam and IO requests
 
-  rootItem = OpenDiskFile("/NVRAM");
+  rootItem = OpenDiskFile("NVRAM");
   ioReqItem = CreateIOReq(NULL, 0, rootItem, 0);
   if (ioReqItem < 0) {
     return (0);

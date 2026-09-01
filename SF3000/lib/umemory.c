@@ -5,15 +5,14 @@
 void *
 Malloc(uint32_t size, uint32_t memtype)
 {
-  UNIMPLEMENTED;
-
-  return NULL;
+  return malloc(size);
 }
 
 void *
 Free(void *ptr)
 {
-  UNIMPLEMENTED;
+  free(ptr);
 
+  // PJH what could it be meant to return here?
   return NULL;
 }

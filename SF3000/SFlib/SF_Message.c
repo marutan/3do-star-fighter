@@ -615,8 +615,8 @@ message_decodetextfile(char *text_ptr, char *text_arrayptr[], long decode_type)
 // numbers, 1 = auto) Returns : Number of lines read
 
 {
-  long text_message;
-  long text_linecount = 0;
+  int32_t text_message;
+  int32_t text_linecount = 0;
 
   while (*text_ptr != '#') {
 

@@ -59,11 +59,11 @@ extern Err ReplyMsg(Item msg, int32_t result,
 #define DeleteMsg(x)     DeleteItem(x)
 
 // PJH hack, for some reason these funcs are called from PlayCPakStream in sf3000
-// but not in the
+// but not in the headers
 
 int32_t PollForMsg(Item, void *, void *, void *, int32_t*);
 Item NewMsgPort(void *);
-Item CreateMsgItem(Item);
+Item CreateMsgItem(Item msgPort);
 void RemoveMsgItem(Item);
 void RemoveMsgPort(Item);
 

@@ -58,6 +58,9 @@ int32_t
 PlayCPakStream(ScreenContext *screenContextPtr, char *streamFileName,
                PlayCPakUserFn userFn, void *userContext)
 {
+  // PJH Utter hack, all video playback succeeds
+  return 0;
+
   int32_t status;
   int32_t playerResult;
   PlayerPtr ctx;

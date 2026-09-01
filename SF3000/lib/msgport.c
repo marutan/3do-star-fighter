@@ -62,19 +62,43 @@ PollForMsg(Item, void *, void *, void *, int32_t*)
 }
 
 Item
-NewMsgPort(void *)
+NewMsgPort(void *arg)
 {
-  UNIMPLEMENTED;
+  PASS;
+  ASSERT(arg == NULL); // In SF3000 only NULL is passed
 
-  return 0;
+  Item retval = CreateSizedItem(0, NULL, sizeof(MsgPort));
+  if(retval < 0) {
+    fprintf(stderr, "NewMsgPort: Failed to allocate new MsgPort Item\n");
+    return -1;
+  }
+//  MsgPort *pMsgPort = LookupItem(retval);
+
+  // No idea ...
+
+  return retval;
 }
 
 Item
-CreateMsgItem(Item)
+CreateMsgItem(Item msgPort)
 {
-  UNIMPLEMENTED;
+  PASS;
 
-  return 0;
+  ASSERT(msgPort >= 0);
+
+  Item retval = CreateSizedItem(0, NULL, sizeof(Message));
+  if(retval < 0) {
+    fprintf(stderr, "CreateMsgItem: Failed to allocate new Message Item\n");
+    return -1;
+  }
+
+  //  MsgPort *pMsgPort = LookupItem(msgPort);
+  // There's a list of messages in MsgPort->mp_Msgs should we add to that?
+
+  Message *pMessage = LookupItem(retval);
+  pMessage->msg_MsgPort = msgPort; // MsgPort currently queued on (guesswork)
+
+  return retval;
 }
 
 void

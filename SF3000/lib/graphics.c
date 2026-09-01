@@ -4,10 +4,29 @@
 #include "Star3000.h"
 #include "item.h"
 
+
+/**
+ * This call displays the bitmap(s) of the specified screen (or screens). The
+ * screenItem0 argument specifies the screen to be added to the display. For a
+ * stereoscopic or interlaced display, the screenItem1 argument can specify a
+ * second screen structure to be displayed in the odd field of the video frame.
+ *
+ * The second argument can be NULL, or the same as the first, to specify a
+ * simple single-screen display.
+ *
+ * @param screenItem0 Item number of the screen that is to be added to the
+ *                    display.
+ * @param screenItem1 Optional item number of the screen that is to be added
+ *                    to the second (the odd) field of the display frame.
+ * @returns The call returns 0 if successful or an error code (a negative
+ *          value) if an error occurs.
+ */
 Err
 DisplayScreen(Item screenItem0, Item screenItem1)
 {
-  UNIMPLEMENTED;
+  PASS;
+  ASSERT(screenItem0 > 0);
+  ASSERT(screenItem1 == 0);
 
   return 0;
 }
@@ -28,10 +47,39 @@ EnableVAVG(Item screenItem)
   return 0;
 }
 
+
+/**
+ * FillRect() draws a rectangle to the display.
+ *
+ * The right and bottom edges of the rectangle are not drawn, to allow
+ * multiple rectangles to be rendered without unnecessary overstriking of the
+ * boundary pixels (cel engine emulation).
+ *
+ * @param bitmapItem The item number of the bitmap.
+ * @param gc Pointer to a GrafCon structure.
+ * @param r Pointer to a Rect structure that describes the rectangle to be
+ *          rendered.
+ * @returns The call returns 0 if successful or an error code (a negative
+ *          value) if an error occurs.
+ */
 Err
 FillRect(Item bitmapItem, GrafCon *gc, struct Rect *r)
 {
-  UNIMPLEMENTED;
+  PASS;
+
+  ASSERT(gc);
+  ASSERT(r);
+
+  // Should we clip the rectangle to make sure it's on the bitmap?
+
+  Bitmap *bitmap = LookupItem(bitmapItem);
+  ASSERT(bitmap);
+
+  // Actually do some plotting ...
+
+  // Insert SDL cleverness here
+
+  // Colour is in gc->gc_FGPen
 
   return 0;
 }
@@ -76,10 +124,27 @@ SetScreenColor(Item screenItem, uint32_t colorEntry)
   return 0;
 }
 
+/**
+ * This call sets the foreground pen of the specified GrafCon to the specified
+ * color. The color value is a coded 15-bit RGB format value, with each 5-bit
+ * value acting as an index into the CLUT color registers. After this call,
+ * the imagery part of the text (and other graphics elements that use the
+ * foreground pen, including line drawing, rectangle and ellipse rendering) is
+ * rendered in the new foreground color.
+ *
+ * The color values produced are different from the color values produced by
+ * MakeCLUTColorEntry().
+ *
+ * @param gc Pointer to a GrafCon structure.
+ *
+ * @param c Value to be stored as the new foreground pen color.
+ */
 void
 SetFGPen(GrafCon *gc, Color c)
 {
-  UNIMPLEMENTED;
+  ASSERT(gc);
+
+  gc->gc_FGPen = c;
 }
 
 /**
