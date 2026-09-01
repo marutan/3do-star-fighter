@@ -67,7 +67,7 @@ void plot_bit_graphic(void *)
   UNIMPLEMENTED;
 }
 
-void plot_smoke(void *)
+void plot_smoke(const smoke_stack *)
 {
   UNIMPLEMENTED;
 }

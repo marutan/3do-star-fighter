@@ -2,6 +2,7 @@
 #define __sflib_plot_graphics_h__
 
 #include <stdint.h>
+#include "Smoke_Struct.h"
 
 extern void plot_stars(void);
 extern void plot_space_stars(void);
@@ -10,7 +11,7 @@ extern void plot_spinning_ship(long, long);
 
 extern void plot_ship_graphic(void *);
 extern void plot_bit_graphic(void *);
-extern void plot_smoke(void *);
+extern void plot_smoke(const smoke_stack *);
 extern void machine_code_constants(void *);
 extern void rotate_sky(void *);
 extern void plot_bit(void *);
